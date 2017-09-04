@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DateTime;
 
 class RegisterController extends Controller
 {
@@ -47,12 +49,29 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $invalidAgeRule = "";
+
+        $dateThreshold = new DateTime(date("Y-m-d"));
+        $userDate = new DateTime($data["year"]."-".$data["month"]."-".$data["day"]);
+
+        $difference = $userDate->diff($dateThreshold);
+
+        if($difference->y < 18)
+        {
+            $invalidAgeRule = "|array";
+        }
+
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'gender' => 'required',
             'preference' => 'required',
+            'day' => 'required',
+            'month' => 'required',
+            'year' => 'required',
+            'agecheck' => 'required'.$invalidAgeRule,
         ]);
     }
 
@@ -65,11 +84,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'gender' => $data['gender'],
             'preference' => $data['preference'],
+            'dob' => $data["year"]."-".$data["month"]."-".$data["day"],
         ]);
     }
 }
