@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->date('dob');
             $table->string('password');
-            $table->boolean('status');
-            $table->string('verifytoken');
+            $table->boolean('status')->default(0);
+            $table->string('verifytoken')->nullable();
             $table->string('gender');
             $table->string('preference');
             $table->boolean('admin')->default(false);
