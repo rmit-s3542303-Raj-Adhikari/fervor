@@ -72,7 +72,7 @@ body{
 /* Header Section */
 .section-header{
     background-image: url("../img/Cover2Land.jpg");
-    width: 1280px;
+    width: 100%;
     background-size: cover;
     background-position: center;
     color: white;

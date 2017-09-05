@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use DateTime;
 use Illuminate\Support\Str;
 use Mail;
 use App\Mail\verifyEmail;
@@ -51,10 +52,29 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $invalidAgeRule = "";
+
+        $dateThreshold = new DateTime(date("Y-m-d"));
+        $userDate = new DateTime($data["year"]."-".$data["month"]."-".$data["day"]);
+
+        $difference = $userDate->diff($dateThreshold);
+
+        if($difference->y < 18)
+        {
+            $invalidAgeRule = "|array";
+        }
+
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'gender' => 'required',
+            'preference' => 'required',
+            'day' => 'required',
+            'month' => 'required',
+            'year' => 'required',
+            'agecheck' => 'required'.$invalidAgeRule,
         ]);
     }
 
@@ -68,10 +88,15 @@ class RegisterController extends Controller
     {
         Session::flash('status','Registered! but verify your email to activate your account');
         $user = User::create([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'verifytoken' => Str::random(40),
+            'gender' => $data['gender'],
+            'preference' => $data['preference'],
+            'dob' => $data["year"]."-".$data["month"]."-".$data["day"],
         ]);
         $thisUser = User::findOrFail($user->id);
         $this->sendEmail($thisUser);
