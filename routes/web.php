@@ -33,7 +33,8 @@ Route::get('matches', 'MatchesController@viewMatches');
 Auth::routes();
 
 
-
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
