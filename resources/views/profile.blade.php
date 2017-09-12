@@ -23,9 +23,6 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
-
-
-
 </head>
 <body>
 <div id="app">
@@ -92,30 +89,36 @@
 
 
 
-
-
-
-    <div class="container">
-        <h1>Edit Profile</h1>
-        <hr>
-        <div class="row">
+    <!--<div class="container">-->
+    <!--    <h1>Edit Profile</h1>-->
+    <!--    <hr>-->
+    <!--    <div class="row">-->
             <!-- left column -->
-            <div class="col-md-3">
-                <div class="text-center">
-                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                    <h6>Upload a different photo...</h6>
+    <!--        <div class="col-md-3">-->
+    <!--            <div class="text-center">-->
+    <!--                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">-->
+    <!--                <h6>Upload a different photo...</h6>-->
 
-                    <input type="file" class="form-control">
-                </div>
-            </div>
+    <!--                <input type="file" class="form-control">-->
+    <!--            </div>-->
+    <!--        </div>-->
 
-
-
-
-
-
-
-
+<!-- Uploading User Profile Picture to the website -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <img src="/img/avatar/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <h2>{{ $user->email }}'s Profile</h2>
+            <form enctype="multipart/form-data" action="/profile" method="POST">
+                <label>Update Profile Image</label>
+                <input type="file" name="avatar">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
 
 
             <!-- edit form column -->
@@ -137,10 +140,6 @@
                 @endif
 
                 <h3>Personal info</h3>
-
-
-
-
 
 
                 <form class="form-horizontal" method="POST" action="{{ url('/updateUserTable') }}">
@@ -328,11 +327,6 @@
 
 
                     ?>
-
-
-
-
-
 
                     <!-- About me input -->
 

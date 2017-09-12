@@ -30,8 +30,8 @@ Route::get('matches', function () {
 Auth::routes();
 
 
-
-
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');

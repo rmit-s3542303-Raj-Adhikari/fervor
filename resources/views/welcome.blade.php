@@ -219,8 +219,8 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img alt="Fervor" src="/img/logo-white.png" class="nav-logo-white">
-                            <img alt="Fervor" src="/img/logo-white.png" class="nav-logo">
+                            <img alt="Fervor" src="/img/fervor2.png" class="nav-logo-white">
+                            <img alt="Fervor" src="/img/fervor2.png" class="nav-logo">
                         </a>
                     </div>
 
@@ -326,7 +326,7 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="col-xs-6">
-                                <img src="/img/logo-white.png">
+                                <img src="/img/fervor2.png">
                                 <br>
                                 <br>
                             </div>
