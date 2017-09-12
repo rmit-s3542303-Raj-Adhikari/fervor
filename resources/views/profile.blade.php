@@ -82,9 +82,8 @@
         </div>
     </nav>
 
-
-
 </div>
+
 
             <!-- edit form column -->
             <div class="col-md-9 personal-info">

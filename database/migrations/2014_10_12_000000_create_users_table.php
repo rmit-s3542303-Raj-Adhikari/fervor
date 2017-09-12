@@ -26,8 +26,12 @@ class CreateUsersTable extends Migration
             $table->string('preference');
             $table->boolean('admin')->default(false);
             $table->boolean('firstLogin')->default(true);
+<<<<<<< HEAD
             $table->Integer('lastMatchRequest')->default(0);
             $table->string('avatar')->default('default.jpg');
+=======
+             $table->string('avatar')->default('default.jpg');
+>>>>>>> Upload profile image functionality
             $table->rememberToken();
             $table->timestamps();
         });

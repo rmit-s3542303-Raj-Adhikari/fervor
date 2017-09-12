@@ -32,10 +32,15 @@ Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
 
+<<<<<<< HEAD
 
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
 
+=======
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
+>>>>>>> Upload profile image functionality
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
