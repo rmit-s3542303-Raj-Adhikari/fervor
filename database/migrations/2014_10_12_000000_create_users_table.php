@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('preference');
             $table->boolean('admin')->default(false);
             $table->boolean('firstLogin')->default(true);
+            $table->Integer('lastMatchRequest')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
