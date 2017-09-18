@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 
 namespace App\Services;
 
@@ -160,19 +160,5 @@ class ProfileScorer
 
         return $score;
     }
-=======
-/**
- * Created by PhpStorm.
- * User: peez
- * Date: 9/18/17
- * Time: 5:10 PM
- */
-
-namespace Services;
-
-
-class ProfileScorer
-{
->>>>>>> Created ProfileScorer Class
 
 }
