@@ -11,22 +11,23 @@ class ProfileScorer
     // TODO // FIXME: user Preference model instead of user
     // User class only used for stub
     // Score a profile against a preference model of the current user
-    public function score(User $user, User $prospect)
+    public static function score(User $user, User $prospect)
     {
         $score = 0;
 
-        $score += $this->scoreAge($user, $prospect);
-        $score += $this->scoreDistance($user, $prospect);
-        $score += $this->scoreEthnicity($user, $prospect);
-        $score += $this->scoreHobbies($user, $prospect);
-        $score += $this->scoreInterests($user, $prospect);
-        $score += $this->scoreDistance($user, $prospect);
-        $score += $this->scoreSmoking($user, $prospect);
+        $score += ProfileScorer::scoreAge($user, $prospect);
+        $score += ProfileScorer::scoreDistance($user, $prospect);
+        $score += ProfileScorer::scoreEthnicity($user, $prospect);
+        $score += ProfileScorer::scoreHobbies($user, $prospect);
+        $score += ProfileScorer::scoreInterests($user, $prospect);
+        $score += ProfileScorer::scoreDistance($user, $prospect);
+        $score += ProfileScorer::scoreSmoking($user, $prospect);
 
         return $score;
     }
 
-    private function scoreAge($user, $prospect)
+    // possible 20
+    private static function scoreAge($user, $prospect)
     {
         if ($user == null or $prospect ==  null) {
             return 0;
@@ -49,8 +50,9 @@ class ProfileScorer
             return $score;
     }
 
+    // possible 10
     // $user is an array of allowed ethnicities
-    private function scoreEthnicity($user, $prospect)
+    private static function scoreEthnicity($user, $prospect)
     {
         if ($user == null or $prospect ==  null) {
             return 0;
@@ -69,8 +71,9 @@ class ProfileScorer
         return $score;
     }
 
+    // possible 10
     // user and prospects are arrays of string representing interests
-    private function scoreInterests($user, $prospect)
+    private static function scoreInterests($user, $prospect)
     {
         if ($user == null or $prospect == null) {
             return 0;
@@ -91,8 +94,9 @@ class ProfileScorer
         
         return $score;
     }
+    // possible 10
 
-    private function scoreHobbies($user, $prospect)
+    private static function scoreHobbies($user, $prospect)
     {
         if ($user == null or $prospect == null) {
             return 0;
@@ -102,7 +106,7 @@ class ProfileScorer
 
         foreach ($user as &$uhob) {
            foreach ($prospect as &$phob) {
-               if ( $uint == $pint and $score < $SCORE_MAX) {
+               if ( $uhob == $phob and $score < $SCORE_MAX) {
                    $score += 2;
                }
            }
@@ -117,7 +121,7 @@ class ProfileScorer
     // user and prospect both booleans
     // user boolean is true is a non smoker is ideal
     // prospect is true if they are a smoker
-    private function scoreSmoking($user, $prospect)
+    private static function scoreSmoking($user, $prospect)
     {
         if ($user == null or $prospect == null) {
             return 0;
@@ -135,8 +139,9 @@ class ProfileScorer
 
     }
 
+    // possible 10
 
-    private function scoreDistance($user, $prospect)
+    private static function scoreDistance($user, $prospect)
     {
         if ($user == null or $prospect == null) {
             return 0;
