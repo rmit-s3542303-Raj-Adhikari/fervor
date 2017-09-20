@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Profile;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -99,6 +102,8 @@ class RegisterController extends Controller
         ]);
         $thisUser = User::findOrFail($user->id);
         $this->sendEmail($thisUser);
+
+
     }
     public function verifyEmailFirst()
     {

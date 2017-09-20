@@ -29,6 +29,9 @@ Route::get('matches', function () {
 
 Auth::routes();
 
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
@@ -43,3 +46,10 @@ Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkReques
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 
+
+Route::post('/addProfile', 'profileController@addProfile');
+Route::post('/updateUserTable', 'profileController@updateUserTable');
+
+Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']);
+
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
