@@ -1,10 +1,12 @@
 <?php
 
 
-namespace Services;
+namespace App\Services;
 
 use App\Match;
 use App\User;
+use App\Profile;
+
 
 class Matcher
 {
@@ -14,7 +16,8 @@ class Matcher
      */
     public static function MatchAll(User $user)
     {
-        $prospects = User::where('gender', '=', $user->id)
+        $prospects = User::where('id', '!=', $user->id)
+            ->where('gender', '=', $user->preference)
             ->where('preference', '=', $user->gender)
             ->get();
 
@@ -54,12 +57,14 @@ class Matcher
 
         if ($match == null) {
             $match = new Match();
-        } else {
             $match->user = $user->id;
             $match->prospect = $prospect->id;
         }
 
-        $match->score = ProfileScorer::score($user, $prospect);
+        $userProfile = Profile::find($user->id)->get();
+        $prospectProfile = Profile::find($prospect->id)->get();
+
+        $match->score = ProfileScorer::score($userProfile, $prospectProfile);
 
         $match->save();
     }

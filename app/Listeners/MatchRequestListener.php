@@ -6,7 +6,7 @@ use App\Events\Event;
 use App\Events\MatchRequest;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Services\Matcher;
+use App\Services\Matcher;
 
 class MatchRequestListener
 {
