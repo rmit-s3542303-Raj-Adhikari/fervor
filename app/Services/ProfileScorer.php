@@ -1,8 +1,10 @@
 <?php
 
-namespace Services;
+namespace App\Services;
 
 use App\User;
+use App\Preferences;
+use App\Profile;
 
 
 //
@@ -11,18 +13,20 @@ class ProfileScorer
     // TODO // FIXME: user Preference model instead of user
     // User class only used for stub
     // Score a profile against a preference model of the current user
-    public static function score(User $user, User $prospect)
+    // with specific scoring rules
+    public static function score(Profile $user, Profile $prospect)
     {
+        $preferences = Preferences::find($user->id);
+        // out of 60 points
         $score = 0;
 
-        $score += ProfileScorer::scoreAge($user, $prospect);
-        $score += ProfileScorer::scoreDistance($user, $prospect);
-        $score += ProfileScorer::scoreEthnicity($user, $prospect);
-        $score += ProfileScorer::scoreHobbies($user, $prospect);
-        $score += ProfileScorer::scoreInterests($user, $prospect);
-        $score += ProfileScorer::scoreDistance($user, $prospect);
-        $score += ProfileScorer::scoreSmoking($user, $prospect);
-
+        $score += ProfileScorer::scoreAge($preferences->dob, $prospect->dob);
+        $score += ProfileScorer::scoreEthnicity($preferences->ethnicity , $prospect->ethnicity);
+        $score += ProfileScorer::scoreHobbies($preferences->hobbies , $prospect->hobbies);
+        $score += ProfileScorer::scoreInterests($preferences->interests , $prospect->interests);
+        $score += ProfileScorer::scoreSmoking($preferences->smoking , $prospect->smoking);
+        $score += ProfileScorer::scoreDistance($user->postcode , $prospect->postcode);
+        
         return $score;
     }
 
@@ -60,13 +64,12 @@ class ProfileScorer
 
         $score = 5;
 
-        foreach ($user as &$item) {
+        foreach ($user as $item) {
             if ($item == $prospect) {
                 $score = 10;
             }
         }
 
-        unset($item);
 
         return $score;
     }
@@ -81,17 +84,14 @@ class ProfileScorer
         $SCORE_MAX = 10;
         $score = 0;
 
-        foreach ($user as &$uint) {
-           foreach ($prospect as &$pint) {
+        foreach ($user as $uint) {
+           foreach ($prospect as $pint) {
                if ( $uint == $pint and $score < $SCORE_MAX) {
                    $score += 2;
                }
            }
         }
 
-        unset($uint);
-        unset($pint);
-        
         return $score;
     }
     // possible 10
@@ -104,16 +104,13 @@ class ProfileScorer
         $SCORE_MAX = 10;
         $score = 0;
 
-        foreach ($user as &$uhob) {
-           foreach ($prospect as &$phob) {
+        foreach ($user as $uhob) {
+           foreach ($prospect as $phob) {
                if ( $uhob == $phob and $score < $SCORE_MAX) {
                    $score += 2;
                }
            }
         }
-        
-        unset($uhob);
-        unset($phob);
         
         return $score;
     }
@@ -135,7 +132,6 @@ class ProfileScorer
         }
 
         return $score;
-
 
     }
 
