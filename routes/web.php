@@ -23,9 +23,7 @@ Route::get('profile', function () {
     return view('profile');
 });
 
-Route::get('matches', function () {
-    return view('match');
-});
+Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
 
