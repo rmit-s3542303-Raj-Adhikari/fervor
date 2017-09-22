@@ -1,5 +1,4 @@
 .compatibility {
-    background: #5e5e5e;
     width:  150px;
     height: 150px;
     border-radius: 75px;
@@ -8,4 +7,10 @@
 .col-centered {
     float: none;
     margin: 0 auto;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
