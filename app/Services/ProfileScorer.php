@@ -14,8 +14,11 @@ class ProfileScorer
     // User class only used for stub
     // Score a profile against a preference model of the current user
     // with specific scoring rules
-    public static function score(Profile $user, Profile $prospect)
+    public static function score(User $user, User $prospect)
     {
+        $userProfile = Profile::find($user->id)->get();
+        $prospectProfile = Profile::find($prospect->id)->get();
+
         $preferences = Preferences::find($user->id);
         // out of 60 points
         $score = 0;
