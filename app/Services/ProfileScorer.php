@@ -19,7 +19,7 @@ class ProfileScorer
         $userProfile = Profile::find($user->id)->get();
         $prospectProfile = Profile::find($prospect->id)->get();
 
-        $preferences = Preferences::find($user->id);
+        $preferences = Preferences::find($user->id)->get();
         // out of 60 points
         $score = 0;
 

@@ -16,7 +16,7 @@ class CreatePreferencesTable extends Migration
         Schema::create('preferences', function (Blueprint $table) {
             $table->integer('id')->unsigned();
             $table->integer('age')->nullable();
-            $table->string('ethnicity')->nullable();
+
             $table->boolean('smoking')->nullable();
 
             $table->boolean('caucasian')->default(false);
