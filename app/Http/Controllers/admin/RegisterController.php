@@ -76,15 +76,19 @@ class RegisterController extends Controller
         $thisUser = User::findOrFail($user->id);
         $this->sendEmail($thisUser);
     }
-    public function verifyEmailFirst()
+    
+    protected function verifyEmailFirst()
     {
         return view('email.verifyEmailFirst');
     }
-    public function sendEmail($thisUser)
+    
+    
+    protected function sendEmail($thisUser)
     {
         Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
     }
-    public function sendEmailDone($email,$verifytoken)
+    
+    protected function sendEmailDone($email,$verifytoken)
     {
         $user = User::where(['email'=>$email,'verifytoken'=>$verifytoken])->first();
         if($user) {

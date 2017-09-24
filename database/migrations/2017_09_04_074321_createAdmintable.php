@@ -15,11 +15,17 @@ class CreateAdmintable extends Migration
     {
         Schema::create('Admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->string('email')->unique();
+            $table->date('dob');
             $table->string('password');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->string('verifytoken')->nullable();
+            $table->string('gender');
+            $table->string('preference');
+            $table->boolean('admin')->default(false);
+            $table->boolean('firstLogin')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
