@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class HomeController extends Controller
 {
@@ -34,5 +35,9 @@ class HomeController extends Controller
         }
 
         return view('home');
+    }
+    
+      public function home(){
+    	return view('home', array('user' => Auth::user()) );
     }
 }
