@@ -15,19 +15,20 @@ class CreatePreferencesTable extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->integer('id')->unsigned();
+            $table->integer('age')->nullable();
             $table->string('ethnicity')->nullable();
             $table->boolean('smoking')->nullable();
-            $table->string('interest1')->nullable();
-            $table->string('interest2')->nullable();
-            $table->string('interest3')->nullable();
-            $table->string('interest4')->nullable();
-            $table->string('interest5')->nullable();
-            $table->string('hobbies1')->nullabble();
-            $table->string('hobbies2')->nullabble();
-            $table->string('hobbies3')->nullabble();
-            $table->string('hobbies4')->nullabble();
-            $table->string('hobbies5')->nullabble();
 
+            $table->boolean('caucasian')->default(false);
+            $table->boolean('hispanic')->default(false);
+            $table->boolean('black')->default(false);
+            $table->boolean('middleeast')->default(false);
+            $table->boolean('asian')->default(false);
+            $table->boolean('indian')->default(false);
+            $table->boolean('aboriginal')->default(false);
+            $table->boolean('islander')->default(false);
+            $table->boolean('mixed')->default(false);
+            
             $table->timestamps();
 
             $table->foreign('id')->references('id')->on('users');

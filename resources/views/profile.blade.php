@@ -518,10 +518,10 @@
 
                         <div class="col-md-3">
                             <select  class="form-control" name="Ethnicity">
-                                <option value="white/caucasian" {{  $ethnicity  === 'white/caucasian' ? 'selected' : '' }}>White/Caucasian</option>
-                                <option value="hispanic/latino" {{ $ethnicity === 'hispanic/latino' ? 'selected' : '' }}>Hispanic/Latino</option>
-                                <option value="black/african" {{ $ethnicity  === 'black/african' ? 'selected' : '' }}>Black/African</option>
-                                <option value="middleeastern" {{ $ethnicity === 'middleeastern' ? 'selected' : '' }}>Middle Eastern</option>
+                                <option value="caucasian" {{  $ethnicity  === 'caucasian' ? 'selected' : '' }}>White/Caucasian</option>
+                                <option value="hispanic" {{ $ethnicity === 'hispanic' ? 'selected' : '' }}>Hispanic/Latino</option>
+                                <option value="black" {{ $ethnicity  === 'black' ? 'selected' : '' }}>Black/African</option>
+                                <option value="middleeast" {{ $ethnicity === 'middleeast' ? 'selected' : '' }}>Middle Eastern</option>
                                 <option value="asian" {{ $ethnicity === 'asian' ? 'selected' : '' }}>Asian</option>
                                 <option value="indian" {{ $ethnicity === 'indian' ? 'selected' : '' }}>Indian</option>
                                 <option value="aboriginal" {{ $ethnicity === 'aboriginal' ? 'selected' : '' }}>Aboriginal</option>
