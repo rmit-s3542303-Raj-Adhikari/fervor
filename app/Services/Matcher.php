@@ -61,10 +61,7 @@ class Matcher
             $match->prospect = $prospect->id;
         }
 
-        $userProfile = Profile::find($user->id)->get();
-        $prospectProfile = Profile::find($prospect->id)->get();
-
-        $match->score = ProfileScorer::score($userProfile, $prospectProfile);
+        $match->score = ProfileScorer::score($user, $prospect);
 
         $match->save();
     }
