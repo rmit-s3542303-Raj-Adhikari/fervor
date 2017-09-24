@@ -113,8 +113,10 @@ class RegisterController extends Controller
             'user_id' => $user->id,
         ]);
 
-        $this->sendEmail($thisUser);
 
+        $this->sendEmail($thisUser);
+        
+        return $user;
 
     }
     public function verifyEmailFirst()
