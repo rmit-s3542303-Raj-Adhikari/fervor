@@ -305,19 +305,19 @@
                     $height = DB::table('profiles')->select('height')->where('user_id', '=', Auth::user()->id)->value('height');
 
 
-                    $hobbies = DB::table('profiles')->select('hobbies')->where('user_id', '=', Auth::user()->id)->value('hobbies');
+                    $hobbies = DB::table('profiles')->select('hobbies1')->where('user_id', '=', Auth::user()->id)->value('hobbies');
                     $hobbies2 = DB::table('profiles')->select('hobbies2')->where('user_id', '=', Auth::user()->id)->value('hobbies2');
                     $hobbies3 = DB::table('profiles')->select('hobbies3')->where('user_id', '=', Auth::user()->id)->value('hobbies3');
                     $hobbies4 = DB::table('profiles')->select('hobbies4')->where('user_id', '=', Auth::user()->id)->value('hobbies4');
                     $hobbies5 = DB::table('profiles')->select('hobbies5')->where('user_id', '=', Auth::user()->id)->value('hobbies5');
 
-                    $interest = DB::table('profiles')->select('interest')->where('user_id', '=', Auth::user()->id)->value('interest');
+                    $interest = DB::table('profiles')->select('interest1')->where('user_id', '=', Auth::user()->id)->value('interest');
                     $interest2 = DB::table('profiles')->select('interest2')->where('user_id', '=', Auth::user()->id)->value('interest2');
                     $interest3 = DB::table('profiles')->select('interest3')->where('user_id', '=', Auth::user()->id)->value('interest3');
                     $interest4 = DB::table('profiles')->select('interest4')->where('user_id', '=', Auth::user()->id)->value('interest4');
                     $interest5 = DB::table('profiles')->select('interest5')->where('user_id', '=', Auth::user()->id)->value('interest5');
 
-                    $language = DB::table('profiles')->select('language')->where('user_id', '=', Auth::user()->id)->value('language');
+                    $language = DB::table('profiles')->select('language1')->where('user_id', '=', Auth::user()->id)->value('language');
                     $language2 = DB::table('profiles')->select('language2')->where('user_id', '=', Auth::user()->id)->value('language2');
                     $language3 = DB::table('profiles')->select('language3')->where('user_id', '=', Auth::user()->id)->value('language3');
                     $language4 = DB::table('profiles')->select('language4')->where('user_id', '=', Auth::user()->id)->value('language4');
@@ -496,7 +496,7 @@
                             <select  class="form-control" name="religion">
                                 <option value="islam" {{  $religion  === 'islam' ? 'selected' : '' }}>Islam</option>
                                 <option value="hinduism" {{ $religion === 'hinduism' ? 'selected' : '' }}>Hinduism</option>
-                                <option value="christian" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
+                                <option value="'christian'" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
                                 <option value="judaism" {{ $religion === 'judaism' ? 'selected' : '' }}>Judaism</option>
                                 <option value="buddhism" {{ $religion === 'buddhism' ? 'selected' : '' }}>Buddhism</option>
                                 <option value="atheist" {{ $religion === 'atheist' ? 'selected' : '' }}>atheist</option>
@@ -592,7 +592,7 @@
                         <!-- Hobbies 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="hobbies" >
+                            <select class="form-control" name="hobbies1" >
 
                                 <option value="hiking" {{ $hobbies === 'hiking' ? 'selected' : '' }}>Hiking</option>
                                 <option value="dancing" {{ $hobbies === 'dancing' ? 'selected' : '' }}>Dancing</option>
@@ -740,7 +740,7 @@
                         <!-- interest 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="interest" >
+                            <select class="form-control" name="interest1" >
 
                                 <option value="tech" {{ $interest === 'tech' ? 'selected' : '' }}>Tech</option>
                                 <option value="science" {{ $interest === 'science' ? 'selected' : '' }}>Science</option>
@@ -899,7 +899,7 @@
                         <!-- language -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="language" >
+                            <select class="form-control" name="language1" >
 
                                 <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                                 <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
