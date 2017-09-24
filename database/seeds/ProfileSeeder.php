@@ -18,7 +18,7 @@ class ProfileSeeder extends Seeder
         for ($i = 0; $i< 50; $i++)
         {
             Profile::Create([
-            'user_id'    => $i,
+            'user_id'    => $i+1,
             'nickname'   => $faker->word,
             'location'   => $faker->numberBetween($min = 1000, $max = 8000), 
             'status'     => $faker->randomElement($array = array ('single', 'married', 'divorced', 'complicated')),
@@ -42,10 +42,7 @@ class ProfileSeeder extends Seeder
             'hobbies2'   => $faker->randomElement($array = array ('hiking', 'dancing', 'shopping', 'camping', 'gaming', 'writing', 'hunting', null)) ,
             'hobbies3'   => $faker->randomElement($array = array ('hiking', 'dancing', 'shopping', 'camping', 'gaming', 'writing', 'hunting', null)) ,
             'hobbies4'   => $faker->randomElement($array = array ('hiking', 'dancing', 'shopping', 'camping', 'gaming', 'writing', 'hunting', null)) ,
-            'hobbies5'   => $faker->randomElement($array = array ('hiking', 'dancing', 'shopping', 'camping', 'gaming', 'writing', 'hunting', null)) ,
-            
-           
-           
+            'hobbies5'   => $faker->randomElement($array = array ('hiking', 'dancing', 'shopping', 'camping', 'gaming', 'writing', 'hunting', null)) ,           
             ]);
         }
     }
