@@ -904,7 +904,7 @@
                                 <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                                 <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
                                 <option value="spanish" {{ $language === 'spanish' ? 'selected' : '' }}>Spanish</option>
-                                <option value="chinease" {{ $language === 'chinease' ? 'selected' : '' }}>Chinease</option>
+                                <option value="chinese" {{ $language === 'chinese' ? 'selected' : '' }}>Chinese</option>
                                 <option value="hindi" {{ $language === 'hindi' ? 'selected' : '' }}>Hindi</option>
                                 <option value="arabic" {{ $language === 'arabic' ? 'selected' : '' }}>Arabic</option>
                                 <option value="urdu" {{ $language === 'urdu' ? 'selected' : '' }}>Urdu</option>
