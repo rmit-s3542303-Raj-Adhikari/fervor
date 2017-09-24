@@ -50,19 +50,19 @@ class profileController extends Controller
             $profile->height = Input::get('height');
 
 
-            $profile->hobbies = Input::get('hobbies');
+            $profile->hobbies1 = Input::get('hobbies1');
             $profile->hobbies2 = Input::get('hobbies2');
             $profile->hobbies3 = Input::get('hobbies3');
             $profile->hobbies4 = Input::get('hobbies4');
             $profile->hobbies5 = Input::get('hobbies5');
 
-            $profile->interest = Input::get('interest');
+            $profile->interest1 = Input::get('interest1');
             $profile->interest2 = Input::get('interest2');
             $profile->interest3 = Input::get('interest3');
             $profile->interest4 = Input::get('interest4');
             $profile->interest5 = Input::get('interest5');
 
-            $profile->language = Input::get('language');
+            $profile->language1 = Input::get('language1');
             $profile->language2 = Input::get('language2');
             $profile->language3 = Input::get('language3');
             $profile->language4 = Input::get('language4');
@@ -108,20 +108,20 @@ class profileController extends Controller
             $height = $request->get('height');
 
 
-            $hobbies = $request->get('hobbies');
+            $hobbies1 = $request->get('hobbies1');
             $hobbies2 = $request->get('hobbies2');
             $hobbies3 = $request->get('hobbies3');
             $hobbies4 = $request->get('hobbies4');
             $hobbies5 = $request->get('hobbies5');
 
 
-            $interest = $request->get('interest');
+            $interest1 = $request->get('interest');
             $interest2 = $request->get('interest2');
             $interest3 = $request->get('interest3');
             $interest4 = $request->get('interest4');
             $interest5 = $request->get('interest5');
 
-            $language = $request->get('language');
+            $language1 = $request->get('language');
             $language2 = $request->get('language2');
             $language3 = $request->get('language3');
             $language4 = $request->get('language4');
@@ -153,17 +153,17 @@ class profileController extends Controller
                 'religion' => $religion,
                 'Ethnicity' => $ethnicity,
                 'height' => $height,
-                'hobbies' => $hobbies,
+                'hobbies1' => $hobbies1,
                 'hobbies2' => $hobbies2,
                 'hobbies3' => $hobbies3,
                 'hobbies4' => $hobbies4,
                 'hobbies5' => $hobbies5,
-                'interest' => $interest,
+                'interest1' => $interest1,
                 'interest2' => $interest2,
                 'interest3' => $interest3,
                 'interest4' => $interest4,
                 'interest5' => $interest5,
-                'language' => $language,
+                'language1' => $language1,
                 'language2' => $language2,
                 'language3' => $language3,
                 'language4' => $language4,

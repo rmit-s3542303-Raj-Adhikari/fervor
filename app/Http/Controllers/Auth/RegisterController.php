@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Profile;
 use App\User;
+use App\Preferences;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -100,9 +101,22 @@ class RegisterController extends Controller
             'preference' => $data['preference'],
             'dob' => $data["year"]."-".$data["month"]."-".$data["day"],
         ]);
-        $thisUser = User::findOrFail($user->id);
-        $this->sendEmail($thisUser);
 
+
+        $thisUser = User::findOrFail($user->id);
+
+        Preferences::create([
+            'id' => $user->id,
+        ]);
+
+        Profile::create([
+            'user_id' => $user->id,
+        ]);
+
+
+        $this->sendEmail($thisUser);
+        
+        return $user;
 
     }
     public function verifyEmailFirst()
