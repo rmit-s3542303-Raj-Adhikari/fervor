@@ -100,7 +100,18 @@ class RegisterController extends Controller
             'preference' => $data['preference'],
             'dob' => $data["year"]."-".$data["month"]."-".$data["day"],
         ]);
+
+
         $thisUser = User::findOrFail($user->id);
+
+        Preferences::create([
+            'id' => $user->id,
+        ]);
+
+        Profile::create([
+            'user_id' => $user->id,
+        ]);
+
         $this->sendEmail($thisUser);
 
 
