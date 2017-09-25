@@ -51,6 +51,9 @@ Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showRes
 
 
 Route::post('/addProfile', 'profileController@addProfile');
+
+Route::post('/updatePreference', 'preferenceController@updatePreference');
+
 Route::post('/updateUserTable', 'profileController@updateUserTable');
 
 Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']);
