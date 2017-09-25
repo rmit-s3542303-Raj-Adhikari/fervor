@@ -15,7 +15,7 @@ class ProfileTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
 
-            $table->integer('user_id');
+            $table->integer('id')->unsigned();
             $table->string('nickname')->nullable();
             $table->string('location')->nullable();
 
@@ -52,6 +52,9 @@ class ProfileTable extends Migration
             $table->string('hobbies5')->nullable();
 
             $table->timestamps();
+
+            $table->foreign('id')->references('id')->on('users');
+            
         });
     }
 
