@@ -295,36 +295,36 @@
 
                     <?php
 
-                    $profile = DB::table('profiles')->select('nickname')->where('user_id', '=', Auth::user()->id)->value('nickname');
-                    $location = DB::table('profiles')->select('location')->where('user_id', '=', Auth::user()->id)->value('location');
-                    $status = DB::table('profiles')->select('status')->where('user_id', '=', Auth::user()->id)->value('status');
-                    $occupation = DB::table('profiles')->select('occupation')->where('user_id', '=', Auth::user()->id)->value('occupation');
-                    $bio = DB::table('profiles')->select('bio')->where('user_id', '=', Auth::user()->id)->value('bio');
-                    $religion = DB::table('profiles')->select('religion')->where('user_id', '=', Auth::user()->id)->value('religion');
-                    $ethnicity = DB::table('profiles')->select('Ethnicity')->where('user_id', '=', Auth::user()->id)->value('Ethnicity');
-                    $height = DB::table('profiles')->select('height')->where('user_id', '=', Auth::user()->id)->value('height');
+                    $profile = DB::table('profiles')->select('nickname')->where('id', '=', Auth::user()->id)->value('nickname');
+                    $location = DB::table('profiles')->select('location')->where('id', '=', Auth::user()->id)->value('location');
+                    $status = DB::table('profiles')->select('status')->where('id', '=', Auth::user()->id)->value('status');
+                    $occupation = DB::table('profiles')->select('occupation')->where('id', '=', Auth::user()->id)->value('occupation');
+                    $bio = DB::table('profiles')->select('bio')->where('id', '=', Auth::user()->id)->value('bio');
+                    $religion = DB::table('profiles')->select('religion')->where('id', '=', Auth::user()->id)->value('religion');
+                    $ethnicity = DB::table('profiles')->select('Ethnicity')->where('id', '=', Auth::user()->id)->value('Ethnicity');
+                    $height = DB::table('profiles')->select('height')->where('id', '=', Auth::user()->id)->value('height');
 
 
-                    $hobbies = DB::table('profiles')->select('hobbies1')->where('user_id', '=', Auth::user()->id)->value('hobbies');
-                    $hobbies2 = DB::table('profiles')->select('hobbies2')->where('user_id', '=', Auth::user()->id)->value('hobbies2');
-                    $hobbies3 = DB::table('profiles')->select('hobbies3')->where('user_id', '=', Auth::user()->id)->value('hobbies3');
-                    $hobbies4 = DB::table('profiles')->select('hobbies4')->where('user_id', '=', Auth::user()->id)->value('hobbies4');
-                    $hobbies5 = DB::table('profiles')->select('hobbies5')->where('user_id', '=', Auth::user()->id)->value('hobbies5');
+                    $hobbies = DB::table('profiles')->select('hobbies1')->where('id', '=', Auth::user()->id)->value('hobbies');
+                    $hobbies2 = DB::table('profiles')->select('hobbies2')->where('id', '=', Auth::user()->id)->value('hobbies2');
+                    $hobbies3 = DB::table('profiles')->select('hobbies3')->where('id', '=', Auth::user()->id)->value('hobbies3');
+                    $hobbies4 = DB::table('profiles')->select('hobbies4')->where('id', '=', Auth::user()->id)->value('hobbies4');
+                    $hobbies5 = DB::table('profiles')->select('hobbies5')->where('id', '=', Auth::user()->id)->value('hobbies5');
 
-                    $interest = DB::table('profiles')->select('interest1')->where('user_id', '=', Auth::user()->id)->value('interest');
-                    $interest2 = DB::table('profiles')->select('interest2')->where('user_id', '=', Auth::user()->id)->value('interest2');
-                    $interest3 = DB::table('profiles')->select('interest3')->where('user_id', '=', Auth::user()->id)->value('interest3');
-                    $interest4 = DB::table('profiles')->select('interest4')->where('user_id', '=', Auth::user()->id)->value('interest4');
-                    $interest5 = DB::table('profiles')->select('interest5')->where('user_id', '=', Auth::user()->id)->value('interest5');
+                    $interest = DB::table('profiles')->select('interest1')->where('id', '=', Auth::user()->id)->value('interest');
+                    $interest2 = DB::table('profiles')->select('interest2')->where('id', '=', Auth::user()->id)->value('interest2');
+                    $interest3 = DB::table('profiles')->select('interest3')->where('id', '=', Auth::user()->id)->value('interest3');
+                    $interest4 = DB::table('profiles')->select('interest4')->where('id', '=', Auth::user()->id)->value('interest4');
+                    $interest5 = DB::table('profiles')->select('interest5')->where('id', '=', Auth::user()->id)->value('interest5');
 
-                    $language = DB::table('profiles')->select('language1')->where('user_id', '=', Auth::user()->id)->value('language');
-                    $language2 = DB::table('profiles')->select('language2')->where('user_id', '=', Auth::user()->id)->value('language2');
-                    $language3 = DB::table('profiles')->select('language3')->where('user_id', '=', Auth::user()->id)->value('language3');
-                    $language4 = DB::table('profiles')->select('language4')->where('user_id', '=', Auth::user()->id)->value('language4');
-                    $language5 = DB::table('profiles')->select('language5')->where('user_id', '=', Auth::user()->id)->value('language5');
+                    $language = DB::table('profiles')->select('language1')->where('id', '=', Auth::user()->id)->value('language');
+                    $language2 = DB::table('profiles')->select('language2')->where('id', '=', Auth::user()->id)->value('language2');
+                    $language3 = DB::table('profiles')->select('language3')->where('id', '=', Auth::user()->id)->value('language3');
+                    $language4 = DB::table('profiles')->select('language4')->where('id', '=', Auth::user()->id)->value('language4');
+                    $language5 = DB::table('profiles')->select('language5')->where('id', '=', Auth::user()->id)->value('language5');
 
 
-                    $smoking = DB::table('profiles')->select('smoking')->where('user_id', '=', Auth::user()->id)->value('smoking');
+                    $smoking = DB::table('profiles')->select('smoking')->where('id', '=', Auth::user()->id)->value('smoking');
 
 
                     ?>

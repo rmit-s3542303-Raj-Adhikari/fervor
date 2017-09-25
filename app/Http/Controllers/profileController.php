@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
+use App\Events\UpdateMatches;
 
 class profileController extends Controller
 {
@@ -24,79 +25,12 @@ class profileController extends Controller
 
 
     public function profile(){
-
+        
         return view('profile');
     }
 
 
     public function addProfile(Request $request){
-
-
-
-        if(profileController::profileEntryCheck() == false) {
-
-
-            $profile = new Profile;
-
-            $profile->user_id = Auth::user()->id;
-
-            $profile->nickname = Input::get('nickname');
-            $profile->location = Input::get('location');
-            $profile->status = Input::get('status');
-            $profile->occupation = Input::get('occupation');
-            $profile->bio = Input::get('bio');
-            $profile->religion = Input::get('religion');
-            $profile->Ethnicity = Input::get('Ethnicity');
-            $profile->height = Input::get('height');
-
-
-            $profile->hobbies1 = Input::get('hobbies1');
-            $profile->hobbies2 = Input::get('hobbies2');
-            $profile->hobbies3 = Input::get('hobbies3');
-            $profile->hobbies4 = Input::get('hobbies4');
-            $profile->hobbies5 = Input::get('hobbies5');
-
-            $profile->interest1 = Input::get('interest1');
-            $profile->interest2 = Input::get('interest2');
-            $profile->interest3 = Input::get('interest3');
-            $profile->interest4 = Input::get('interest4');
-            $profile->interest5 = Input::get('interest5');
-
-            $profile->language1 = Input::get('language1');
-            $profile->language2 = Input::get('language2');
-            $profile->language3 = Input::get('language3');
-            $profile->language4 = Input::get('language4');
-            $profile->language5 = Input::get('language5');
-
-
-
-
-            $smokingcheck  = Input::get('smoking');
-
-            if($smokingcheck === 'TRUE'){
-
-                $smoking = TRUE;
-
-            }else{
-
-                $smoking = FALSE;
-
-            }
-
-
-            $profile->smoking = $smoking;
-
-
-
-
-
-
-            $profile->save();
-
-            return redirect()->route('profile');
-
-
-        }else{
 
             $nickname = $request->get('nickname');
             $location = $request->get('location');
@@ -141,7 +75,7 @@ class profileController extends Controller
             }
 
 
-            $profile = Profile::where('user_id', '=', Auth::user()->id );
+            $profile = Profile::where('id', '=', Auth::user()->id );
 
             $profile->update([
 
@@ -173,8 +107,11 @@ class profileController extends Controller
             ]);
 
 
+            $user = User::find(Auth::id());
+            event(new UpdateMatches($user));
+
             return redirect()->route('profile');
-        }
+        
 
     }
 
@@ -183,7 +120,7 @@ class profileController extends Controller
 
         $this->validator($request->all())->validate();
 
-       $month = $request->get('month');
+        $month = $request->get('month');
         $year = $request->get('year');
         $day = $request->get('day');
 
@@ -209,7 +146,7 @@ class profileController extends Controller
 
     public static function profileEntryCheck(){
 
-        $userID = Profile::where('user_id', '=', Auth::user()->id )->exists();
+        $userID = Profile::where('id', '=', Auth::user()->id )->exists();
 
         if($userID == false){
 
