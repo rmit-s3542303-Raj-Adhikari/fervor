@@ -110,11 +110,13 @@ class RegisterController extends Controller
         ]);
 
         Profile::create([
-            'user_id' => $user->id,
+            'id' => $user->id,
         ]);
 
-
-        $this->sendEmail($thisUser);
+        if (env('sendmail') == true)
+        {
+            $this->sendEmail($thisUser);           
+        }
         
         return $user;
 
