@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\MatchRequest' => [
             'App\Listeners\MatchRequestListener',
         ],
+        'App\Events\UpdateMatches' => [
+            'App\Listeners\UpdateMatchesListener',
+        ],
     ];
 
     /**
