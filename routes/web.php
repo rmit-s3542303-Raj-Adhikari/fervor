@@ -58,4 +58,6 @@ Route::post('/updateUserTable', 'profileController@updateUserTable');
 
 Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']);
 
+Route::get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
+
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
