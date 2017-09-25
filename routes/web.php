@@ -23,6 +23,11 @@ Route::get('profile', function () {
     return view('profile');
 });
 
+Route::get('preference', function(){
+
+   return view('preference');
+});
+
 Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
