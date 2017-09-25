@@ -18,9 +18,9 @@ class CreatePreferencesTable extends Migration
             $table->integer('age')->nullable();
 
             $table->boolean('smoking')->nullable();
-            
 
-            //ethinicity
+
+            //ethnicity
 
             $table->boolean('caucasian')->default(false);
             $table->boolean('hispanic')->default(false);
