@@ -5,7 +5,7 @@ namespace App\Services;
 use App\User;
 use App\Preferences;
 use App\Profile;
-
+use Illuminate\Support\Facades\Log;
 
 //
 class ProfileScorer
@@ -16,19 +16,22 @@ class ProfileScorer
     // with specific scoring rules
     public static function score(User $user, User $prospect)
     {
-        $userProfile = Profile::find($user->id)->get();
-        $prospectProfile = Profile::find($prospect->id)->get();
+        Log::debug('Score(): Scoring '.$prospect->id.' for '.$user->id);
+        
+        $userProfile = Profile::find($user->id);
+        $prospectProfile = Profile::find($prospect->id);
 
-        $preferences = Preferences::find($user->id)->get();
+        $preferences = Preferences::find($user->id);
         // out of 60 points
         $score = 0;
 
         $score += ProfileScorer::scoreAge($preferences->age, $prospect->dob);
         $score += ProfileScorer::scoreEthnicity($preferences, $prospectProfile->ethnicity);
-        $score += ProfileScorer::scoreHobbies($preferences, $prospectProfile);
-        $score += ProfileScorer::scoreInterests($preferences, $prospectProfile);
+        $score += ProfileScorer::scoreHobbies($userProfile, $prospectProfile);
+        $score += ProfileScorer::scoreInterests($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreSmoking($preferences->smoking , $prospectProfile->smoking);
         $score += ProfileScorer::scoreDistance($userProfile->postcode , $prospectProfile->postcode);
+        $score += ProfileScorer::scoreReligion($userProfile->religion , $prospectProfile->religion);
         
         return $score;
     }
@@ -54,8 +57,9 @@ class ProfileScorer
         } elseif ($difference == 0) {
             $score = 20;
         }
-
-            return $score;
+        
+        Log::debug('Score(): Age: '.$score);
+        return $score;
     }
 
     // possible 10
@@ -101,19 +105,27 @@ class ProfileScorer
                 break;
         }
 
-
+        Log::debug('Score(): Ethnicity: '.$score);
+        
         return $score;
     }
 
 
     private static function buildIntArray(Profile $user){
-        $interest[] = $user->interest1; 
-        $interest[] = $user->interest2; 
-        $interest[] = $user->interest3; 
-        $interest[] = $user->interest4; 
-        $interest[] = $user->interest5; 
-
-        return $interest;
+        $interests = [];
+        
+        if ($user->interest1 != null)
+            $interest[] = $user->interest1; 
+        if ($user->interest2 != null)
+            $interest[] = $user->interest2; 
+        if ($user->interest3 != null)
+            $interest[] = $user->interest3; 
+        if ($user->interest4 != null)
+            $interest[] = $user->interest4; 
+        if ($user->interest5 != null)
+            $interest[] = $user->interest5; 
+        
+        return $interests;
     }
 
     // possible 10
@@ -137,17 +149,25 @@ class ProfileScorer
            }
         }
 
+        Log::debug('Score(): Interests: '.$score);        
         return $score;
     }
     // possible 10
 
 
     private static function buildHobArray(Profile $user){
-        $hobbies[] = $user->hobbies1; 
-        $hobbies[] = $user->hobbies2; 
-        $hobbies[] = $user->hobbies3; 
-        $hobbies[] = $user->hobbies4; 
-        $hobbies[] = $user->hobbies5; 
+        $hobbies = [];
+        
+        if ($user->hobbies1 != null)
+            $hobbies[] = $user->hobbies1; 
+        if ($user->hobbies2 != null)
+            $hobbies[] = $user->hobbies2; 
+        if ($user->hobbies3 != null)
+            $hobbies[] = $user->hobbies3; 
+        if ($user->hobbies4 != null)
+            $hobbies[] = $user->hobbies4; 
+        if ($user->hobbies5 != null)
+            $hobbies[] = $user->hobbies5; 
 
         return $hobbies;
     }
@@ -171,6 +191,7 @@ class ProfileScorer
            }
         }
         
+        Log::debug('Score(): Hobbies: '.$score);
         return $score;
     }
 
@@ -190,6 +211,7 @@ class ProfileScorer
             $score = -20;
         }
 
+        Log::debug('Score(): Smoking: '.$score);
         return $score;
 
     }
@@ -216,7 +238,25 @@ class ProfileScorer
             $score = 10;
         }
 
+        Log::debug('Score(): Distance: '.$score);
         return $score;
     }
 
+    public static function scoreReligion($user, $prospect)
+    {
+
+        if ($user == null or $prospect == null) {
+            return 0;
+        }
+
+        $score = 0;
+
+        if ($user == $prospect)
+        {
+            $score = 10;
+        }
+
+        Log::debug('Score(): Religion: '.$score);
+        return $score;
+    }
 }
