@@ -18,6 +18,9 @@ class CreatePreferencesTable extends Migration
             $table->integer('age')->nullable();
 
             $table->boolean('smoking')->nullable();
+            
+
+            //ethinicity
 
             $table->boolean('caucasian')->default(false);
             $table->boolean('hispanic')->default(false);
@@ -28,6 +31,56 @@ class CreatePreferencesTable extends Migration
             $table->boolean('aboriginal')->default(false);
             $table->boolean('islander')->default(false);
             $table->boolean('mixed')->default(false);
+
+
+
+
+
+
+
+            //Hobbies
+            $table->boolean('hiking')->default(false);
+            $table->boolean('dancing')->default(false);
+            $table->boolean('shopping')->default(false);
+            $table->boolean('camping')->default(false);
+            $table->boolean('videogaming')->default(false);
+            $table->boolean('writing')->default(false);
+            $table->boolean('hunting')->default(false);
+
+            //religion
+
+            $table->boolean('islam')->default(false);
+            $table->boolean('hinduism')->default(false);
+            $table->boolean('chirstian')->default(false);
+            $table->boolean('judaism')->default(false);
+            $table->boolean('buddhism')->default(false);
+            $table->boolean('atheist')->default(false);
+
+
+            //interest
+
+            $table->boolean('tech')->default(false);
+            $table->boolean('science')->default(false);
+            $table->boolean('art')->default(false);
+            $table->boolean('history')->default(false);
+            $table->boolean('sports')->default(false);
+            $table->boolean('literature')->default(false);
+            $table->boolean('traveling')->default(false);
+
+
+
+            //language
+
+            $table->boolean('english')->default(false);
+            $table->boolean('french')->default(false);
+            $table->boolean('spanish')->default(false);
+            $table->boolean('chinese')->default(false);
+            $table->boolean('hindi')->default(false);
+            $table->boolean('arabic')->default(false);
+            $table->boolean('persian')->default(false);
+            $table->boolean('urdu')->default(false);
+
+
             
             $table->timestamps();
 
