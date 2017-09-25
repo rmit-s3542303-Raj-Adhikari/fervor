@@ -2,6 +2,18 @@
 
 return [
 
+     /*
+    |--------------------------------------------------------------------------
+    | Sending Mail
+    |--------------------------------------------------------------------------
+    |
+    | Boolean set if emails are to be sent for various subroutines in the 
+    | application
+    | 
+    */
+
+    'sendmail' => env('SEND_MAIL', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
