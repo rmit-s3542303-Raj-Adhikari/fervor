@@ -69,16 +69,7 @@ class CreatePreferencesTable extends Migration
 
 
 
-            //language
-
-            $table->boolean('english')->default(false);
-            $table->boolean('french')->default(false);
-            $table->boolean('spanish')->default(false);
-            $table->boolean('chinese')->default(false);
-            $table->boolean('hindi')->default(false);
-            $table->boolean('arabic')->default(false);
-            $table->boolean('persian')->default(false);
-            $table->boolean('urdu')->default(false);
+           
 
 
             
