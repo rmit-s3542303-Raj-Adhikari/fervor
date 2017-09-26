@@ -183,8 +183,7 @@
 
 
 
-        function interest(){
-
+        function interest() {
 
 
             if (document.getElementById("tech").checked) {
@@ -231,9 +230,64 @@
             }
 
 
+        }
+
+        function hobbies(){
+
+            if (document.getElementById("hiking").checked) {
+                document.getElementById('hikingHidden').disabled = true;
+            } else {
+                document.getElementById('hikingHidden').disabled = false;
+            }
+
+            if (document.getElementById("dancing").checked) {
+                document.getElementById('dancingHidden').disabled = true;
+            } else {
+                document.getElementById('dancingHidden').disabled = false;
+            }
+
+            if (document.getElementById("shopping").checked) {
+                document.getElementById('shoppingHidden').disabled = true;
+            } else {
+                document.getElementById('shoppingHidden').disabled = false;
+            }
+
+            if (document.getElementById("camping").checked) {
+                document.getElementById('campingHidden').disabled = true;
+            } else {
+                document.getElementById('campingHidden').disabled = false;
+            }
+
+
+            if (document.getElementById("videogaming").checked) {
+                document.getElementById('videogamingHidden').disabled = true;
+            } else {
+                document.getElementById('videogamingHidden').disabled = false;
+            }
+
+            if (document.getElementById("writing").checked) {
+                document.getElementById('writingHidden').disabled = true;
+            } else {
+                document.getElementById('writingHidden').disabled = false;
+            }
+
+            if (document.getElementById("hunting").checked) {
+                document.getElementById('huntingHidden').disabled = true;
+            } else {
+                document.getElementById('huntingHidden').disabled = false;
+            }
 
 
         }
+
+
+
+
+
+
+
+
+
 
     </script>
 
@@ -346,6 +400,18 @@
             {{ csrf_field() }}
 
             <?php
+
+
+
+
+
+            $ethnHiking  = DB::table('preferences')->select('hiking')->where('id', '=', 1)->value('hiking');
+            $ethnDancing=  DB::table('preferences')->select('dancing')->where('id', '=', 1)->value('dancing');
+            $ethnShopping= DB::table('preferences')->select('shopping')->where('id', '=', 1)->value('shopping');
+            $ethnCamping=  DB::table('preferences')->select('camping')->where('id', '=', 1)->value('camping');
+            $ethnVideogaming= DB::table('preferences')->select('videogaming')->where('id', '=', 1)->value('videogaming');
+            $ethnWriting=    DB::table('preferences')->select('writing')->where('id', '=', 1)->value('writing');
+            $ethnHunting=    DB::table('preferences')->select('hunting')->where('id', '=', 1)->value('hunting');
 
 
 
@@ -656,9 +722,6 @@
 
                 <!-- Interest  -->
 
-
-
-
                 <div class="form-group{{ $errors->has('interest') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-3 control-label">Interest</label>
 
@@ -705,6 +768,66 @@
                     </div>
                 </div>
 
+
+
+
+
+
+
+
+
+
+
+                <!-- Hobbies  -->
+
+
+
+
+                <div class="form-group{{ $errors->has('hobbies') ? ' has-error' : '' }}">
+                    <label for="name" class="col-md-3 control-label">Hobbies</label>
+
+                    <div class="col-md-3">
+
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="hiking" name="hiking" value="1" onchange="hobbies()" {{ $ethnHiking === 1 ? 'checked' : '' }}>Hiking</label>
+                            <input id='hikingHidden' type='hidden' value='0' name='hiking'>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="dancing" name="dancing" value="1" onchange="hobbies()" {{ $ethnDancing === 1 ? 'checked' : '' }}>Dancing</label>
+                            <input id='dancingHidden' type='hidden' value='0' name='dancing'>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="shopping" name="shopping" value="1" onchange="hobbies()" {{ $ethnShopping === 1 ? 'checked' : '' }}>Shopping</label>
+                            <input id='shoppingHidden' type='hidden' value='0' name='shopping'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="camping" name="camping" value="1" onchange="hobbies()" {{ $ethnCamping === 1 ? 'checked' : '' }}>Camping</label>
+                            <input id='campingHidden' type='hidden' value='0' name='camping'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="videogaming" name="videogaming" value="1" onchange="hobbies()" {{ $ethnVideogaming === 1 ? 'checked' : '' }}>Videogaming</label>
+                            <input id='videogamingHidden' type='hidden' value='0' name='videogaming'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="writing" name="writing" value="1" onchange="hobbies()" {{ $ethnWriting === 1 ? 'checked' : '' }}>Writing</label>
+                            <input id='writingHidden' type='hidden' value='0' name='writing'>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="hunting" name="hunting" value="1" onchange="hobbies()" {{ $ethnHunting === 1 ? 'checked' : '' }}>Hunting</label>
+                            <input id='huntingHidden' type='hidden' value='0' name='hunting'>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
