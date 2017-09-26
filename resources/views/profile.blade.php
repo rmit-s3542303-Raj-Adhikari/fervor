@@ -86,41 +86,6 @@
 
 </div>
 
-
-
-
-    <!--<div class="container">-->
-    <!--    <h1>Edit Profile</h1>-->
-    <!--    <hr>-->
-    <!--    <div class="row">-->
-            <!-- left column -->
-    <!--        <div class="col-md-3">-->
-    <!--            <div class="text-center">-->
-    <!--                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">-->
-    <!--                <h6>Upload a different photo...</h6>-->
-
-    <!--                <input type="file" class="form-control">-->
-    <!--            </div>-->
-    <!--        </div>-->
-
-<!-- Uploading User Profile Picture to the website -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <img src="/img/avatar/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-            <h2>{{ $user->email }}'s Profile</h2>
-            <form enctype="multipart/form-data" action="/profile" method="POST">
-                <label>Update Profile Image</label>
-                <input type="file" name="avatar">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
-                
-            </form>
-        </div>
-    </div>
-</div>
-
-
             <!-- edit form column -->
             <div class="col-md-9 personal-info">
 
@@ -140,6 +105,24 @@
                 @endif
 
                 <h3>Personal info</h3>
+                
+                
+<!-- Uploading User Profile Picture to the website. User can choose a photo then upload it to the server via Upload Button-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!-- Getting the specified user image file and displaying it. Default value is default.jpg-->
+            <img src="/img/avatar/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <form enctype="multipart/form-data" action="/profile" method="POST">
+                <label>Update Profile Image</label>
+                <input type="file" name="avatar">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
 
 
                 <form class="form-horizontal" method="POST" action="{{ url('/updateUserTable') }}">

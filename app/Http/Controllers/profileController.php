@@ -17,17 +17,10 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
+use Image;
 
 class profileController extends Controller
 {
-
-
-
-    public function profile(){
-
-        return view('profile');
-    }
-
 
     public function addProfile(Request $request){
 
@@ -254,23 +247,37 @@ class profileController extends Controller
 
 
 
-
-
-
-
-
     public function autocomplete(Request $request){
 
         $data = Location::select("suburbs as name")->where("suburbs","LIKE", "%{$request->input('query')}%")->get();
         return response()->json($data);
     }
+    
+       public function profile(){
+    	return view('profile', array('user' => Auth::user()) );
+    }
 
+    //Updating the User's 'avatar' or profile picture
+    
+    function update_avatar(Request $request){
 
+    	// Handle the user upload of avatar
+    	if($request->hasFile('avatar')){
+    		$avatar = $request->file('avatar');
+    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
+    		$path = public_path('img/avatar/' . $filename);
+    		//Using Image 3rd party software setting the user's image and saving to db
+    		Image::make($avatar)->resize(300, 300)->save($path);
+    		$user = Auth::user();
+    		$user->avatar = $filename;
+    		$user->save();
+    	}
 
+    	return view('profile', array('user' => Auth::user()) );
 
-
-
-
+    }
+    
+    
 
 }
 

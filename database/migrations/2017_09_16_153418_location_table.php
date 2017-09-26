@@ -18,10 +18,6 @@ class LocationTable extends Migration
 
             $table->string('suburbs');
             $table->integer('postcode');
-
-
-
-
         });
 
     }
