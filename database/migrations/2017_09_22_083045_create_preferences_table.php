@@ -49,7 +49,7 @@ class CreatePreferencesTable extends Migration
 
             //religion
 
-            $table->boolean('islam')->default(false);
+
             $table->boolean('hinduism')->default(false);
             $table->boolean('chirstian')->default(false);
             $table->boolean('judaism')->default(false);

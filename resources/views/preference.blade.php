@@ -86,6 +86,40 @@
 
 
 
+
+            }
+
+        function religion() {
+
+            if (document.getElementById("hinduism").checked) {
+                document.getElementById('hinduismHidden').disabled = true;
+            } else {
+                document.getElementById('hinduismHidden').disabled = false;
+            }
+
+            if (document.getElementById("chirstian").checked) {
+                document.getElementById('chirstianHidden').disabled = true;
+            } else {
+                document.getElementById('chirstianHidden').disabled = false;
+            }
+
+            if (document.getElementById("judaism").checked) {
+                document.getElementById('judaismHidden').disabled = true;
+            } else {
+                document.getElementById('judaismHidden').disabled = false;
+            }
+
+            if (document.getElementById("buddhism").checked) {
+                document.getElementById('buddhismHidden').disabled = true;
+            } else {
+                document.getElementById('buddhismHidden').disabled = false;
+            }
+
+            if (document.getElementById("atheist").checked) {
+                document.getElementById('atheistHidden').disabled = true;
+            } else {
+                document.getElementById('atheistHidden').disabled = false;
+            }
         }
 
 
@@ -226,6 +260,11 @@
             $ethnMixedrace = DB::table('preferences')->select('mixed')->where('id', '=', 1)->value('mixed');
 //            $ethnOther = DB::table('preferences')->select('other')->where('id', '=', 1)->value('other');
 
+            $ethnHinduism = DB::table('preferences')->select('hinduism')->where('id', '=', 1)->value('hinduism');
+            $ethnChirstian = DB::table('preferences')->select('chirstian')->where('id', '=', 1)->value('chirstian');
+            $ethnJudaism  = DB::table('preferences')->select('judaism')->where('id', '=', 1)->value('judaism');
+            $ethnBuddhism  = DB::table('preferences')->select('buddhism')->where('id', '=', 1)->value('buddhism');
+            $atheistAtheist = DB::table('preferences')->select('atheist')->where('id', '=', 1)->value('atheist');
 
 
 
@@ -311,18 +350,7 @@
                     <label for="name" class="col-md-3 control-label">Ethnicity/Background</label>
 
                     <div class="col-md-3">
-                        {{--<select  class="form-control" name="Ethnicity">--}}
-                            {{--<option value="caucasian" {{  $ethnicity  === 'caucasian' ? 'selected' : '' }}>White/Caucasian</option>--}}
-                            {{--<option value="hispanic" {{ $ethnicity === 'hispanic' ? 'selected' : '' }}>Hispanic/Latino</option>--}}
-                            {{--<option value="black" {{ $ethnicity  === 'black' ? 'selected' : '' }}>Black/African</option>--}}
-                            {{--<option value="middleeast" {{ $ethnicity === 'middleeast' ? 'selected' : '' }}>Middle Eastern</option>--}}
-                            {{--<option value="asian" {{ $ethnicity === 'asian' ? 'selected' : '' }}>Asian</option>--}}
-                            {{--<option value="indian" {{ $ethnicity === 'indian' ? 'selected' : '' }}>Indian</option>--}}
-                            {{--<option value="aboriginal" {{ $ethnicity === 'aboriginal' ? 'selected' : '' }}>Aboriginal</option>--}}
-                            {{--<option value="islander" {{ $ethnicity === 'islander' ? 'selected' : '' }}>Other Islander</option>--}}
-                            {{--<option value="mixedrace" {{ $ethnicity === 'mixedrace' ? 'selected' : '' }}>Mixed Race</option>--}}
-                            {{--<option value="other" {{ $ethnicity === 'other' ? 'selected' : '' }}>Other</option>--}}
-                        {{--</select>--}}
+
 
                         <div class="checkbox">
                             <label><input type="checkbox" id='caucasian' name="caucasian" value="1" onchange="ethnicity()" {{ $ethnCaucasian === 1 ? 'checked' : '' }}>White/Caucasian</label>
@@ -386,12 +414,59 @@
 
 
 
+                <!-- religion  -->
+
+
+                <div class="form-group{{ $errors->has('religion') ? ' has-error' : '' }}">
+                    <label for="name" class="col-md-3 control-label">Religion</label>
+
+                    <div class="col-md-3">
+
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="hinduism" name="hinduism" value="1" onchange="religion()" {{ $ethnHinduism === 1 ? 'checked' : '' }}>Hinduism</label>
+                            <input id='hinduismHidden' type='hidden' value='0' name='hinduism'>
+
+
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="chirstian" name="chirstian" value="1" onchange="religion()" {{ $ethnChirstian === 1 ? 'checked' : '' }}>Chirstian</label>
+                            <input id='chirstianHidden' type='hidden' value='0' name='chirstian'>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="judaism" name="judaism" value="1" onchange="religion()" {{ $ethnJudaism === 1 ? 'checked' : '' }}>Judaism</label>
+                            <input id='judaismHidden' type='hidden' value='0' name='judaism'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="buddhism" name="buddhism" value="1" onchange="religion()" {{ $ethnBuddhism === 1 ? 'checked' : '' }}>Buddhism</label>
+                            <input id='buddhismHidden' type='hidden' value='0' name='buddhism'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="atheist" name="atheist" value="1" onchange="religion()" {{ $atheistAtheist === 1 ? 'checked' : '' }}>Atheist</label>
+                            <input id='atheistHidden' type='hidden' value='0' name='atheist'>
+                        </div>
 
 
 
 
 
-                
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
