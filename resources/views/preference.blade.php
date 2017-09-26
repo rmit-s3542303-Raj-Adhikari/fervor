@@ -126,60 +126,7 @@
 
 
 
-        function language() {
 
-
-            if (document.getElementById("english").checked) {
-                document.getElementById('englishHidden').disabled = true;
-            } else {
-                document.getElementById('englishHidden').disabled = false;
-            }
-
-            if (document.getElementById("french").checked) {
-                document.getElementById('frenchHidden').disabled = true;
-            } else {
-                document.getElementById('frenchHidden').disabled = false;
-            }
-
-            if (document.getElementById("spanish").checked) {
-                document.getElementById('spanishHidden').disabled = true;
-            } else {
-                document.getElementById('spanishHidden').disabled = false;
-            }
-
-            if (document.getElementById("chinese").checked) {
-                document.getElementById('chineseHidden').disabled = true;
-            } else {
-                document.getElementById('chineseHidden').disabled = false;
-            }
-
-
-            if (document.getElementById("hindi").checked) {
-                document.getElementById('hindiHidden').disabled = true;
-            } else {
-                document.getElementById('hindiHidden').disabled = false;
-            }
-
-            if (document.getElementById("arabic").checked) {
-                document.getElementById('arabicHidden').disabled = true;
-            } else {
-                document.getElementById('arabicHidden').disabled = false;
-            }
-
-            if (document.getElementById("persian").checked) {
-                document.getElementById('persianHidden').disabled = true;
-            } else {
-                document.getElementById('persianHidden').disabled = false;
-            }
-
-            if (document.getElementById("urdu").checked) {
-                document.getElementById('urduHidden').disabled = true;
-            } else {
-                document.getElementById('urduHidden').disabled = false;
-            }
-
-
-        }
 
 
 
@@ -428,14 +375,7 @@
 
 
 
-            $ethnEnglish = DB::table('preferences')->select('english')->where('id', '=', 1)->value('english');
-            $ethnFrench  = DB::table('preferences')->select('french')->where('id', '=', 1)->value('french');
-            $ethnSpanish = DB::table('preferences')->select('spanish')->where('id', '=', 1)->value('spanish');
-            $ethnChinese = DB::table('preferences')->select('chinese')->where('id', '=', 1)->value('chinese');
-            $atheistHindi= DB::table('preferences')->select('hindi')->where('id', '=', 1)->value('hindi');
-            $atheistArabic = DB::table('preferences')->select('arabic')->where('id', '=', 1)->value('arabic');
-            $atheistPersian = DB::table('preferences')->select('persian')->where('id', '=', 1)->value('persian');
-            $atheistUrdu = DB::table('preferences')->select('urdu')->where('id', '=', 1)->value('urdu');
+
 
 
 
@@ -657,64 +597,7 @@
 
 
 
-                <!-- language  -->
 
-
-
-                <div class="form-group{{ $errors->has('language') ? ' has-error' : '' }}">
-                    <label for="name" class="col-md-3 control-label">Languages</label>
-
-                    <div class="col-md-3">
-
-
-
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="english" name="english" value="1" onchange="language()" {{ $ethnEnglish === 1 ? 'checked' : '' }}>English</label>
-                            <input id='englishHidden' type='hidden' value='0' name='english'>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="french" name="french" value="1" onchange="language()" {{ $ethnFrench === 1 ? 'checked' : '' }}>French</label>
-                            <input id='frenchHidden' type='hidden' value='0' name='french'>
-                        </div>
-
-
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="spanish" name="spanish" value="1" onchange="language()" {{ $ethnSpanish === 1 ? 'checked' : '' }}>Spanish</label>
-                            <input id='spanishHidden' type='hidden' value='0' name='spanish'>
-                        </div>
-
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="chinese" name="chinese" value="1" onchange="language()" {{ $ethnChinese === 1 ? 'checked' : '' }}>Chinese</label>
-                            <input id='chineseHidden' type='hidden' value='0' name='chinese'>
-                        </div>
-
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="hindi" name="hindi" value="1" onchange="language()" {{ $atheistHindi === 1 ? 'checked' : '' }}>Hindi</label>
-                            <input id='hindiHidden' type='hidden' value='0' name='hindi'>
-                        </div>
-
-                        <div class="checkbox">
-                        <label><input type="checkbox" id="arabic" name="arabic" value="1" onchange="language()" {{ $atheistArabic === 1 ? 'checked' : '' }}>Arabic</label>
-                        <input id='arabicHidden' type='hidden' value='0' name='arabic'>
-                        </div>
-
-
-                    <div class="checkbox">
-                    <label><input type="checkbox" id="persian" name="persian" value="1" onchange="language()" {{ $atheistPersian === 1 ? 'checked' : '' }}>Persian</label>
-                    <input id='persianHidden' type='hidden' value='0' name='persian'>
-                    </div>
-
-                    <div class="checkbox">
-                    <label><input type="checkbox" id="urdu" name="urdu" value="1" onchange="language()" {{ $atheistUrdu === 1 ? 'checked' : '' }}>Urdu</label>
-                    <input id='urduHidden' type='hidden' value='0' name='urdu'>
-                    </div>
-
-
-
-
-
-                    </div>
-                </div>
 
 
 
