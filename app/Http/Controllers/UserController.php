@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
 use Image;
+<<<<<<< HEAD
 use App\User;
 
 class UserController extends Controller
@@ -16,15 +17,22 @@ class UserController extends Controller
      *
      * @var array
      */
+=======
+
+class UserController extends Controller
+{
+    //
     public function profile(){
     	return view('profile', array('user' => Auth::user()) );
     }
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     public function update_avatar(Request $request){
 
     	// Handle the user upload of avatar
@@ -41,6 +49,7 @@ class UserController extends Controller
     	return view('profile', array('user' => Auth::user()) );
 
     }
+
      /**
      * Returns all users
      *
@@ -78,4 +87,5 @@ class UserController extends Controller
         $user = User::where('email', $req->input('email'))->get();
         return view();
     }
+
 }

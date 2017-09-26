@@ -29,6 +29,7 @@ Route::get('matches', function () {
 
 Auth::routes();
 
+
 //For the Uploading the User Profile
 Route::get('profile', 'profileController@profile');
 Route::post('profile', 'profileController@update_avatar');
@@ -58,6 +59,7 @@ Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkReques
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('home', 'HomeController@home');
+
 
 
 Route::post('/addProfile', 'profileController@addProfile');

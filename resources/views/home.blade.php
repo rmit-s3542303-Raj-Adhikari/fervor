@@ -57,6 +57,7 @@
                         <h1>Check Back in a bit</h>
                         <h2>No current updates available</h2>
                         <p> Welcome To the dashboard. Here you can view your potential matches as well as other users of the website.</p>
+
                     </div>
         
                 </div>

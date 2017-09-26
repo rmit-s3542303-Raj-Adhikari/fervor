@@ -26,7 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('preference');
             $table->boolean('admin')->default(false);
             $table->boolean('firstLogin')->default(true);
+<<<<<<< HEAD
             $table->string('avatar')->default('default.jpg');
+=======
+             $table->string('avatar')->default('default.jpg');
+>>>>>>> 383e07f2b6f610b01b74f081cb2d658ced4c6250
             $table->rememberToken();
             $table->boolean('flagged')->default(0);
         });
