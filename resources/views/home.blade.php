@@ -51,12 +51,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome {{ Auth::user()['firstname'] }}</div>
-
-
+                    <div class="panel-heading">Welcome back {{ Auth::user()['firstname'] }} !</div>
+                    <img src="/img/avatar/{{Auth::user()->avatar }}" style="width:120px; height:120px; float:left; border-radius:50%; margin-right:25px;"> 
                     <div class="panel-body">
-                        You are logged in!
+                        <h1>Check Back in a bit</h>
+                        <h2>No current updates available</h2>
+                        <p> Welcome To the dashboard. Here you can view your potential matches as well as other users of the website.</p>
                     </div>
+        
                 </div>
             </div>
         </div>

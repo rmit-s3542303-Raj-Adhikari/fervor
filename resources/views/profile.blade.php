@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -22,9 +23,6 @@
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-
-
-
 
 </head>
 <body>
@@ -85,35 +83,7 @@
         </div>
     </nav>
 
-
-
 </div>
-
-
-
-
-
-
-
-    <div class="container">
-        <h1>Edit Profile</h1>
-        <hr>
-        <div class="row">
-            <!-- left column -->
-            <div class="col-md-3">
-                <div class="text-center">
-                    <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                    <h6>Upload a different photo...</h6>
-
-                    <input type="file" class="form-control">
-                </div>
-            </div>
-
-
-
-
-
-
 
 
 
@@ -137,10 +107,24 @@
                 @endif
 
                 <h3>Personal info</h3>
-
-
-
-
+                
+                
+<!-- Uploading User Profile Picture to the website. User can choose a photo then upload it to the server via Upload Button-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!-- Getting the specified user image file and displaying it. Default value is default.jpg-->
+            <img src="/img/avatar/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <form enctype="multipart/form-data" action="/profile" method="POST">
+                <label>Update Profile Image</label>
+                <input type="file" name="avatar">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
 
 
                 <form class="form-horizontal" method="POST" action="{{ url('/updateUserTable') }}">
@@ -305,19 +289,19 @@
                     $height = DB::table('profiles')->select('height')->where('user_id', '=', Auth::user()->id)->value('height');
 
 
-                    $hobbies = DB::table('profiles')->select('hobbies1')->where('user_id', '=', Auth::user()->id)->value('hobbies');
+                    $hobbies = DB::table('profiles')->select('hobbies')->where('user_id', '=', Auth::user()->id)->value('hobbies');
                     $hobbies2 = DB::table('profiles')->select('hobbies2')->where('user_id', '=', Auth::user()->id)->value('hobbies2');
                     $hobbies3 = DB::table('profiles')->select('hobbies3')->where('user_id', '=', Auth::user()->id)->value('hobbies3');
                     $hobbies4 = DB::table('profiles')->select('hobbies4')->where('user_id', '=', Auth::user()->id)->value('hobbies4');
                     $hobbies5 = DB::table('profiles')->select('hobbies5')->where('user_id', '=', Auth::user()->id)->value('hobbies5');
 
-                    $interest = DB::table('profiles')->select('interest1')->where('user_id', '=', Auth::user()->id)->value('interest');
+                    $interest = DB::table('profiles')->select('interest')->where('user_id', '=', Auth::user()->id)->value('interest');
                     $interest2 = DB::table('profiles')->select('interest2')->where('user_id', '=', Auth::user()->id)->value('interest2');
                     $interest3 = DB::table('profiles')->select('interest3')->where('user_id', '=', Auth::user()->id)->value('interest3');
                     $interest4 = DB::table('profiles')->select('interest4')->where('user_id', '=', Auth::user()->id)->value('interest4');
                     $interest5 = DB::table('profiles')->select('interest5')->where('user_id', '=', Auth::user()->id)->value('interest5');
 
-                    $language = DB::table('profiles')->select('language1')->where('user_id', '=', Auth::user()->id)->value('language');
+                    $language = DB::table('profiles')->select('language')->where('user_id', '=', Auth::user()->id)->value('language');
                     $language2 = DB::table('profiles')->select('language2')->where('user_id', '=', Auth::user()->id)->value('language2');
                     $language3 = DB::table('profiles')->select('language3')->where('user_id', '=', Auth::user()->id)->value('language3');
                     $language4 = DB::table('profiles')->select('language4')->where('user_id', '=', Auth::user()->id)->value('language4');
@@ -328,11 +312,6 @@
 
 
                     ?>
-
-
-
-
-
 
                     <!-- About me input -->
 
@@ -496,7 +475,7 @@
                             <select  class="form-control" name="religion">
                                 <option value="islam" {{  $religion  === 'islam' ? 'selected' : '' }}>Islam</option>
                                 <option value="hinduism" {{ $religion === 'hinduism' ? 'selected' : '' }}>Hinduism</option>
-                                <option value="'christian'" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
+                                <option value="christian" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
                                 <option value="judaism" {{ $religion === 'judaism' ? 'selected' : '' }}>Judaism</option>
                                 <option value="buddhism" {{ $religion === 'buddhism' ? 'selected' : '' }}>Buddhism</option>
                                 <option value="atheist" {{ $religion === 'atheist' ? 'selected' : '' }}>atheist</option>
@@ -518,10 +497,10 @@
 
                         <div class="col-md-3">
                             <select  class="form-control" name="Ethnicity">
-                                <option value="caucasian" {{  $ethnicity  === 'caucasian' ? 'selected' : '' }}>White/Caucasian</option>
-                                <option value="hispanic" {{ $ethnicity === 'hispanic' ? 'selected' : '' }}>Hispanic/Latino</option>
-                                <option value="black" {{ $ethnicity  === 'black' ? 'selected' : '' }}>Black/African</option>
-                                <option value="middleeast" {{ $ethnicity === 'middleeast' ? 'selected' : '' }}>Middle Eastern</option>
+                                <option value="white/caucasian" {{  $ethnicity  === 'white/caucasian' ? 'selected' : '' }}>White/Caucasian</option>
+                                <option value="hispanic/latino" {{ $ethnicity === 'hispanic/latino' ? 'selected' : '' }}>Hispanic/Latino</option>
+                                <option value="black/african" {{ $ethnicity  === 'black/african' ? 'selected' : '' }}>Black/African</option>
+                                <option value="middleeastern" {{ $ethnicity === 'middleeastern' ? 'selected' : '' }}>Middle Eastern</option>
                                 <option value="asian" {{ $ethnicity === 'asian' ? 'selected' : '' }}>Asian</option>
                                 <option value="indian" {{ $ethnicity === 'indian' ? 'selected' : '' }}>Indian</option>
                                 <option value="aboriginal" {{ $ethnicity === 'aboriginal' ? 'selected' : '' }}>Aboriginal</option>
@@ -592,7 +571,7 @@
                         <!-- Hobbies 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="hobbies1" >
+                            <select class="form-control" name="hobbies" >
 
                                 <option value="hiking" {{ $hobbies === 'hiking' ? 'selected' : '' }}>Hiking</option>
                                 <option value="dancing" {{ $hobbies === 'dancing' ? 'selected' : '' }}>Dancing</option>
@@ -740,7 +719,7 @@
                         <!-- interest 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="interest1" >
+                            <select class="form-control" name="interest" >
 
                                 <option value="tech" {{ $interest === 'tech' ? 'selected' : '' }}>Tech</option>
                                 <option value="science" {{ $interest === 'science' ? 'selected' : '' }}>Science</option>
@@ -899,12 +878,12 @@
                         <!-- language -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="language1" >
+                            <select class="form-control" name="language" >
 
                                 <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                                 <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
                                 <option value="spanish" {{ $language === 'spanish' ? 'selected' : '' }}>Spanish</option>
-                                <option value="chinese" {{ $language === 'chinese' ? 'selected' : '' }}>Chinese</option>
+                                <option value="chinease" {{ $language === 'chinease' ? 'selected' : '' }}>Chinease</option>
                                 <option value="hindi" {{ $language === 'hindi' ? 'selected' : '' }}>Hindi</option>
                                 <option value="arabic" {{ $language === 'arabic' ? 'selected' : '' }}>Arabic</option>
                                 <option value="urdu" {{ $language === 'urdu' ? 'selected' : '' }}>Urdu</option>
@@ -1161,4 +1140,29 @@
 
 
 </hmtl>
+
+                case "October":
+                case "December":
+                    DaySelectOptions[29].disabled = false;
+                    DaySelectOptions[30].disabled = false;
+            }
+        }
+
+
+
+
+
+
+    </script>
+<script src="{{ asset('js/app.js') }}"></script>
+
+
+
+
+</hmtl>
+
+
+        </div>
+    </div>
+</div>
 

@@ -32,14 +32,26 @@ Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
 
-
-
+//For the Uploading the User Profile
+Route::get('profile', 'profileController@profile');
+Route::post('profile', 'profileController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Verifying the Emails
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
+//Route to show all user
+Route::get('ShowAllUsers','UserController@showusers');
+
+Route::get('finduser', function()
+{
+    return View::make('finduser');
+});
+
+//Route for finding all users
+Route::post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
 
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
@@ -48,6 +60,7 @@ Route::post('admin-password/email','Admin\ForgotPasswordController@sendResetLink
 Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+Route::post('home', 'HomeController@home');
 
 
 Route::post('/addProfile', 'profileController@addProfile');
