@@ -352,24 +352,24 @@
 
 
 
-            $ethnHiking  = DB::table('preferences')->select('hiking')->where('id', '=', 1)->value('hiking');
-            $ethnDancing=  DB::table('preferences')->select('dancing')->where('id', '=', 1)->value('dancing');
-            $ethnShopping= DB::table('preferences')->select('shopping')->where('id', '=', 1)->value('shopping');
-            $ethnCamping=  DB::table('preferences')->select('camping')->where('id', '=', 1)->value('camping');
-            $ethnVideogaming= DB::table('preferences')->select('videogaming')->where('id', '=', 1)->value('videogaming');
-            $ethnWriting=    DB::table('preferences')->select('writing')->where('id', '=', 1)->value('writing');
-            $ethnHunting=    DB::table('preferences')->select('hunting')->where('id', '=', 1)->value('hunting');
+            $ethnHiking  = DB::table('preferences')->select('hiking')->where('id', '=', Auth::user()->id)->value('hiking');
+            $ethnDancing=  DB::table('preferences')->select('dancing')->where('id', '=', Auth::user()->id)->value('dancing');
+            $ethnShopping= DB::table('preferences')->select('shopping')->where('id', '=', Auth::user()->id)->value('shopping');
+            $ethnCamping=  DB::table('preferences')->select('camping')->where('id', '=', Auth::user()->id)->value('camping');
+            $ethnVideogaming= DB::table('preferences')->select('videogaming')->where('id', '=', Auth::user()->id)->value('videogaming');
+            $ethnWriting=    DB::table('preferences')->select('writing')->where('id', '=', Auth::user()->id)->value('writing');
+            $ethnHunting=    DB::table('preferences')->select('hunting')->where('id', '=', Auth::user()->id)->value('hunting');
 
 
 
 
-            $ethnTech       = DB::table('preferences')->select('tech')->where('id', '=', 1)->value('tech');
-            $ethnScience    = DB::table('preferences')->select('science')->where('id', '=', 1)->value('science');
-            $ethnArt        = DB::table('preferences')->select('art')->where('id', '=', 1)->value('art');
-            $ethnHistory    = DB::table('preferences')->select('history')->where('id', '=', 1)->value('history');
-            $ethnSports     = DB::table('preferences')->select('sports')->where('id', '=', 1)->value('sports');
-            $ethnLiterature = DB::table('preferences')->select('literature')->where('id', '=', 1)->value('literature');
-            $ethnTraveling  = DB::table('preferences')->select('traveling')->where('id', '=', 1)->value('traveling');
+            $ethnTech       = DB::table('preferences')->select('tech')->where('id', '=', Auth::user()->id)->value('tech');
+            $ethnScience    = DB::table('preferences')->select('science')->where('id', '=', Auth::user()->id)->value('science');
+            $ethnArt        = DB::table('preferences')->select('art')->where('id', '=', Auth::user()->id)->value('art');
+            $ethnHistory    = DB::table('preferences')->select('history')->where('id', '=', Auth::user()->id)->value('history');
+            $ethnSports     = DB::table('preferences')->select('sports')->where('id', '=', Auth::user()->id)->value('sports');
+            $ethnLiterature = DB::table('preferences')->select('literature')->where('id', '=', Auth::user()->id)->value('literature');
+            $ethnTraveling  = DB::table('preferences')->select('traveling')->where('id', '=', Auth::user()->id)->value('traveling');
 
 
 
@@ -383,46 +383,29 @@
 
             $religion = DB::table('profiles')->select('religion')->where('user_id', '=', Auth::user()->id)->value('religion');
 
-            $ethnCaucasian = DB::table('preferences')->select('caucasian')->where('id', '=', 1)->value('caucasian');
-            $ethnHispanic = DB::table('preferences')->select('hispanic')->where('id', '=', 1)->value('hispanic');
-            $ethnBlack = DB::table('preferences')->select('black')->where('id', '=', 1)->value('black');
+            $ethnCaucasian = DB::table('preferences')->select('caucasian')->where('id', '=', Auth::user()->id)->value('caucasian');
+            $ethnHispanic = DB::table('preferences')->select('hispanic')->where('id', '=', Auth::user()->id)->value('hispanic');
+            $ethnBlack = DB::table('preferences')->select('black')->where('id', '=', Auth::user()->id)->value('black');
 
-            $ethnMiddleeastern = DB::table('preferences')->select('middleeast')->where('id', '=', 1)->value('middleeast');
-            $ethnAsian = DB::table('preferences')->select('asian')->where('id', '=', 1)->value('asian');
-            $ethnIndian = DB::table('preferences')->select('indian')->where('id', '=', 1)->value('indian');
-            $ethnAboriginal = DB::table('preferences')->select('aboriginal')->where('id', '=', 1)->value('aboriginal');
-            $ethnIslander = DB::table('preferences')->select('islander')->where('id', '=', 1)->value('islander');
-            $ethnMixedrace = DB::table('preferences')->select('mixed')->where('id', '=', 1)->value('mixed');
-//            $ethnOther = DB::table('preferences')->select('other')->where('id', '=', 1)->value('other');
+            $ethnMiddleeastern = DB::table('preferences')->select('middleeast')->where('id', '=', Auth::user()->id)->value('middleeast');
+            $ethnAsian = DB::table('preferences')->select('asian')->where('id', '=', Auth::user()->id)->value('asian');
+            $ethnIndian = DB::table('preferences')->select('indian')->where('id', '=', Auth::user()->id)->value('indian');
+            $ethnAboriginal = DB::table('preferences')->select('aboriginal')->where('id', '=', Auth::user()->id)->value('aboriginal');
+            $ethnIslander = DB::table('preferences')->select('islander')->where('id', '=', Auth::user()->id)->value('islander');
+            $ethnMixedrace = DB::table('preferences')->select('mixed')->where('id', '=', Auth::user()->id)->value('mixed');
+//            $ethnOther = DB::table('preferences')->select('other')->where('id', '=', Auth::user()->id)->value('other');
 
-            $ethnHinduism = DB::table('preferences')->select('hinduism')->where('id', '=', 1)->value('hinduism');
-            $ethnChirstian = DB::table('preferences')->select('chirstian')->where('id', '=', 1)->value('chirstian');
-            $ethnJudaism  = DB::table('preferences')->select('judaism')->where('id', '=', 1)->value('judaism');
-            $ethnBuddhism  = DB::table('preferences')->select('buddhism')->where('id', '=', 1)->value('buddhism');
-            $atheistAtheist = DB::table('preferences')->select('atheist')->where('id', '=', 1)->value('atheist');
-
-
+            $ethnHinduism = DB::table('preferences')->select('hinduism')->where('id', '=', Auth::user()->id)->value('hinduism');
+            $ethnChirstian = DB::table('preferences')->select('chirstian')->where('id', '=', Auth::user()->id)->value('chirstian');
+            $ethnJudaism  = DB::table('preferences')->select('judaism')->where('id', '=', Auth::user()->id)->value('judaism');
+            $ethnBuddhism  = DB::table('preferences')->select('buddhism')->where('id', '=', Auth::user()->id)->value('buddhism');
+            $atheistAtheist = DB::table('preferences')->select('atheist')->where('id', '=', Auth::user()->id)->value('atheist');
 
 
 
-            $hobbies = DB::table('profiles')->select('hobbies1')->where('user_id', '=', Auth::user()->id)->value('hobbies');
-            $hobbies2 = DB::table('profiles')->select('hobbies2')->where('user_id', '=', Auth::user()->id)->value('hobbies2');
-            $hobbies3 = DB::table('profiles')->select('hobbies3')->where('user_id', '=', Auth::user()->id)->value('hobbies3');
-            $hobbies4 = DB::table('profiles')->select('hobbies4')->where('user_id', '=', Auth::user()->id)->value('hobbies4');
-            $hobbies5 = DB::table('profiles')->select('hobbies5')->where('user_id', '=', Auth::user()->id)->value('hobbies5');
 
-            $interest = DB::table('profiles')->select('interest1')->where('user_id', '=', Auth::user()->id)->value('interest');
-            $interest2 = DB::table('profiles')->select('interest2')->where('user_id', '=', Auth::user()->id)->value('interest2');
-            $interest3 = DB::table('profiles')->select('interest3')->where('user_id', '=', Auth::user()->id)->value('interest3');
-            $interest4 = DB::table('profiles')->select('interest4')->where('user_id', '=', Auth::user()->id)->value('interest4');
-            $interest5 = DB::table('profiles')->select('interest5')->where('user_id', '=', Auth::user()->id)->value('interest5');
 
-            $language = DB::table('profiles')->select('language1')->where('user_id', '=', Auth::user()->id)->value('language');
-            $language2 = DB::table('profiles')->select('language2')->where('user_id', '=', Auth::user()->id)->value('language2');
-            $language3 = DB::table('profiles')->select('language3')->where('user_id', '=', Auth::user()->id)->value('language3');
-            $language4 = DB::table('profiles')->select('language4')->where('user_id', '=', Auth::user()->id)->value('language4');
-            $language5 = DB::table('profiles')->select('language5')->where('user_id', '=', Auth::user()->id)->value('language5');
-
+           
 
             $smoking = DB::table('preferences')->select('smoking')->where('id', '=', 1)->value('smoking');
 
