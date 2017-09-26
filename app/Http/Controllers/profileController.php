@@ -43,19 +43,19 @@ class profileController extends Controller
             $profile->height = Input::get('height');
 
 
-            $profile->hobbies1 = Input::get('hobbies1');
+            $profile->hobbies = Input::get('hobbies');
             $profile->hobbies2 = Input::get('hobbies2');
             $profile->hobbies3 = Input::get('hobbies3');
             $profile->hobbies4 = Input::get('hobbies4');
             $profile->hobbies5 = Input::get('hobbies5');
 
-            $profile->interest1 = Input::get('interest1');
+            $profile->interest = Input::get('interest');
             $profile->interest2 = Input::get('interest2');
             $profile->interest3 = Input::get('interest3');
             $profile->interest4 = Input::get('interest4');
             $profile->interest5 = Input::get('interest5');
 
-            $profile->language1 = Input::get('language1');
+            $profile->language = Input::get('language');
             $profile->language2 = Input::get('language2');
             $profile->language3 = Input::get('language3');
             $profile->language4 = Input::get('language4');
@@ -216,9 +216,6 @@ class profileController extends Controller
 
 
     }
-
-
-
 
     protected function validator(array $data)
     {

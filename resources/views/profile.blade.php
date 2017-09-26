@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -289,19 +288,19 @@
                     $height = DB::table('profiles')->select('height')->where('user_id', '=', Auth::user()->id)->value('height');
 
 
-                    $hobbies = DB::table('profiles')->select('hobbies')->where('user_id', '=', Auth::user()->id)->value('hobbies');
+                    $hobbies = DB::table('profiles')->select('hobbies1')->where('user_id', '=', Auth::user()->id)->value('hobbies1');
                     $hobbies2 = DB::table('profiles')->select('hobbies2')->where('user_id', '=', Auth::user()->id)->value('hobbies2');
                     $hobbies3 = DB::table('profiles')->select('hobbies3')->where('user_id', '=', Auth::user()->id)->value('hobbies3');
                     $hobbies4 = DB::table('profiles')->select('hobbies4')->where('user_id', '=', Auth::user()->id)->value('hobbies4');
                     $hobbies5 = DB::table('profiles')->select('hobbies5')->where('user_id', '=', Auth::user()->id)->value('hobbies5');
 
-                    $interest = DB::table('profiles')->select('interest')->where('user_id', '=', Auth::user()->id)->value('interest');
+                    $interest = DB::table('profiles')->select('interest1')->where('user_id', '=', Auth::user()->id)->value('interest');
                     $interest2 = DB::table('profiles')->select('interest2')->where('user_id', '=', Auth::user()->id)->value('interest2');
                     $interest3 = DB::table('profiles')->select('interest3')->where('user_id', '=', Auth::user()->id)->value('interest3');
                     $interest4 = DB::table('profiles')->select('interest4')->where('user_id', '=', Auth::user()->id)->value('interest4');
                     $interest5 = DB::table('profiles')->select('interest5')->where('user_id', '=', Auth::user()->id)->value('interest5');
 
-                    $language = DB::table('profiles')->select('language')->where('user_id', '=', Auth::user()->id)->value('language');
+                    $language = DB::table('profiles')->select('language1')->where('user_id', '=', Auth::user()->id)->value('language');
                     $language2 = DB::table('profiles')->select('language2')->where('user_id', '=', Auth::user()->id)->value('language2');
                     $language3 = DB::table('profiles')->select('language3')->where('user_id', '=', Auth::user()->id)->value('language3');
                     $language4 = DB::table('profiles')->select('language4')->where('user_id', '=', Auth::user()->id)->value('language4');
@@ -571,7 +570,7 @@
                         <!-- Hobbies 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="hobbies" >
+                            <select class="form-control" name="hobbies1" >
 
                                 <option value="hiking" {{ $hobbies === 'hiking' ? 'selected' : '' }}>Hiking</option>
                                 <option value="dancing" {{ $hobbies === 'dancing' ? 'selected' : '' }}>Dancing</option>
@@ -719,7 +718,7 @@
                         <!-- interest 1 -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="interest" >
+                            <select class="form-control" name="interest1" >
 
                                 <option value="tech" {{ $interest === 'tech' ? 'selected' : '' }}>Tech</option>
                                 <option value="science" {{ $interest === 'science' ? 'selected' : '' }}>Science</option>
@@ -730,9 +729,9 @@
                                 <option value="traveling" {{ $interest === 'traveling' ? 'selected' : '' }}>Traveling</option>
                             </select>
 
-                            @if ($errors->has('interest'))
+                            @if ($errors->has('interest1'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('interest') }}</strong>
+                                        <strong>{{ $errors->first('interest1') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -878,7 +877,7 @@
                         <!-- language -->
                         <div class="col-md-3">
 
-                            <select class="form-control" name="language" >
+                            <select class="form-control" name="language1" >
 
                                 <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                                 <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
@@ -889,9 +888,9 @@
                                 <option value="urdu" {{ $language === 'urdu' ? 'selected' : '' }}>Urdu</option>
                             </select>
 
-                            @if ($errors->has('language'))
+                            @if ($errors->has('language1'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('language') }}</strong>
+                                        <strong>{{ $errors->first('language1') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -1136,33 +1135,5 @@
     </script>
 <script src="{{ asset('js/app.js') }}"></script>
 
-
-
-
-</hmtl>
-
-                case "October":
-                case "December":
-                    DaySelectOptions[29].disabled = false;
-                    DaySelectOptions[30].disabled = false;
-            }
-        }
-
-
-
-
-
-
-    </script>
-<script src="{{ asset('js/app.js') }}"></script>
-
-
-
-
-</hmtl>
-
-
-        </div>
-    </div>
-</div>
+</html>
 

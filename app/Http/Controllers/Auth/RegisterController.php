@@ -114,7 +114,7 @@ class RegisterController extends Controller
         ]);
 
 
-        $this->sendEmail($thisUser);
+        // $this->sendEmail($thisUser);
         
         return $user;
 

@@ -30,6 +30,7 @@ class CreateBannedTable extends Migration
             $table->boolean('firstLogin')->default(true);
             $table->string('avatar')->default('default.jpg');
             $table->rememberToken();
+            $table->timestamps();
      });
    
     }
