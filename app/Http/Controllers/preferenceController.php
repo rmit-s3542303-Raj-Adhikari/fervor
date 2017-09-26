@@ -86,6 +86,13 @@ class preferenceController extends Controller
 
 
 
+            $ethnHiking   = $request->get('hiking');
+            $ethnDancing  = $request->get('dancing');
+            $ethnShopping = $request->get('shopping');
+            $ethnCamping  = $request->get('camping');
+            $ethnVideogaming = $request->get('videogaming');
+            $ethnWriting     = $request->get('writing');
+            $ethnHunting     = $request->get('hunting');
 
 
 
@@ -151,6 +158,13 @@ class preferenceController extends Controller
             'sports'     =>  $ethnSports,
             'literature' =>  $ethnLiterature,
             'traveling'  =>  $ethnTraveling,
+                'hiking'       => $ethnHiking,
+                'dancing'      => $ethnDancing,
+                'shopping'     => $ethnShopping,
+                'camping'      => $ethnCamping,
+                'videogaming'  =>  $ethnVideogaming,
+                'writing'      =>  $ethnWriting,
+                'hunting'      =>  $ethnHunting,
 
 
 
