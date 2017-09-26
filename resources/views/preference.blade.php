@@ -183,6 +183,58 @@
 
 
 
+        function interest(){
+
+
+
+            if (document.getElementById("tech").checked) {
+                document.getElementById('techHidden').disabled = true;
+            } else {
+                document.getElementById('techHidden').disabled = false;
+            }
+
+            if (document.getElementById("science").checked) {
+                document.getElementById('scienceHidden').disabled = true;
+            } else {
+                document.getElementById('scienceHidden').disabled = false;
+            }
+
+            if (document.getElementById("art").checked) {
+                document.getElementById('artHidden').disabled = true;
+            } else {
+                document.getElementById('artHidden').disabled = false;
+            }
+
+            if (document.getElementById("history").checked) {
+                document.getElementById('historyHidden').disabled = true;
+            } else {
+                document.getElementById('historyHidden').disabled = false;
+            }
+
+
+            if (document.getElementById("sports").checked) {
+                document.getElementById('sportsHidden').disabled = true;
+            } else {
+                document.getElementById('sportsHidden').disabled = false;
+            }
+
+            if (document.getElementById("literature").checked) {
+                document.getElementById('literatureHidden').disabled = true;
+            } else {
+                document.getElementById('literatureHidden').disabled = false;
+            }
+
+            if (document.getElementById("traveling").checked) {
+                document.getElementById('travelingHidden').disabled = true;
+            } else {
+                document.getElementById('travelingHidden').disabled = false;
+            }
+
+
+
+
+        }
+
     </script>
 
 </head>
@@ -295,6 +347,16 @@
 
             <?php
 
+
+
+
+            $ethnTech       = DB::table('preferences')->select('tech')->where('id', '=', 1)->value('tech');
+            $ethnScience    = DB::table('preferences')->select('science')->where('id', '=', 1)->value('science');
+            $ethnArt        = DB::table('preferences')->select('art')->where('id', '=', 1)->value('art');
+            $ethnHistory    = DB::table('preferences')->select('history')->where('id', '=', 1)->value('history');
+            $ethnSports     = DB::table('preferences')->select('sports')->where('id', '=', 1)->value('sports');
+            $ethnLiterature = DB::table('preferences')->select('literature')->where('id', '=', 1)->value('literature');
+            $ethnTraveling  = DB::table('preferences')->select('traveling')->where('id', '=', 1)->value('traveling');
 
 
 
@@ -590,6 +652,58 @@
 
 
 
+
+
+                <!-- Interest  -->
+
+
+
+
+                <div class="form-group{{ $errors->has('interest') ? ' has-error' : '' }}">
+                    <label for="name" class="col-md-3 control-label">Interest</label>
+
+                    <div class="col-md-3">
+
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="tech" name="tech" value="1" onchange="interest()" {{ $ethnTech === 1 ? 'checked' : '' }}>Tech</label>
+                            <input id='techHidden' type='hidden' value='0' name='tech'>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="science" name="science" value="1" onchange="interest()" {{ $ethnScience === 1 ? 'checked' : '' }}>Science</label>
+                            <input id='scienceHidden' type='hidden' value='0' name='science'>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="art" name="art" value="1" onchange="interest()" {{ $ethnArt === 1 ? 'checked' : '' }}>Art</label>
+                            <input id='artHidden' type='hidden' value='0' name='art'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="history" name="history" value="1" onchange="interest()" {{ $ethnHistory === 1 ? 'checked' : '' }}>History</label>
+                            <input id='historyHidden' type='hidden' value='0' name='history'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="sports" name="sports" value="1" onchange="interest()" {{ $ethnSports === 1 ? 'checked' : '' }}>Sports</label>
+                            <input id='sportsHidden' type='hidden' value='0' name='sports'>
+                        </div>
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="literature" name="literature" value="1" onchange="interest()" {{ $ethnLiterature === 1 ? 'checked' : '' }}>Literature</label>
+                            <input id='literatureHidden' type='hidden' value='0' name='literature'>
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="traveling" name="traveling" value="1" onchange="interest()" {{ $ethnTraveling === 1 ? 'checked' : '' }}>Traveling</label>
+                            <input id='travelingHidden' type='hidden' value='0' name='traveling'>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
