@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->boolean('firstLogin')->default(true);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             $table->Integer('lastMatchRequest')->default(0);
             $table->string('avatar')->default('default.jpg');
 =======
@@ -36,6 +37,12 @@ class CreateUsersTable extends Migration
 =======
             $table->string('avatar')->default('default.jpg');
 >>>>>>> Admin Functionality: Show all users, and search for users. Combined with Labib's profile code. Added banned_user table.
+=======
+            $table->string('avatar')->default('default.jpg');
+=======
+             $table->string('avatar')->default('default.jpg');
+>>>>>>> 383e07f2b6f610b01b74f081cb2d658ced4c6250
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
             $table->rememberToken();
             $table->boolean('flagged')->default(0);
         });

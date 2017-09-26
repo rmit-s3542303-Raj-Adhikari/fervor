@@ -32,7 +32,6 @@ Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
 
-
 //For the Uploading the User Profile
 Route::get('profile', 'profileController@profile');
 Route::post('profile', 'profileController@update_avatar');

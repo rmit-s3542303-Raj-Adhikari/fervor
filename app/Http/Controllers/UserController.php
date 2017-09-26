@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
 use Image;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
 use App\User;
 
 class UserController extends Controller
@@ -16,15 +20,31 @@ class UserController extends Controller
      *
      * @var array
      */
+<<<<<<< HEAD
+=======
+=======
+
+class UserController extends Controller
+{
+    //
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
     public function profile(){
     	return view('profile', array('user' => Auth::user()) );
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
     public function update_avatar(Request $request){
 
     	// Handle the user upload of avatar
@@ -41,6 +61,10 @@ class UserController extends Controller
     	return view('profile', array('user' => Auth::user()) );
 
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
      /**
      * Returns all users
      *
@@ -78,4 +102,8 @@ class UserController extends Controller
         $user = User::where('email', $req->input('email'))->get();
         return view();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 213c22da3546628738769e3c4f2761e57ed21259
 }

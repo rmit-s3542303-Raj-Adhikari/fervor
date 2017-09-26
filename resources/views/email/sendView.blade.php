@@ -1,6 +1,5 @@
 <img alt="Fervor" src="/img/logo-white.png" class="nav-logo">
 
-
   <h2>Verify Your Email Address</h2>
 
 <p>Thank you for joining the Fervor network.

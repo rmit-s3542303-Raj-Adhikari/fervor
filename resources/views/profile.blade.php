@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -82,16 +83,11 @@
         </div>
     </nav>
 
-<<<<<<< HEAD
 </div>
 
 
-=======
 
 
-</div>
-
->>>>>>> Admin Functionality: Show all users, and search for users. Combined with Labib's profile code. Added banned_user table.
             <!-- edit form column -->
             <div class="col-md-9 personal-info">
 
@@ -1144,4 +1140,29 @@
 
 
 </hmtl>
+
+                case "October":
+                case "December":
+                    DaySelectOptions[29].disabled = false;
+                    DaySelectOptions[30].disabled = false;
+            }
+        }
+
+
+
+
+
+
+    </script>
+<script src="{{ asset('js/app.js') }}"></script>
+
+
+
+
+</hmtl>
+
+
+        </div>
+    </div>
+</div>
 
