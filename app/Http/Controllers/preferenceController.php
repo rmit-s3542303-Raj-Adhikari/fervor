@@ -75,6 +75,21 @@ class preferenceController extends Controller
             $atheistUrdu= $request->get('urdu');
 
 
+            $ethnTech        = $request->get('tech');
+            $ethnScience     = $request->get('science');
+            $ethnArt         = $request->get('art');
+            $ethnHistory     = $request->get('history');
+            $ethnSports      = $request->get('sports');
+            $ethnLiterature  = $request->get('literature');
+            $ethnTraveling   = $request->get('traveling');
+
+
+
+
+
+
+
+
 
 
 
@@ -129,6 +144,14 @@ class preferenceController extends Controller
                 'arabic'  =>    $atheistArabic,
                 'persian'   =>   $atheistPersian,
                 'urdu'      =>   $atheistUrdu,
+                'tech'       =>  $ethnTech,
+            'science'    =>  $ethnScience,
+            'art'        =>  $ethnArt,
+            'history'    =>  $ethnHistory,
+            'sports'     =>  $ethnSports,
+            'literature' =>  $ethnLiterature,
+            'traveling'  =>  $ethnTraveling,
+
 
 
 
