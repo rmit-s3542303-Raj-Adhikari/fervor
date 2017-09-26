@@ -405,7 +405,7 @@
 
 
 
-           
+
 
             $smoking = DB::table('preferences')->select('smoking')->where('id', '=', 1)->value('smoking');
 
