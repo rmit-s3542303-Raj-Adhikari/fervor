@@ -34,16 +34,27 @@ class preferenceController extends Controller
 
 
 
+        // Ethnicity
         $ethnCaucasian = $request->get('caucasian');
         $ethnHispanic = $request->get('hispanic');
         $ethBlack = $request->get('black');
-
         $ethMiddleeast = $request->get('middleeast');
         $ethAsian = $request->get('asian');
         $ethIndian = $request->get('indian');
         $ethAboriginal = $request->get('aboriginal');
         $ethIslander = $request->get('islander');
         $ethMixed = $request->get('mixed');
+
+
+
+        //Religion
+
+
+        $ethnHinduism = $request->get('hinduism');
+        $ethnChirstian = $request->get('chirstian');
+        $ethnJudaism  = $request->get('judaism');
+        $ethnBuddhism  = $request->get('buddhism');
+        $atheistAtheist = $request->get('atheist');
 
             $smokingcheck  = $request->get('smoking');
 
@@ -74,6 +85,15 @@ class preferenceController extends Controller
                 'aboriginal'     => $ethAboriginal,
                 'islander'     => $ethIslander,
                 'mixed'       => $ethMixed,
+                'hinduism'       => $ethnHinduism,
+                'chirstian'       => $ethnChirstian,
+                'judaism'       => $ethnJudaism,
+                'buddhism'       => $ethnBuddhism,
+                'atheist'       => $atheistAtheist,
+
+
+
+
 
 
             ]);
