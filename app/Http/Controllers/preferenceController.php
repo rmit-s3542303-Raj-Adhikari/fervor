@@ -56,6 +56,37 @@ class preferenceController extends Controller
         $ethnBuddhism  = $request->get('buddhism');
         $atheistAtheist = $request->get('atheist');
 
+
+
+
+
+
+        //Languages
+
+
+
+            $ethnEnglish = $request->get('english');
+            $ethnFrench= $request->get('french');
+            $ethnSpanish= $request->get('spanish');
+            $ethnChinese= $request->get('chinese');
+            $atheistHindi= $request->get('hindi');
+            $atheistArabic= $request->get('arabic');
+            $atheistPersian= $request->get('persian');
+            $atheistUrdu= $request->get('urdu');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             $smokingcheck  = $request->get('smoking');
 
             if($smokingcheck === 'TRUE'){
@@ -90,6 +121,14 @@ class preferenceController extends Controller
                 'judaism'       => $ethnJudaism,
                 'buddhism'       => $ethnBuddhism,
                 'atheist'       => $atheistAtheist,
+                'english'      => $ethnEnglish,
+                'french'    =>       $ethnFrench,
+                'spanish'   =>   $ethnSpanish,
+                'chinese'   =>  $ethnChinese,
+                'hindi'    =>      $atheistHindi,
+                'arabic'  =>    $atheistArabic,
+                'persian'   =>   $atheistPersian,
+                'urdu'      =>   $atheistUrdu,
 
 
 
