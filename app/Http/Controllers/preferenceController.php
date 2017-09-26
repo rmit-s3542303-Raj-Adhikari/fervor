@@ -115,7 +115,7 @@ class preferenceController extends Controller
             }
 
 
-            $profile = Preferences::where('id', '=', 1 );
+            $profile = Preferences::where('id', '=', Auth::user()->id );
 
             $profile->update([
 
