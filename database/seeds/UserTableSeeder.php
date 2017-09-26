@@ -7,6 +7,8 @@ class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * Database seed to populate the User table with dummy data. 
+     * Sets all the passwords to 123456 for testing purposes.
      *
      * @return void
      */
@@ -19,7 +21,8 @@ class UserTableSeeder extends Seeder
             User::Create([
             'firstname' => $faker->firstname($gender = 'male' | 'female' ),
             'lastname' => $faker->lastname,
-            'firstLogin' => 0, 
+            'firstLogin' => 1, 
+            'status' => 1,
             'dob' => $faker->date($format = 'Y-m-d', $max = '1999/05/10'),
             'email' => $faker->email,
             'password' => bcrypt('123456'), 

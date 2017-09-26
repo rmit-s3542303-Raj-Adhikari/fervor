@@ -32,20 +32,27 @@ Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
 
-<<<<<<< HEAD
 
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
+//For the Uploading the User Profile
+Route::get('profile', 'profileController@profile');
+Route::post('profile', 'profileController@update_avatar');
 
-=======
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
->>>>>>> Upload profile image functionality
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Verifying the Emails
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
+//Route to show all user
+Route::get('ShowAllUsers','UserController@showusers');
+
+Route::get('finduser', function()
+{
+    return View::make('finduser');
+});
+
+//Route for finding all users
+Route::post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
 
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
