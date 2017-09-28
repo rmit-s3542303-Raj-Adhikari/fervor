@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\RepliedToThread;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Image;
 
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -28,6 +31,8 @@ class HomeController extends Controller
 
         $user = Auth::user();
 
+
+
         if($user['firstLogin'])
         {
             $user['firstLogin'] = false;
@@ -36,8 +41,12 @@ class HomeController extends Controller
 
         return view('home');
     }
-    
+
       public function home(){
     	return view('home', array('user' => Auth::user()) );
+    }
+    public function notification()
+    {
+        //return $notification = DB::table('notifications')->count();
     }
 }
