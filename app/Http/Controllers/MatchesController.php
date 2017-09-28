@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\MatchRequest;
+use App\Services\ProfileScorer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,14 +46,17 @@ class MatchesController extends Controller
 
         // filter the matches that score lower then the allowed threshold
         foreach ($matches as $match){
-            // Retrieve the opposie match
+            // Retrieve the opposite match
             $oppositeMatch = Match::where('user', '=', $match->prospect)
             ->where('prospect', '=', $user->id)->first();
             
             // filter them
             if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)
             {
-                $filtered[] = $match;
+                $compatibility = (($oppositeMatch->score)/(75)
+                    + ($match->score)/(75)) / 2;
+
+                $filtered[] = array($match, $compatibility);
             }
         }
 
