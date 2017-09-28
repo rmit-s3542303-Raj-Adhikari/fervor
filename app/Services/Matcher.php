@@ -56,7 +56,7 @@ class Matcher
     public static function Match(User $user, User $prospect)
     {
 
-        Log::debug('Match(): Matching '.$user->id.' -> '.$prospect->id);
+        Log::info('Match(): Matching '.$user->id.' -> '.$prospect->id);
         
         $match = null;
 
@@ -71,7 +71,7 @@ class Matcher
             $match->user = $user->id;
             $match->prospect = $prospect->id;
         }  else {
-            Log::debug('Match(): Match '.$user->id.' -> '.$prospect->id.' exists ... Updating match');
+            Log::debug('Match(): Match '.$user->id.' -> '.$prospect->id.' already exists ... Updating match');
             
         }
 
