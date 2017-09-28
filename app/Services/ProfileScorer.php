@@ -22,10 +22,10 @@ class ProfileScorer
         $prospectProfile = Profile::find($prospect->id);
 
         $preferences = Preferences::find($user->id);
-        // out of 60 points
+        // out of 75 points
         $score = 0;
 
-        $score += ProfileScorer::scoreAge($preferences->age, $prospect->dob);
+        //$score += ProfileScorer::scoreAge($preferences, $prospect->dob);
         $score += ProfileScorer::scoreEthnicity($preferences, $prospectProfile->ethnicity);
         $score += ProfileScorer::scoreHobbies($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreInterests($userProfile, $prospectProfile);
@@ -39,25 +39,31 @@ class ProfileScorer
     // possible 20
     private static function scoreAge($user, $prospect)
     {
+        
         if ($user == null or $prospect ==  null) {
+             Log::debug('Score(): Age: null values.. skipping');
+        
             return 0;
         }
         //FIXME: dob -> date
         
         $score = 0;
 
-        $difference = abs($user - $prospect);
-
-        if ($difference >= 3) {
-            $score = 5;
-        } elseif ($difference == 2) {
-            $score = 7;
-        } elseif ($difference == 1) {
-            $score = 10;
-        } elseif ($difference == 0) {
-            $score = 20;
-        }
+        $dob = new \DateTime(date($prospect));
+        $now = new \DateTime(date("Y-m-d"));
+        $age = $dob->diff($now);
         
+
+        if ( $age->y >= $user->agelower and $age->y <= $user->ageupper ) {
+            $score = 20;
+        } elseif ( $age->y >= ($user->agelower - 1)  and $age->y <= ($user->ageupper + 1) ) {
+            $score = 10;
+        } elseif ( $age->y >= ($user->agelower - 2)  and $age->y <= ($user->ageupper + 3) ) {
+            $score = 7;
+        } elseif ( $age->y >= ($user->agelower - 3)  and $age->y <= ($user->ageupper + 4) ) {
+            $score = 5;
+        }
+
         Log::debug('Score(): Age: '.$score);
         return $score;
     }
@@ -66,6 +72,8 @@ class ProfileScorer
     private static function scoreEthnicity(Preferences $user, $prospect)
     {
         if ($user == null or $prospect ==  null) {
+            Log::debug('Score(): Ethnicity: null values.. skipping');
+            
             return 0;
         }
 
@@ -115,15 +123,15 @@ class ProfileScorer
         $interests = [];
         
         if ($user->interest1 != null)
-            $interest[] = $user->interest1; 
+            $interests[] = $user->interest1; 
         if ($user->interest2 != null)
-            $interest[] = $user->interest2; 
+            $interests[] = $user->interest2; 
         if ($user->interest3 != null)
-            $interest[] = $user->interest3; 
+            $interests[] = $user->interest3; 
         if ($user->interest4 != null)
-            $interest[] = $user->interest4; 
+            $interests[] = $user->interest4; 
         if ($user->interest5 != null)
-            $interest[] = $user->interest5; 
+            $interests[] = $user->interest5; 
         
         return $interests;
     }
@@ -133,6 +141,8 @@ class ProfileScorer
     private static function scoreInterests(Profile $user, Profile $prospect)
     {
         if ($user == null or $prospect == null) {
+            Log::debug('Interests(): Age: null values.. skipping');
+            
             return 0;
         }
         $SCORE_MAX = 10;
@@ -175,6 +185,8 @@ class ProfileScorer
     private static function scoreHobbies($user, $prospect)
     {
         if ($user == null or $prospect == null) {
+            Log::debug('Hobbies(): Age: null values.. skipping');
+            
             return 0;
         }
         $SCORE_MAX = 10;
@@ -201,6 +213,8 @@ class ProfileScorer
     private static function scoreSmoking($user, $prospect)
     {
         if ($user == null or $prospect == null) {
+            Log::debug('Smoking(): Age: null values.. skipping');
+            
             return 0;
         }
 
@@ -216,11 +230,13 @@ class ProfileScorer
 
     }
 
-    // possible 10
+    // possible 15
 
     private static function scoreDistance($user, $prospect)
     {
         if ($user == null or $prospect == null) {
+            Log::debug('Distance(): Age: null values.. skipping');
+            
             return 0;
         }
 
@@ -231,21 +247,24 @@ class ProfileScorer
         if ($distance >= 50) {
             $score = 3;
         } elseif ($distance == 30) {
-            $score = 5;
-        } elseif ($distance == 20) {
             $score = 7;
-        } elseif ($distance == 10) {
+        } elseif ($distance == 20) {
             $score = 10;
+        } elseif ($distance == 10) {
+            $score = 15;
         }
 
         Log::debug('Score(): Distance: '.$score);
         return $score;
     }
 
+    // 10
     public static function scoreReligion($user, $prospect)
     {
 
         if ($user == null or $prospect == null) {
+            Log::debug('Religion(): Age: null values.. skipping');
+            
             return 0;
         }
 
