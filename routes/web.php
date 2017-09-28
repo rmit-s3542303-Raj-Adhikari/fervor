@@ -28,6 +28,11 @@ Route::get('preference', function(){
    return view('preference');
 });
 
+
+
+
+
+
 Route::get('matches', 'MatchesController@viewMatches');
 
 Auth::routes();
