@@ -18,7 +18,7 @@ class ProfileSeeder extends Seeder
         for ($i = 0; $i< 50; $i++)
         {
             Profile::Create([
-            'user_id'    => $i+1,
+            'id'         => $i+1,
             'nickname'   => $faker->word,
             'location'   => $faker->numberBetween($min = 1000, $max = 8000), 
             'status'     => $faker->randomElement($array = array ('single', 'married', 'divorced', 'complicated')),
