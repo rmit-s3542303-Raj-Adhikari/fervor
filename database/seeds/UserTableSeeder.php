@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         
-        for ($i = 0; $i< 5; $i++)
+        for ($i = 0; $i< 50; $i++)
         {
             User::Create([
             'firstname' => $faker->firstname($gender = 'male' | 'female' ),

@@ -27,7 +27,6 @@ class profileController extends Controller
 
 
 
-
     public function addProfile(Request $request){
 
             $nickname = $request->get('nickname');
