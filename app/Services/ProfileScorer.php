@@ -44,7 +44,7 @@ class ProfileScorer
         $score += ProfileScorer::scoreHobbies($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreInterests($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreSmoking($preferences->smoking, $prospectProfile->smoking);
-        $score += ProfileScorer::scoreDistance($userProfile->postcode, $prospectProfile->postcode);
+       // $score += ProfileScorer::scoreDistance($userProfile->postcode, $prospectProfile->postcode);
         $score += ProfileScorer::scoreReligion($userProfile->religion, $prospectProfile->religion);
 
         return $score;
@@ -96,10 +96,10 @@ class ProfileScorer
      * Max score = 10
      *
      * @param $user Preferences - User preferences scoring for
-     * @param $prospect Profile -  Profile scoring against
+     * @param $prospect string -  ethniity scoring against
      * @return int  - Calculated score
      */
-    private static function scoreEthnicity(Preferences $user, Profile $prospect)
+    private static function scoreEthnicity(Preferences $user, $prospect)
     {
         if ($user == null or $prospect == null) {
             Log::debug('Score(): Ethnicity: null values.. skipping');
