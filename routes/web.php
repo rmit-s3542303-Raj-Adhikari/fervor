@@ -34,6 +34,7 @@ Route::get('preference', function(){
 
 
 Route::get('matches', 'MatchesController@viewMatches');
+Route::post('matches', 'MatchesController@submit')->name("submitMatch");
 
 Auth::routes();
 
