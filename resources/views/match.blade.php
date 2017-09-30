@@ -12,7 +12,6 @@
                     </div>
                     <div class="panel-content">
                         <ul>
-
                             @foreach($debug as $message)
                                 <li>{{$message}}</li>
                             @endforeach
@@ -29,8 +28,8 @@
     @foreach($matches as $match)
 
         @php
-            $prospect = \App\User::find($match[0]->id);
-            $profile =  \App\Profile::find($match[0]->id);
+            $prospect = \App\User::find($match[0]->prospect);
+            $profile =  \App\Profile::find($match[0]->prospect);
 
             $dob = new DateTime(date($prospect->dob));
             $now = new DateTime(date("Y-m-d"));
@@ -40,10 +39,17 @@
             <div class="row">
                 <div class='col-md-2'>
                     <div class="" style="height:240px">
-                        <a href="#" class="btn btn-default btn-lg" style='width:100%;height:100%'>
-                            <span class="glyphicon glyphicon-heart vcenter" aria-hidden="true"></span>
-                        </a>
+                     <strong> {!! $match[0]->pinned !!}</strong>
+                                <form action="{{ route("submitMatch") }}" method="post">
+                                    {{ csrf_field() }}
+                                    <input hidden name="match" value="{!!$match[0]->id!!}">
+                                    <input hidden name="action" value="pin">
+                                    <button type="submit" class="btn btn-{{ ($match[0]->pinned) ? "danger" : "primary"}} btn-xs pull-right">
+                                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                                    </button>
 
+                                </form>
+                        
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -51,10 +57,17 @@
 
                         <div class="panel-body">
                             <div class='col-lg-12'>
-                                <button type="button" class="btn btn-danger btn-xs pull-right">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                </button>
+                                <strong> {!! $match[0]->active !!}</strong>
+                                <form action="{{ route("submitMatch") }}" method="post">
+                                    {{ csrf_field() }}
+                                    <input hidden name="match" value="{!!$match[0]->id!!}">
+                                    <input hidden name="action" value="dismiss">
+                                    <button type="submit" class="btn btn-danger btn-xs pull-right">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </button>
 
+                                </form>
+                               
                             </div>
                             <br>
                             <div class="row">

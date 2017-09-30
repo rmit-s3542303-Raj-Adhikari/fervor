@@ -15,6 +15,21 @@ class MatchesController extends Controller
 
     public static $SCORE_THRESHOLD = 0;
 
+    public function submit(Request $req)
+    {
+        $match = Match::find($req->match);
+
+        if ( $req->action == "dismiss") {
+            $match->active = false;
+        } elseif ($req->action == "pin" ){
+            $match->pinned = ($match->pinned) ? false : true ;
+        }
+
+        $match->save();
+
+        return redirect("matches");
+    }
+
     public function viewMatches () {
 
         $user = User::find(Auth::id());
