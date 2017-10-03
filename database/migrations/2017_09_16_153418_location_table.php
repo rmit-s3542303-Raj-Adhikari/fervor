@@ -15,9 +15,13 @@ class LocationTable extends Migration
     {
         //
         Schema::create('location_table', function(Blueprint $table) {
-
-            $table->string('suburbs');
             $table->integer('postcode');
+            $table->string('suburbs');
+            $table->string('state');
+            $table->string('dc')->nullable();
+            $table->string('type')->nullable();
+            $table->double('lat');
+            $table->double('lon');
         });
 
     }
