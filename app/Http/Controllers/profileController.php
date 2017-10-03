@@ -25,10 +25,7 @@ class profileController extends Controller
 
 
 
-    public function profile(){
-        
-        return view('profile');
-    }
+
 
 
     public function addProfile(Request $request){
