@@ -10,15 +10,10 @@
     <title>Fervor Landing Page</title>
 
 
-
-
-
     <!-- Landing page css -->
     <link href="{{ ('css/landing-page.css') }}" rel="stylesheet">
 
 </head>
-
-
 
 
 <body>
@@ -32,15 +27,16 @@
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img alt="Fervor" src="/img/logo-white.png" class="nav-logo-white">
-                            <img alt="Fervor" src="/img/logo-white.png" class="nav-logo">
+                            <img alt="Fervor" src="{{asset("img/logo-white.png")}}" class="nav-logo-white">
+                            <img alt="Fervor" src="{{asset("img/logo-white.png")}}" class="nav-logo">
                         </a>
                     </div>
 
@@ -73,27 +69,34 @@
             <div class="container truck-section">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="truck-section-heading">Join the Fervor network and see how<br class="visible-md"> we can help you</h1>
+                        <h1 class="truck-section-heading">Join the Fervor network and see how<br class="visible-md"> we
+                            can help you</h1>
                         <br>
                         <br>
                     </div>
                     <div class="col-sm-3">
                         <h5 class="truck-heading">Meet Like-Minded Singles</h5>
-                        <p>Meet like-minded singles in your area with Fervor online dating app.</p>
+                        <p>This is a test Meet like-minded singles in your area with Fervor online dating app.</p>
                         <br>
                         <h5 class="truck-heading">Find Your Match</h5>
-                        <p>Fervor will find matches for you according to your preferences and your personality. Whoever suits you, can be your dream patner which you must be looking for.</p>
+                        <p>Fervor will find matches for you according to your preferences and your personality. Whoever
+                            suits you, can be your dream patner which you must be looking for.</p>
 
                     </div>
                     <div class="col-sm-6">
-                        <img class="img-responsive truck-image" alt="Love image" src="/img/borderless.jpg">
+                        <img class="img-responsive truck-image" alt="Love image"
+                             src="{{asset("/img/borderless.jpg")}}">
                     </div>
                     <div class="col-sm-3">
                         <h5 class="truck-heading">Provide Online Introduction Services </h5>
-                        <p>A variation of the online dating model emerged in the form of introduction sites, where members have to search and contact other members, who introduce them to other members whom they deem compatible.</p>
+                        <p>A variation of the online dating model emerged in the form of introduction sites, where
+                            members have to search and contact other members, who introduce them to other members whom
+                            they deem compatible.</p>
                         <br>
                         <h5 class="truck-heading">Get Rid Of Your Nervousness</h5>
-                        <p>For those nervous about dating, this site puts the control in your fingertips allowing you access to thousands of profiles and the ability to chat to potential dates at the rate which works for you.</p>
+                        <p>For those nervous about dating, this site puts the control in your fingertips allowing you
+                            access to thousands of profiles and the ability to chat to potential dates at the rate which
+                            works for you.</p>
                     </div>
                 </div>
             </div>
@@ -107,17 +110,17 @@
                             <h1 class="steps-heading">Get started with Fervor in 3 easy steps</h1>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-1.png">
+                            <img class="step-icon" src="{{asset("/img/step-1.png")}}">
                             <h4 class="step-heading">Step 1</h4>
                             <p class="step-text">Sign up online with Fervor</p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-2.png">
+                            <img class="step-icon" src="{{asset("/img/step-2.png")}}">
                             <h4 class="step-heading">Step 2</h4>
-                            <p class="step-text">Sign in  online with Fervor</p>
+                            <p class="step-text">Sign in online with Fervor</p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-3.png">
+                            <img class="step-icon" src="{{asset("/img/step-3.png")}}">
                             <h4 class="step-heading">Step 3</h4>
                             <p class="step-text">Find Your Match</p>
                         </div>
@@ -132,8 +135,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>Borderless Dating</h1>
-                            <p class="map-text">The world awaits. Take advantage of our international user and meet  your match across the borders<br class="visible-md visible-lg"> </p>
-                            <img class="img-responsive" src="/img/map.png">
+                            <p class="map-text">The world awaits. Take advantage of our international user and meet your
+                                match across the borders<br class="visible-md visible-lg"></p>
+                            <img class="img-responsive" src="{{asset("/img/map.png")}}">
                         </div>
                     </div>
                 </div>
@@ -146,19 +150,23 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="col-xs-6">
-                                <img src="/img/logo-white.png">
+                                <img src="{{asset("/img/logo-white.png")}}">
                                 <br>
                                 <br>
                             </div>
 
                             <div class="col-xs-6">
                                 <h5 class="footer-heading">Follow Us</h5>
-                                <a target="_blank" class="social-link" href="https://www.facebook.com/"><img alt="Facebook" src="/img/fb.png"></a>
-                                <a target="_blank" class="social-link" href="https://twitter.com/?lang=en"><img alt="Twitter" src="/img/twitter.png"></a>
+                                <a target="_blank" class="social-link" href="https://www.facebook.com/"><img
+                                            alt="Facebook" src="{{asset("/img/fb.png")}}"></a>
+                                <a target="_blank" class="social-link" href="https://twitter.com/?lang=en"><img
+                                            alt="Twitter" src="{{asset("/img/twitter.png")}}"></a>
                                 <br class="visible-xs">
                                 <br class="visible-xs">
-                                <a target="_blank" class="social-link" href="https://www.youtube.com/"><img alt="Youtube" src="/img/youtube.png"></a>
-                                <a target="_blank" class="social-link" href="https://www.instagram.com/?hl=en"><img alt="Instagram" src="/img/instagram.png"></a>
+                                <a target="_blank" class="social-link" href="https://www.youtube.com/"><img
+                                            alt="Youtube" src="{{asset("/img/youtube.png")}}"></a>
+                                <a target="_blank" class="social-link" href="https://www.instagram.com/?hl=en"><img
+                                            alt="Instagram" src="{{asset("/img/instagram.png")}}"></a>
                                 <br>
                                 <br>
                             </div>
@@ -212,15 +220,16 @@
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img alt="Fervor" src="/img/fervor2.png" class="nav-logo-white">
-                            <img alt="Fervor" src="/img/fervor2.png" class="nav-logo">
+                            <img alt="Fervor" src="{{asset("/img/fervor2.png")}}" class="nav-logo-white">
+                            <img alt="Fervor" src="{{asset("/img/fervor2.png")}}" class="nav-logo">
                         </a>
                     </div>
 
@@ -253,7 +262,8 @@
             <div class="container truck-section">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="truck-section-heading">Join the Fervor network and see how<br class="visible-md"> we can help you</h1>
+                        <h1 class="truck-section-heading">Join the Fervor network and see how<br class="visible-md"> we
+                            can help you</h1>
                         <br>
                         <br>
                     </div>
@@ -262,18 +272,24 @@
                         <p>Meet like-minded singles in your area with Fervor online dating app.</p>
                         <br>
                         <h5 class="truck-heading">Find Your Match</h5>
-                        <p>Fervor will find matches for you according to your preferences and your personality. Whoever suits you, can be your dream patner which you must be looking for.</p>
+                        <p>Fervor will find matches for you according to your preferences and your personality. Whoever
+                            suits you, can be your dream patner which you must be looking for.</p>
 
                     </div>
                     <div class="col-sm-6">
-                        <img class="img-responsive truck-image" alt="Love image" src="/img/borderless.jpg">
+                        <img class="img-responsive truck-image" alt="Love image"
+                             src="{{asset("/img/borderless.jpg")}}">
                     </div>
                     <div class="col-sm-3">
                         <h5 class="truck-heading">Provide Online Introduction Services </h5>
-                        <p>A variation of the online dating model emerged in the form of introduction sites, where members have to search and contact other members, who introduce them to other members whom they deem compatible.</p>
+                        <p>A variation of the online dating model emerged in the form of introduction sites, where
+                            members have to search and contact other members, who introduce them to other members whom
+                            they deem compatible.</p>
                         <br>
                         <h5 class="truck-heading">Get Rid Of Your Nervousness</h5>
-                        <p>For those nervous about dating, this site puts the control in your fingertips allowing you access to thousands of profiles and the ability to chat to potential dates at the rate which works for you.</p>
+                        <p>For those nervous about dating, this site puts the control in your fingertips allowing you
+                            access to thousands of profiles and the ability to chat to potential dates at the rate which
+                            works for you.</p>
                     </div>
                 </div>
             </div>
@@ -287,17 +303,17 @@
                             <h1 class="steps-heading">Get started with Fervor in 3 easy steps</h1>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-1.png">
+                            <img class="step-icon" src="{{asset("/img/step-1.png")}}">
                             <h4 class="step-heading">Step 1</h4>
                             <p class="step-text">Sign up online with Fervor</p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-2.png">
+                            <img class="step-icon" src="{{asset("/img/step-2.png")}}">
                             <h4 class="step-heading">Step 2</h4>
-                            <p class="step-text">Sign in  online with Fervor</p>
+                            <p class="step-text">Sign in online with Fervor</p>
                         </div>
                         <div class="col-sm-4">
-                            <img class="step-icon" src="/img/step-3.png">
+                            <img class="step-icon" src="{{asset("/img/step-3.png")}}">
                             <h4 class="step-heading">Step 3</h4>
                             <p class="step-text">Find Your Match</p>
                         </div>
@@ -312,8 +328,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>Borderless Dating</h1>
-                            <p class="map-text">The world awaits. Take advantage of our international user and meet  your match across the borders<br class="visible-md visible-lg"> </p>
-                            <img class="img-responsive" src="/img/map.png">
+                            <p class="map-text">The world awaits. Take advantage of our international user and meet your
+                                match across the borders<br class="visible-md visible-lg"></p>
+                            <img class="img-responsive" src="{{asset("/img/map.png")}}">
                         </div>
                     </div>
                 </div>
@@ -326,19 +343,23 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="col-xs-6">
-                                <img src="/img/fervor2.png">
+                                <img src="{{asset("/img/fervor2.png")}}">
                                 <br>
                                 <br>
                             </div>
 
                             <div class="col-xs-6">
                                 <h5 class="footer-heading">Follow Us</h5>
-                                <a target="_blank" class="social-link" href="https://www.facebook.com/"><img alt="Facebook" src="/img/fb.png"></a>
-                                <a target="_blank" class="social-link" href="https://twitter.com/?lang=en"><img alt="Twitter" src="/img/twitter.png"></a>
+                                <a target="_blank" class="social-link" href="https://www.facebook.com/"><img
+                                            alt="Facebook" src="{{asset("/img/fb.png")}}"></a>
+                                <a target="_blank" class="social-link" href="https://twitter.com/?lang=en"><img
+                                            alt="Twitter" src="{{asset("/img/twitter.png")}}"></a>
                                 <br class="visible-xs">
                                 <br class="visible-xs">
-                                <a target="_blank" class="social-link" href="https://www.youtube.com/"><img alt="Youtube" src="/img/youtube.png"></a>
-                                <a target="_blank" class="social-link" href="https://www.instagram.com/?hl=en"><img alt="Instagram" src="/img/instagram.png"></a>
+                                <a target="_blank" class="social-link" href="https://www.youtube.com/"><img
+                                            alt="Youtube" src="{{asset("/img/youtube.png")}}"></a>
+                                <a target="_blank" class="social-link" href="https://www.instagram.com/?hl=en"><img
+                                            alt="Instagram" src="{{asset("/img/instagram.png")}}"></a>
                                 <br>
                                 <br>
                             </div>
