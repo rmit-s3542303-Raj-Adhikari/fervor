@@ -33,7 +33,12 @@ Route::get('preference', function(){
 
 
 
+<<<<<<< HEAD
 Route::get('matches', 'MatchesController@viewMatches')->name("matches");
+=======
+Route::get('matches', 'MatchesController@viewMatches');
+>>>>>>> 46521999c0014f9f03248131f0d9a60d1cd32334
+Route::post('matches', 'MatchesController@submit')->name("submitMatch");
 
 Auth::routes();
 
