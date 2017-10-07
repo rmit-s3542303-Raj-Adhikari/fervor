@@ -1,3 +1,28 @@
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#app {
+    height: 100vh;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.img-center {
+    margin: auto;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+.img-center msg-selected{
+    border: solid 3px #3097D1;
+    color: snow;
+}
+
 .compatibility {
     width:  150px;
     height: 150px;
@@ -14,3 +39,56 @@
     vertical-align: middle;
     float: none;
 }
+
+.msg-sidebar {
+    background-color: #2F3133;
+    color: snow;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.msg-container {
+    height: calc(100vh - 60px);
+}
+
+.msg-card {
+    color: #7b8a8b;
+}
+
+.msg-card:hover {
+    color: snow;
+    text-decoration: none;
+}
+
+a .msg-cardlink {
+    text-decoration: none;
+}
+
+/*@media (min-width: 768px) and (max-width: 991px) {*/
+    /*.msg-sidebar {*/
+        /*background-color: #2F3133;*/
+        /*height: 100px;*/
+
+        /*overflow-y: auto;*/
+    /*}*/
+/*}*/
+
+/*!* Landscape phones and portrait tablets *!*/
+/*@media (max-width: 767px) {*/
+    /*.msg-sidebar {*/
+        /*background-color: #2F3133;*/
+        /*height: 100px;*/
+        /*overflow-y: auto;*/
+
+    /*}*/
+/*}*/
+
+/*!* Portrait phones and smaller *!*/
+/*@media (max-width: 480px) {*/
+    /*.msg-sidebar {*/
+        /*background-color: #2F3133;*/
+        /*height: 100px;*/
+        /*overflow-y: auto;*/
+
+    /*}*/
+/*}*/
