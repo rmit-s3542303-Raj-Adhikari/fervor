@@ -68,10 +68,6 @@ Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('home', 'HomeController@home');
 
-Route::get('/chat', function () {
-    return view('chat');
-});
-
 
 
 Route::get('/markAsRead',function(){
@@ -89,3 +85,14 @@ Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']
 Route::get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
 
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
+
+Route::get('/chat',[
+   'uses' => 'ChatController@getchatview',
+    'as' => 'chat',
+    'middleware' => 'auth'
+]);
+Route::post('/creatpost',[
+    'uses' => 'ChatController@postCreatePost',
+    'as' => 'post.create',
+    'middleware' => 'auth'
+]);
