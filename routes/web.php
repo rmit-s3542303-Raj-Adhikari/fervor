@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('inbox', function () {
+Route::middleware('auth')->get('inbox', function () {
     return view('inbox');
-});
+})->name('inbox');
 
 Route::get('profile', function () {
     return view('profile');
@@ -33,25 +33,25 @@ Route::get('preference', function(){
 
 
 
-Route::get('matches', 'MatchesController@viewMatches')->name("matches");
-Route::post('matches', 'MatchesController@submit')->name("submitMatch");
+Route::middleware('auth')->get('matches', 'MatchesController@viewMatches')->name("matches");
+Route::middleware('auth')->post('matches', 'MatchesController@submit')->name("submitMatch");
 
 Auth::routes();
 
 //For the Uploading the User Profile
-Route::get('profile', 'profileController@profile');
-Route::post('profile', 'profileController@update_avatar');
+Route::middleware('auth')->get('profile', 'profileController@profile');
+Route::middleware('auth')->post('profile', 'profileController@update_avatar');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->get('/home', 'HomeController@index')->name('home');
 
 //Verifying the Emails
-Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
-Route::get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+Route::middleware('auth')->get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::middleware('auth')->get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
 //Route to show all user
-Route::get('ShowAllUsers','UserController@showusers');
+Route::middleware('auth')->get('ShowAllUsers','UserController@showusers');
 
-Route::get('finduser', function()
+Route::middleware('auth')->get('finduser', function()
 {
     return View::make('finduser');
 });
@@ -69,14 +69,14 @@ Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showRes
 Route::post('home', 'HomeController@home');
 
 
-Route::post('/addProfile', 'profileController@addProfile');
+Route::middleware('auth')->post('/addProfile', 'profileController@addProfile');
 
-Route::post('/updatePreference', 'preferenceController@updatePreference');
+Route::middleware('auth')->post('/updatePreference', 'preferenceController@updatePreference');
 
-Route::post('/updateUserTable', 'profileController@updateUserTable');
+Route::middleware('auth')->post('/updateUserTable', 'profileController@updateUserTable');
 
-Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']);
+Route::middleware('auth')->get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']);
 
-Route::get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
+Route::middleware('auth')->get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
 
-Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
+Route::middleware('auth')->get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));

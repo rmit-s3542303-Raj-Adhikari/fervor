@@ -53,7 +53,9 @@
                     <ul class="nav navbar-nav">
                         &nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
                         <li><a href="{{ route('preference') }}">Preferences</a></li>
-                        <li><a href="">Matches</a></li>
+                        <li><a href="{{ route('matches') }}">Matches</a></li>
+                        <li><a href="{{ route('inbox') }}">Inbox</a></li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

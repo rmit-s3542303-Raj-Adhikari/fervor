@@ -301,14 +301,6 @@
 
 
 
-</div>
-
-
-
-
-
-
-
 <div class="container">
     <h1>Match Preferences</h1>
     <hr>
@@ -727,19 +719,6 @@
                     </div>
                 </div>
             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </div>
 </div>
@@ -751,6 +730,14 @@
 
 
 <script src="{{ asset('js/app.js') }}"></script>
+
+
+
+
+
+
+
+</div>
 
 
 

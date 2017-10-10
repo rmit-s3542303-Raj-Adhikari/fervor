@@ -36,7 +36,7 @@
             $now = new DateTime(date("Y-m-d"));
             $age = $dob->diff($now);
         @endphp
-        @include('matchcard')
+        @include('layouts.matchcard')
     @endforeach
 
     <!-- Matches -->
@@ -52,7 +52,7 @@
             $now = new DateTime(date("Y-m-d"));
             $age = $dob->diff($now);
         @endphp
-        @include('matchcard')
+        @include('layouts.matchcard')
     @endforeach
 @endsection
 
