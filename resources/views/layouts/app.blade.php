@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Fervor') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -44,18 +44,22 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Fervor') }}
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+<<<<<<< HEAD
                         &nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
                         <li><a href="{{ route('preference') }}">Preferences</a></li>
                         <li><a href="{{ route('matches') }}">Matches</a></li>
                         <li><a href="{{ route('inbox') }}">Inbox</a></li>
 
+=======
+                        &nbsp;
+>>>>>>> fe991470949d69d466b25a7243f1f073ccb9346f
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,10 +68,35 @@
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+
                         @else
+
+                            <li class="dropdown" id="markasread" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <span class = 'glyphicon glyphicon-globe'></span>Notification !<span class="badge"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <p hidden>{{$data = DB::table('notifications')->select('data')->get()}}</p>
+                                    @php
+                                        $data = DB::table('notifications')->select('data')->orderby('updated_at','desc')->get();
+
+                                    foreach ($data as $n)
+                                    {
+                                        echo '<li><a href="#" onclick="markNotificationAsRead()">';
+                                         $m = json_decode($n->data);
+                                        echo $m->{'message'};
+                                        echo '</a></li>';
+                                    }
+
+                                    @endphp
+
+
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->firstname }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

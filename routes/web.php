@@ -23,9 +23,8 @@ Route::get('profile', function () {
     return view('profile');
 });
 
-Route::get('preference', function(){
-
-   return view('preference');
+Route::get('matches', function () {
+    return view('match');
 });
 
 
@@ -59,6 +58,7 @@ Route::middleware('auth')->get('finduser', function()
 //Route for finding all users
 Route::post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
+Route::post('admin/home','AdminController@send')->name('admin.send');
 
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
@@ -71,6 +71,10 @@ Route::post('home', 'HomeController@home');
 
 Route::middleware('auth')->post('/addProfile', 'profileController@addProfile');
 
+Route::get('/markAsRead',function(){
+   auth()->user()->unreadNotifications->markAsRead();
+});
+
 Route::middleware('auth')->post('/updatePreference', 'preferenceController@updatePreference');
 
 Route::middleware('auth')->post('/updateUserTable', 'profileController@updateUserTable');
@@ -80,3 +84,14 @@ Route::middleware('auth')->get('profile', ['as' => 'profile', 'uses' => 'profile
 Route::middleware('auth')->get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
 
 Route::middleware('auth')->get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
+
+Route::get('/chat',[
+   'uses' => 'ChatController@getchatview',
+    'as' => 'chat',
+    'middleware' => 'auth'
+]);
+Route::post('/creatpost',[
+    'uses' => 'ChatController@postCreatePost',
+    'as' => 'post.create',
+    'middleware' => 'auth'
+]);
