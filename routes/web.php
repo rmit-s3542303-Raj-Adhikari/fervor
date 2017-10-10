@@ -23,9 +23,8 @@ Route::get('profile', function () {
     return view('profile');
 });
 
-Route::get('preference', function(){
-
-   return view('preference');
+Route::get('matches', function () {
+    return view('match');
 });
 
 
@@ -43,6 +42,7 @@ Route::get('profile', 'profileController@profile');
 Route::post('profile', 'profileController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@notification')->name('noti');
 
 //Verifying the Emails
 Route::get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
@@ -59,6 +59,7 @@ Route::get('finduser', function()
 //Route for finding all users
 Route::post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
+Route::post('admin/home','AdminController@send')->name('admin.send');
 
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
@@ -68,6 +69,11 @@ Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('home', 'HomeController@home');
 
+
+
+Route::get('/markAsRead',function(){
+   auth()->user()->unreadNotifications->markAsRead();
+});
 
 Route::post('/addProfile', 'profileController@addProfile');
 
@@ -80,3 +86,14 @@ Route::get('profile', ['as' => 'profile', 'uses' => 'profileController@profile']
 Route::get('preference', ['as' => 'preference', 'uses' => 'preferenceController@preference']);
 
 Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
+
+Route::get('/chat',[
+   'uses' => 'ChatController@getchatview',
+    'as' => 'chat',
+    'middleware' => 'auth'
+]);
+Route::post('/creatpost',[
+    'uses' => 'ChatController@postCreatePost',
+    'as' => 'post.create',
+    'middleware' => 'auth'
+]);
