@@ -383,7 +383,7 @@
 
 
 
-            $religion = DB::table('profiles')->select('religion')->where('user_id', '=', Auth::user()->id)->value('religion');
+            $religion = DB::table('profiles')->select('religion')->where('id', '=', Auth::user()->id)->value('religion');
 
             $ethnCaucasian = DB::table('preferences')->select('caucasian')->where('id', '=', Auth::user()->id)->value('caucasian');
             $ethnHispanic = DB::table('preferences')->select('hispanic')->where('id', '=', Auth::user()->id)->value('hispanic');

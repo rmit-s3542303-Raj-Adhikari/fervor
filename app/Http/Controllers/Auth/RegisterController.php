@@ -116,6 +116,9 @@ class RegisterController extends Controller
         if (env('sendmail') == true)
         {
             $this->sendEmail($thisUser);           
+        } else {
+            $user->status = 1;
+            $user->save();
         }
         
         return $user;

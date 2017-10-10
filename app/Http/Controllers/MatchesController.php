@@ -15,6 +15,55 @@ class MatchesController extends Controller
 
     public static $SCORE_THRESHOLD = 0;
 
+    public function submit(Request $req)
+    {
+        $match = Match::find($req->match);
+
+        if ( $req->action == "dismiss") {
+            $match->active = false;
+        } elseif ($req->action == "pin" ){
+            $match->pinned = ($match->pinned) ? false : true ;
+        }
+
+        $match->save();
+
+        return redirect("matches");
+    }
+
+    public static function returnMatches($uid){
+        $matches = Match::where('user', '=', $uid)
+            ->where('active', '=', 1)
+            ->where('score', '>=', MatchesController::$SCORE_THRESHOLD)
+            ->orderBy('score', 'desc')
+            ->get();
+
+        $filtered = [];
+        $pinned = [];
+
+        // filter the matches that score lower then the allowed threshold
+        foreach ($matches as $match){
+            // Retrieve the opposite match
+            $oppositeMatch = Match::where('user', '=', $match->prospect)
+                ->where('prospect', '=', $uid)
+                ->first();
+
+            // filter them
+            if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)
+            {
+                $compatibility = (($oppositeMatch->score)/(75)
+                        + ($match->score)/(75)) / 2;
+
+                if  ($match->pinned) {
+                    $pinned[] =  array($match, $compatibility);
+                } else {
+                    $filtered[] = array($match, $compatibility);
+                }
+            }
+        }
+
+        return ['pinned' => $pinned, 'filtered' => $filtered];
+    }
+
     public function viewMatches () {
 
         $user = User::find(Auth::id());
@@ -40,27 +89,36 @@ class MatchesController extends Controller
         }
 
         $matches = Match::where('user', '=', $user->id)
-            ->where('score', '>=', MatchesController::$SCORE_THRESHOLD)->get();
+            ->where('active', '=', 1)
+            ->where('score', '>=', MatchesController::$SCORE_THRESHOLD)
+            ->orderBy('score', 'desc')
+            ->get();
 
         $filtered = [];
+        $pinned = [];
 
         // filter the matches that score lower then the allowed threshold
         foreach ($matches as $match){
             // Retrieve the opposite match
             $oppositeMatch = Match::where('user', '=', $match->prospect)
-            ->where('prospect', '=', $user->id)->first();
-            
+            ->where('prospect', '=', $user->id)
+            ->first();
+
             // filter them
             if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)
             {
                 $compatibility = (($oppositeMatch->score)/(75)
                     + ($match->score)/(75)) / 2;
 
-                $filtered[] = array($match, $compatibility);
+                if  ($match->pinned) {
+                    $pinned[] = array($match, $compatibility);
+                } else {
+                    $filtered[] = array($match, $compatibility);
+                }
             }
         }
 
-        return (view('match', ['debug' => $debugmessage, 'matches'=> $filtered]));
+        return (view('match', ['debug' => $debugmessage, 'matches'=> $filtered, 'pinned'=> $pinned]));
     }
 
 }
