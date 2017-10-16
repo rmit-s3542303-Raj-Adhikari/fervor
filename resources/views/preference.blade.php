@@ -275,8 +275,11 @@
 
 
 
-            $smoking = DB::table('preferences')->select('smoking')->where('id', '=', 1)->value('smoking');
+            $smoking = DB::table('preferences')->select('smoking')->where('id', '=', Auth::user()->id)->value('smoking');
 
+
+            $ageMin = DB::table('preferences')->select('ageMin')->where('id', '=', Auth::user()->id)->value('ageMin');
+            $ageMax = DB::table('preferences')->select('ageMax')->where('id', '=', Auth::user()->id)->value('ageMax');
 
             ?>
 
@@ -285,7 +288,53 @@
 
 
 
-            <!-- About me input -->
+            <!-- Age upper and lower bound -->
+
+                <!-- Age Min  -->
+                <div class="form-group{{ $errors->has('ageMin') ? ' has-error' : '' }}">
+                    <label for="name" class="col-md-3 control-label">Minimum Age</label>
+
+
+                    <div class="col-md-3">
+
+                        <select class="form-control" name="ageMin" >
+                            <option value=0 {{ $ageMin === NULL||0 ? 'selected' : '' }}>Not Specified</option>
+                            @for($i = 18; $i <= 100; $i++)
+                                <option value={{$i}} {{ $ageMin === $i ? 'selected' : '' }}> {{$i}} </option>
+                            @endfor
+                        </select>
+
+                        @if ($errors->has('ageMin'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('ageMin') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+
+                </div>
+
+
+                <div class="form-group{{ $errors->has('ageMax') ? ' has-error' : '' }}">
+                    <label for="name" class="col-md-3 control-label">Maximum Age</label>
+
+
+                    <div class="col-md-3">
+
+                        <select class="form-control" name="ageMax" >
+                            <option value=0 {{ $ageMax === NULL||0 ? 'selected' : '' }}>Not Specified</option>
+                            @for($i = 18; $i <= 100; $i++)
+                                <option value={{$i}} {{ $ageMax === $i ? 'selected' : '' }}> {{$i}} </option>
+                            @endfor
+                        </select>
+
+                        @if ($errors->has('ageMax'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('ageMax') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+
+                </div>
 
 
 
