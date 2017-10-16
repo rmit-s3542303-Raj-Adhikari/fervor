@@ -68,24 +68,7 @@ class preferenceController extends Controller
 
 
 
-            $ethnTech        = $request->get('tech');
-            $ethnScience     = $request->get('science');
-            $ethnArt         = $request->get('art');
-            $ethnHistory     = $request->get('history');
-            $ethnSports      = $request->get('sports');
-            $ethnLiterature  = $request->get('literature');
-            $ethnTraveling   = $request->get('traveling');
 
-
-
-
-            $ethnHiking   = $request->get('hiking');
-            $ethnDancing  = $request->get('dancing');
-            $ethnShopping = $request->get('shopping');
-            $ethnCamping  = $request->get('camping');
-            $ethnVideogaming = $request->get('videogaming');
-            $ethnWriting     = $request->get('writing');
-            $ethnHunting     = $request->get('hunting');
 
 
 
@@ -136,21 +119,6 @@ class preferenceController extends Controller
                 'judaism'       => $ethnJudaism,
                 'buddhism'       => $ethnBuddhism,
                 'atheist'       => $atheistAtheist,
-                'tech'       =>  $ethnTech,
-            'science'    =>  $ethnScience,
-            'art'        =>  $ethnArt,
-            'history'    =>  $ethnHistory,
-            'sports'     =>  $ethnSports,
-            'literature' =>  $ethnLiterature,
-            'traveling'  =>  $ethnTraveling,
-                'hiking'       => $ethnHiking,
-                'dancing'      => $ethnDancing,
-                'shopping'     => $ethnShopping,
-                'camping'      => $ethnCamping,
-                'videogaming'  =>  $ethnVideogaming,
-                'writing'      =>  $ethnWriting,
-                'hunting'      =>  $ethnHunting,
-
 
 
 
