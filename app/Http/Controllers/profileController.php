@@ -65,9 +65,13 @@ class profileController extends Controller
 
                 $smoking = TRUE;
 
-            }else{
+            }else if($smokingcheck === 'FALSE'){
 
                 $smoking = FALSE;
+
+        }else{
+
+                $smoking = NULL;
 
             }
 
@@ -107,8 +111,10 @@ class profileController extends Controller
             $user = User::find(Auth::id());
             event(new UpdateMatches($user));
 
+
+
             return redirect()->route('profile');
-        
+
 
     }
 
