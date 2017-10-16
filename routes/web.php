@@ -23,17 +23,27 @@ Route::get('profile', function () {
     return view('profile');
 });
 
+
+
 Route::get('matches', function () {
     return view('match');
 });
 
 
+Route::get('matchp', 'MatchProfileController@matchProfile');
+Route::post('/matchprofile', 'MatchProfileController@parseMatchProfileDetails');
 
+
+
+//Route::middleware('auth')->get('matchProfile', 'MatchProfileController@matchProfile');
+//Route::post('matchProfile', 'MatchProfileController@parseMatchProfileDetails');
 
 
 
 Route::middleware('auth')->get('matches', 'MatchesController@viewMatches')->name("matches");
-Route::middleware('auth')->post('matches', 'MatchesController@submit')->name("submitMatch");
+Route::middleware('auth')->post('/matchesprofile', 'MatchesController@submit')->name("submitMatch");
+
+
 
 Auth::routes();
 
@@ -95,3 +105,5 @@ Route::post('/creatpost',[
     'as' => 'post.create',
     'middleware' => 'auth'
 ]);
+
+
