@@ -171,7 +171,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="gender">
-
+                    <option value=NULL {{  Auth::user()['gender']  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="Male" {{ Auth::user()['gender'] === 'male' ? 'selected' : '' }}>Male</option>
                     <option value="female" {{ Auth::user()['gender'] === 'female' ? 'selected' : '' }}>Female</option>
 
@@ -351,6 +351,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="smoking">
+                    <option  {{  $smoking  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="TRUE" {{ $smoking === 1 ? 'selected' : '' }}>Yes</option>
                     <option value="FALSE" {{ $smoking === 0 ? 'selected' : '' }}>No</option>
 
@@ -373,7 +374,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="status">
-
+                    <option value=NULL {{  $status  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="single" {{  $status  === 'single' ? 'selected' : '' }}>Single</option>
                     <option value="married" {{ $status === 'married' ? 'selected' : '' }}>Married</option>
                     <option value="divorced" {{ $status  === 'divorced' ? 'selected' : '' }}>Divorced</option>
@@ -397,7 +398,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="occupation">
-
+                    <option value=NULL {{  $occupation  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="self-emplyed" {{  $occupation  === 'self-emplyed' ? 'selected' : '' }}>Self-Emplyed
                     </option>
                     <option value="engineer" {{ $occupation === 'engineer' ? 'selected' : '' }}>Engineer</option>
@@ -421,6 +422,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="religion">
+                    <option value=NULL {{  $religion  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="islam" {{  $religion  === 'islam' ? 'selected' : '' }}>Islam</option>
                     <option value="hinduism" {{ $religion === 'hinduism' ? 'selected' : '' }}>Hinduism</option>
                     <option value="christian" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
@@ -443,6 +445,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="Ethnicity">
+                    <option value=NULL {{  $ethnicity  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="white/caucasian" {{  $ethnicity  === 'white/caucasian' ? 'selected' : '' }}>
                         White/Caucasian
                     </option>
@@ -477,6 +480,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="height">
+                    <option  value="0" {{  $height  === 0 ? 'selected' : '' }}>Not Specified</option>
                     <option value="151" {{ $height  === 151 ? 'selected' : '' }}>Under 5'0/152 cm</option>
                     <option value="152" {{ $height === 152 ? 'selected' : '' }}>5'0/152 cm</option>
                     <option value="154" {{ $height  === 154 ? 'selected' : '' }}>5'1/154 cm</option>
@@ -516,7 +520,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies1">
-
+                    <option value=NULL {{  $hobbies  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -541,7 +545,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies2">
-
+                    <option value=NULL {{  $hobbies2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies2 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies2 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies2 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -567,7 +571,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies3">
-
+                    <option value=NULL {{  $hobbies3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies3 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies3 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies3 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -593,7 +597,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies4">
-
+                    <option value=NULL {{  $hobbies4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies4 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies4 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies4 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -619,7 +623,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies5">
-
+                    <option  value=NULL {{  $hobbies5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies5 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies5 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies5 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -656,7 +660,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest1">
-
+                    <option value=NULL {{  $interest  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest === 'art' ? 'selected' : '' }}>Art</option>
@@ -684,7 +688,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest2">
-
+                    <option value=NULL {{  $interest2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest2 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest2 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest2 === 'art' ? 'selected' : '' }}>Art</option>
@@ -712,7 +716,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest3">
-
+                    <option value=NULL {{  $interest3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest3 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest3 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest3 === 'art' ? 'selected' : '' }}>Art</option>
@@ -740,7 +744,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest4">
-
+                    <option value=NULL {{  $interest4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest4 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest4 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest4 === 'art' ? 'selected' : '' }}>Art</option>
@@ -768,7 +772,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest5">
-
+                    <option value=NULL {{  $interest5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest5 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest5 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest5 === 'art' ? 'selected' : '' }}>Art</option>
@@ -796,7 +800,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language1">
-
+                    <option  value=NULL {{  $language  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -824,7 +828,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language2">
-
+                    <option value=NULL {{  $language2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language2 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language2 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language2 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -852,7 +856,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language3">
-
+                    <option  value=NULL {{  $language3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language3 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language3 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language3 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -880,7 +884,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language4">
-
+                    <option  value=NULL {{  $language4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language4 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language4 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language4 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -908,7 +912,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language5">
-
+                    <option  value=NULL {{  $language5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language5 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language5 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language5 === 'spanish' ? 'selected' : '' }}>Spanish</option>
