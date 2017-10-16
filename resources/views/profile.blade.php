@@ -423,7 +423,6 @@
             <div class="col-md-3">
                 <select class="form-control" name="religion">
                     <option value=NULL {{  $religion  === null ? 'selected' : '' }}>Not Specified</option>
-                    <option value="islam" {{  $religion  === 'islam' ? 'selected' : '' }}>Islam</option>
                     <option value="hinduism" {{ $religion === 'hinduism' ? 'selected' : '' }}>Hinduism</option>
                     <option value="christian" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
                     <option value="judaism" {{ $religion === 'judaism' ? 'selected' : '' }}>Judaism</option>
@@ -513,7 +512,7 @@
 
 
         <!-- Hobbies 1 -->
-        <div class="form-group{{ $errors->has('hobbies2') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('hobbies') ? ' has-error' : '' }}">
             <label for="name" class="col-md-3 control-label">Hobbies</label>
 
             <!-- Hobbies 1 -->
@@ -528,6 +527,12 @@
                     <option value="gaming" {{ $hobbies === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+                    <option value="photography" {{ $hobbies === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies'))
@@ -553,6 +558,12 @@
                     <option value="gaming" {{ $hobbies2 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies2 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies2 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+                    <option value="photography" {{ $hobbies2 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies2 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies2 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies2 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies2 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies2'))
@@ -579,6 +590,15 @@
                     <option value="gaming" {{ $hobbies3 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies3 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies3 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+
+
+                    <option value="photography" {{ $hobbies3 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies3 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies3 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies3 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies3 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies3'))
@@ -605,6 +625,14 @@
                     <option value="gaming" {{ $hobbies4 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies4 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies4 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+
+                    <option value="photography" {{ $hobbies4 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies4 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies4 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies4 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies4 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies4'))
@@ -631,6 +659,13 @@
                     <option value="gaming" {{ $hobbies5 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies5 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies5 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+                    <option value="photography" {{ $hobbies5 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies5 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies5 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies5 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies5 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies5'))
@@ -668,6 +703,15 @@
                     <option value="sports" {{ $interest === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest1'))
@@ -696,6 +740,15 @@
                     <option value="sports" {{ $interest2 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest2 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest2 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest2 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest2 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest2 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest2 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest2 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest2 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest2'))
@@ -724,6 +777,14 @@
                     <option value="sports" {{ $interest3 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest3 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest3 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+                    <option value="games" {{ $interest3 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest3 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest3 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest3 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest3 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest3 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest3'))
@@ -752,6 +813,15 @@
                     <option value="sports" {{ $interest4 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest4 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest4 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest4 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest4 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest4 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest4 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest4 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest4 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest4'))
@@ -780,6 +850,14 @@
                     <option value="sports" {{ $interest5 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest5 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest5 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+                    <option value="games" {{ $interest5 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest5 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest5 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest5 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest5 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest5 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest5'))
