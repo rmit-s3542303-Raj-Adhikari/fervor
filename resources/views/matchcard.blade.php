@@ -46,8 +46,12 @@
                         <!-- Names -->
                         <div class="col-xs-4 ">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <form action="{{ url("/matchprofile") }}" method="post">
+                                    {{ csrf_field() }}
                                     <h3>{!! $prospect->firstname !!} {!! $prospect->lastname !!} </h3>
+                                    <input hidden name="MatchProfileWantToSee" value="{!! $prospect->id !!}">
+                                </form>
+
                                 </div>
                             </div>
                             <hr>
