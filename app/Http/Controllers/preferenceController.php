@@ -56,6 +56,10 @@ class preferenceController extends Controller
         $ethnBuddhism  = $request->get('buddhism');
         $atheistAtheist = $request->get('atheist');
 
+        $ageMin = $request->get('ageMin');
+        $ageMax = $request->get('ageMax');
+
+
 
 
 
@@ -120,6 +124,8 @@ class preferenceController extends Controller
                 'buddhism'       => $ethnBuddhism,
                 'atheist'       => $atheistAtheist,
 
+                'ageMin'    => $ageMin,
+                'ageMax'   => $ageMax,
 
 
 
