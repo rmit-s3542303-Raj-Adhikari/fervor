@@ -29,6 +29,12 @@ class ExampleTest extends TestCase
     use DatabaseMigrations;
 
 
+    public function testVisit(){
+
+//        $this->visit('/')
+//            ->See('Welcome');
+    }
+
 
 
 
@@ -52,9 +58,9 @@ class ExampleTest extends TestCase
                 ]);
 
 
-             $lastname = $user->value('lastname');
+             $lastname = User::where('lastname', '=', 'labib')->exists();
 
-            $this->assertEquals($lastname, 'labib');
+            $this->assertTrue($lastname);
 
 
 //       // $user = factory(User::class)->create();
