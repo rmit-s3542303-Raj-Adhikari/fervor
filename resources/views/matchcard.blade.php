@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="col-xs-8">
                                     <label>Location</label>
-                                    <p>{!! $profile->location !!} (Suburb - State) </p>
+                                    <p>{!! $profile->location !!}</p>
                                 </div>
                                 <div class="col-xs-4">
                                     <label>Age</label>

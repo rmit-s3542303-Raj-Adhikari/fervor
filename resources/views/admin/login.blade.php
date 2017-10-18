@@ -8,7 +8,7 @@
                 @if(session('status'))
                     {{session('status')}}
                 @endif
-                <div class="panel-heading">Admin Login</div>
+                <div class="panel-heading">Fervor Dating Admin Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('admin.login') }}">
                         {{ csrf_field() }}
