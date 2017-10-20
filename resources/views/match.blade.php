@@ -23,9 +23,12 @@
     @endif
 
     <!-- Pinned -->
-    <div class="container">
-        <h1>Pinned </h1>
-    </div>
+
+    @if(count($pinned ) > 0)
+        <div class="container text-center">
+            <h1>Pinned </h1>
+        </div>
+    @endif
 
     @foreach($pinned as $match)
         @php
@@ -40,9 +43,19 @@
     @endforeach
 
     <!-- Matches -->
-    <div class="container">
-        <h1>Matches </h1>
+
+    @if(count($matches) > 0)
+        <div class="container text-center">
+            <h1>Matches </h1>
+        </div>
+    @else
+    <div class="container text-center">
+        <h1>Matches</h1>
+
+        <p> You have no matches at the moment :( Come back later</p>
     </div>
+
+    @endif
     @foreach($matches as $match)
         @php
             $prospect = \App\User::find($match[0]->prospect);
