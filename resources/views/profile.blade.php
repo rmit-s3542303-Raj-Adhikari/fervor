@@ -171,7 +171,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="gender">
-
+                    <option value=NULL {{  Auth::user()['gender']  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="Male" {{ Auth::user()['gender'] === 'male' ? 'selected' : '' }}>Male</option>
                     <option value="female" {{ Auth::user()['gender'] === 'female' ? 'selected' : '' }}>Female</option>
 
@@ -351,6 +351,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="smoking">
+                    <option  {{  $smoking  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="TRUE" {{ $smoking === 1 ? 'selected' : '' }}>Yes</option>
                     <option value="FALSE" {{ $smoking === 0 ? 'selected' : '' }}>No</option>
 
@@ -373,7 +374,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="status">
-
+                    <option value=NULL {{  $status  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="single" {{  $status  === 'single' ? 'selected' : '' }}>Single</option>
                     <option value="married" {{ $status === 'married' ? 'selected' : '' }}>Married</option>
                     <option value="divorced" {{ $status  === 'divorced' ? 'selected' : '' }}>Divorced</option>
@@ -397,7 +398,7 @@
             <div class="col-md-2">
 
                 <select class="form-control" name="occupation">
-
+                    <option value=NULL {{  $occupation  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="self-emplyed" {{  $occupation  === 'self-emplyed' ? 'selected' : '' }}>Self-Emplyed
                     </option>
                     <option value="engineer" {{ $occupation === 'engineer' ? 'selected' : '' }}>Engineer</option>
@@ -421,7 +422,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="religion">
-                    <option value="islam" {{  $religion  === 'islam' ? 'selected' : '' }}>Islam</option>
+                    <option value=NULL {{  $religion  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hinduism" {{ $religion === 'hinduism' ? 'selected' : '' }}>Hinduism</option>
                     <option value="christian" {{ $religion  === 'christian' ? 'selected' : '' }}>Christian</option>
                     <option value="judaism" {{ $religion === 'judaism' ? 'selected' : '' }}>Judaism</option>
@@ -443,6 +444,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="Ethnicity">
+                    <option value=NULL {{  $ethnicity  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="white/caucasian" {{  $ethnicity  === 'white/caucasian' ? 'selected' : '' }}>
                         White/Caucasian
                     </option>
@@ -477,6 +479,7 @@
 
             <div class="col-md-3">
                 <select class="form-control" name="height">
+                    <option  value="0" {{  $height  === 0 ? 'selected' : '' }}>Not Specified</option>
                     <option value="151" {{ $height  === 151 ? 'selected' : '' }}>Under 5'0/152 cm</option>
                     <option value="152" {{ $height === 152 ? 'selected' : '' }}>5'0/152 cm</option>
                     <option value="154" {{ $height  === 154 ? 'selected' : '' }}>5'1/154 cm</option>
@@ -509,14 +512,14 @@
 
 
         <!-- Hobbies 1 -->
-        <div class="form-group{{ $errors->has('hobbies2') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('hobbies') ? ' has-error' : '' }}">
             <label for="name" class="col-md-3 control-label">Hobbies</label>
 
             <!-- Hobbies 1 -->
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies1">
-
+                    <option value=NULL {{  $hobbies  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -524,6 +527,12 @@
                     <option value="gaming" {{ $hobbies === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+                    <option value="photography" {{ $hobbies === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies'))
@@ -541,7 +550,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies2">
-
+                    <option value=NULL {{  $hobbies2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies2 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies2 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies2 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -549,6 +558,12 @@
                     <option value="gaming" {{ $hobbies2 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies2 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies2 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+                    <option value="photography" {{ $hobbies2 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies2 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies2 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies2 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies2 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies2'))
@@ -567,7 +582,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies3">
-
+                    <option value=NULL {{  $hobbies3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies3 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies3 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies3 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -575,6 +590,15 @@
                     <option value="gaming" {{ $hobbies3 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies3 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies3 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+
+
+                    <option value="photography" {{ $hobbies3 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies3 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies3 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies3 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies3 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies3'))
@@ -593,7 +617,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies4">
-
+                    <option value=NULL {{  $hobbies4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies4 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies4 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies4 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -601,6 +625,14 @@
                     <option value="gaming" {{ $hobbies4 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies4 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies4 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+
+                    <option value="photography" {{ $hobbies4 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies4 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies4 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies4 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies4 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies4'))
@@ -619,7 +651,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="hobbies5">
-
+                    <option  value=NULL {{  $hobbies5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="hiking" {{ $hobbies5 === 'hiking' ? 'selected' : '' }}>Hiking</option>
                     <option value="dancing" {{ $hobbies5 === 'dancing' ? 'selected' : '' }}>Dancing</option>
                     <option value="shopping" {{ $hobbies5 === 'shopping' ? 'selected' : '' }}>Shopping</option>
@@ -627,6 +659,13 @@
                     <option value="gaming" {{ $hobbies5 === 'gaming' ? 'selected' : '' }}>Video Gaming</option>
                     <option value="writing" {{ $hobbies5 === 'writing' ? 'selected' : '' }}>Writing</option>
                     <option value="hunting" {{ $hobbies5 === 'hunting' ? 'selected' : '' }}>Hunting</option>
+
+
+                    <option value="photography" {{ $hobbies5 === 'photography' ? 'selected' : '' }}>Photography</option>
+                    <option value="drawing" {{ $hobbies5 === 'drawing' ? 'selected' : '' }}>Drawing/Painting</option>
+                    <option value="fishing" {{ $hobbies5 === 'fishing' ? 'selected' : '' }}>Fishing</option>
+                    <option value="backpacking" {{ $hobbies5 === 'backpacking' ? 'selected' : '' }}>Backpacking</option>
+                    <option value="coin" {{ $hobbies5 === 'coin' ? 'selected' : '' }}>Coin Collecting</option>
                 </select>
 
                 @if ($errors->has('hobbies5'))
@@ -656,7 +695,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest1">
-
+                    <option value=NULL {{  $interest  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest === 'art' ? 'selected' : '' }}>Art</option>
@@ -664,6 +703,15 @@
                     <option value="sports" {{ $interest === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest1'))
@@ -684,7 +732,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest2">
-
+                    <option value=NULL {{  $interest2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest2 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest2 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest2 === 'art' ? 'selected' : '' }}>Art</option>
@@ -692,6 +740,15 @@
                     <option value="sports" {{ $interest2 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest2 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest2 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest2 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest2 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest2 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest2 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest2 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest2 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest2'))
@@ -712,7 +769,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest3">
-
+                    <option value=NULL {{  $interest3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest3 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest3 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest3 === 'art' ? 'selected' : '' }}>Art</option>
@@ -720,6 +777,14 @@
                     <option value="sports" {{ $interest3 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest3 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest3 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+                    <option value="games" {{ $interest3 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest3 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest3 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest3 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest3 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest3 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest3'))
@@ -740,7 +805,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest4">
-
+                    <option value=NULL {{  $interest4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest4 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest4 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest4 === 'art' ? 'selected' : '' }}>Art</option>
@@ -748,6 +813,15 @@
                     <option value="sports" {{ $interest4 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest4 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest4 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+
+                    <option value="games" {{ $interest4 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest4 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest4 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest4 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest4 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest4 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest4'))
@@ -768,7 +842,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="interest5">
-
+                    <option value=NULL {{  $interest5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="tech" {{ $interest5 === 'tech' ? 'selected' : '' }}>Tech</option>
                     <option value="science" {{ $interest5 === 'science' ? 'selected' : '' }}>Science</option>
                     <option value="art" {{ $interest5 === 'art' ? 'selected' : '' }}>Art</option>
@@ -776,6 +850,14 @@
                     <option value="sports" {{ $interest5 === 'sports' ? 'selected' : '' }}>Sports</option>
                     <option value="literature" {{ $interest5 === 'literature' ? 'selected' : '' }}>Literature</option>
                     <option value="traveling" {{ $interest5 === 'traveling' ? 'selected' : '' }}>Traveling</option>
+
+
+                    <option value="games" {{ $interest5 === 'games' ? 'selected' : '' }}>Games</option>
+                    <option value="animals" {{ $interest5 === 'animals' ? 'selected' : '' }}>Animals</option>
+                    <option value="psychology" {{ $interest5 === 'psychology' ? 'selected' : '' }}>Psychology</option>
+                    <option value="politics" {{ $interest5 === 'politics' ? 'selected' : '' }}>Politics</option>
+                    <option value="debate" {{ $interest5 === 'debate' ? 'selected' : '' }}>Debate</option>
+                    <option value="cars" {{ $interest5 === 'cars' ? 'selected' : '' }}>Cars</option>
                 </select>
 
                 @if ($errors->has('interest5'))
@@ -796,7 +878,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language1">
-
+                    <option  value=NULL {{  $language  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -824,7 +906,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language2">
-
+                    <option value=NULL {{  $language2  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language2 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language2 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language2 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -852,7 +934,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language3">
-
+                    <option  value=NULL {{  $language3  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language3 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language3 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language3 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -880,7 +962,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language4">
-
+                    <option  value=NULL {{  $language4  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language4 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language4 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language4 === 'spanish' ? 'selected' : '' }}>Spanish</option>
@@ -908,7 +990,7 @@
             <div class="col-md-3">
 
                 <select class="form-control" name="language5">
-
+                    <option  value=NULL {{  $language5  === null ? 'selected' : '' }}>Not Specified</option>
                     <option value="english" {{ $language5 === 'english' ? 'selected' : '' }}>English</option>
                     <option value="french" {{ $language5 === 'french' ? 'selected' : '' }}>French</option>
                     <option value="spanish" {{ $language5 === 'spanish' ? 'selected' : '' }}>Spanish</option>

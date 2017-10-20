@@ -15,7 +15,9 @@ class CreatePreferencesTable extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->integer('id')->unsigned();
-            $table->integer('age')->nullable();
+            $table->integer('ageMin')->nullable();
+            $table->integer('ageMax')->nullable();
+
 
             $table->boolean('smoking')->nullable();
 
@@ -38,14 +40,6 @@ class CreatePreferencesTable extends Migration
 
 
 
-            //Hobbies
-            $table->boolean('hiking')->default(false);
-            $table->boolean('dancing')->default(false);
-            $table->boolean('shopping')->default(false);
-            $table->boolean('camping')->default(false);
-            $table->boolean('videogaming')->default(false);
-            $table->boolean('writing')->default(false);
-            $table->boolean('hunting')->default(false);
 
             //religion
 
@@ -57,15 +51,6 @@ class CreatePreferencesTable extends Migration
             $table->boolean('atheist')->default(false);
 
 
-            //interest
-
-            $table->boolean('tech')->default(false);
-            $table->boolean('science')->default(false);
-            $table->boolean('art')->default(false);
-            $table->boolean('history')->default(false);
-            $table->boolean('sports')->default(false);
-            $table->boolean('literature')->default(false);
-            $table->boolean('traveling')->default(false);
 
 
 

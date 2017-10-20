@@ -20,7 +20,8 @@ class ProfileSeeder extends Seeder
             Profile::Create([
             'id'         => $i+1,
             'nickname'   => $faker->word,
-            'location'   => $faker->numberBetween($min = 1000, $max = 8000), 
+            //Location must be between 3001/3490 as these are valid for csv 'Melbourne'.
+            'location'   => $faker->numberBetween($min = 3001, $max = 3490), 
             'status'     => $faker->randomElement($array = array ('single', 'married', 'divorced', 'complicated')),
             'occupation' => $faker->randomElement($array = array ('self-emplyed', 'engineer','doctor', 'writer', 'student', 'tradesman', 'teacher')),
             'height'     => 0,

@@ -4,6 +4,7 @@
         <!-- Pin button -->
         <div class='col-md-2'>
             <div class="" style="height:240px">
+                <strong> {!! $match[0]->pinned !!}</strong>
                 <form action="{{ route("submitMatch") }}" method="post">
                     {{ csrf_field() }}
                     <input hidden name="match" value="{!!$match[0]->id!!}">
@@ -13,10 +14,6 @@
                         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     </button>
                 </form>
-                <button type="submit"
-                        class="btn btn-primary btn-xs pull-right">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                </button>
             </div>
         </div>
 
@@ -25,6 +22,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class='col-lg-12'>
+                        <strong> {!! $match[0]->active !!}</strong>
                         <!-- Dismiss button -->
                         <form action="{{ route("submitMatch") }}" method="post">
                             {{ csrf_field() }}
@@ -48,12 +46,12 @@
                         <!-- Names -->
                         <div class="col-xs-4 ">
                             <div class="row">
-                                <div class="col-lg-12">
-                                     <form action="{{ url("/matchprofile") }}" method="post">
-                                         {{ csrf_field() }}
-                                        <button type="submit">{!! $prospect->firstname !!} {!! $prospect->lastname !!} </button>
-                                         <input hidden name="MatchProfileWantToSee" value="{!! $prospect->id !!}">
-                                     </form>
+                                <form action="{{ url("/matchprofile") }}" method="post">
+                                    {{ csrf_field() }}
+                                    <h3>{!! $prospect->firstname !!} {!! $prospect->lastname !!} </h3>
+                                    <input hidden name="MatchProfileWantToSee" value="{!! $prospect->id !!}">
+                                </form>
+
                                 </div>
                             </div>
                             <hr>
@@ -62,7 +60,7 @@
                             <div class="row">
                                 <div class="col-xs-8">
                                     <label>Location</label>
-                                    <p>{!! $profile->location !!} (Suburb - State) </p>
+                                    <p>{!! $profile->location !!}</p>
                                 </div>
                                 <div class="col-xs-4">
                                     <label>Age</label>

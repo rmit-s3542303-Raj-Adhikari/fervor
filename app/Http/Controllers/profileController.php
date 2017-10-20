@@ -37,6 +37,7 @@ class profileController extends Controller
             $religion = $request->get('religion');
             $ethnicity = $request->get('Ethnicity');
             $height = $request->get('height');
+            
 
 
             $hobbies1 = $request->get('hobbies1');
@@ -65,9 +66,13 @@ class profileController extends Controller
 
                 $smoking = TRUE;
 
-            }else{
+            }else if($smokingcheck === 'FALSE'){
 
                 $smoking = FALSE;
+
+        }else{
+
+                $smoking = NULL;
 
             }
 
@@ -108,8 +113,6 @@ class profileController extends Controller
             event(new UpdateMatches($user));
 
             return redirect()->route('profile');
-        
-
     }
 
 
@@ -135,6 +138,7 @@ class profileController extends Controller
             'gender'    => $gender,
             'dob'       => $year."-".$month."-".$day,
         ]);
+        
 
 
         return redirect()->route('profile');
@@ -190,13 +194,12 @@ class profileController extends Controller
         $data = Location::select("suburbs as name")->where("suburbs","LIKE", "%{$request->input('query')}%")->get();
         return response()->json($data);
     }
-    
+
        public function profile(){
     	return view('profile', array('user' => Auth::user()) );
     }
-
-    //Updating the User's 'avatar' or profile picture
     
+    //Updating the User's 'avatar' or profile picture
     function update_avatar(Request $request){
 
     	// Handle the user upload of avatar
@@ -214,6 +217,8 @@ class profileController extends Controller
     	return view('profile', array('user' => Auth::user()) );
 
     }
+    
+    
     
     
 

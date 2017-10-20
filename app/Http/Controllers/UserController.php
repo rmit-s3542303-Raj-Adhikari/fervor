@@ -52,8 +52,8 @@ class UserController extends Controller
      */
     function showusers()
     {
-        //Making call to the sql database
-        $user = User::all();
+        //Getting all the users and ordering them by flagged status
+        $user = User::orderBy('flagged','desc')->get();
           return view('ShowAllUsers',['user'=> $user]);
     }
      /**
@@ -73,14 +73,18 @@ class UserController extends Controller
     }
      /**
      * Admin Functionality to flag a user
-     *
+     * Gets the model of the requested user.
+     * Then sets it's flagged status to 1.
+     * Afterwards, returns view of all users.
      * @return \Illuminate\View\View
      */
     
-    function flaguser($req)
+    function flaguser(Request $req)
     {
         $user = User::where('email', $req->input('email'))->get();
-        return view();
+        //Set the selected user's flagged status to 1
+        $user->flagged = 1;
+        return view('ShowAllUsers', ['user'=> $user]);
     }
 
 }
