@@ -51,15 +51,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-<<<<<<< HEAD
+
                         &nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
                         <li><a href="{{ route('preference') }}">Preferences</a></li>
                         <li><a href="{{ route('matches') }}">Matches</a></li>
                         <li><a href="{{ route('inbox') }}">Inbox</a></li>
 
-=======
-                        &nbsp;
->>>>>>> fe991470949d69d466b25a7243f1f073ccb9346f
                     </ul>
 
                     <!-- Right Side Of Navbar -->
