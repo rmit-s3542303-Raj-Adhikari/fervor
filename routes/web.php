@@ -30,8 +30,12 @@ Route::get('matches', function () {
 });
 
 
+
+
 Route::get('matchp', 'MatchProfileController@matchProfile');
 Route::post('/matchprofile', 'MatchProfileController@parseMatchProfileDetails');
+//Admin Viewing user profile
+Route::post('/viewprofile', 'UserController@viewprofile');
 
 
 
@@ -57,10 +61,8 @@ Route::middleware('auth')->get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::middleware('auth')->get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
-//Route to show all user
-Route::middleware('auth')->get('showallusers','UserController@showusers');
 
-Route::middleware('auth')->get('finduser', function()
+Route::get('finduser', function()
 {
     return View::make('finduser');
 });
@@ -69,6 +71,7 @@ Route::post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
 Route::post('admin/home','AdminController@send')->name('admin.send');
 
+
 Route::get('admin','Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin','Admin\LoginController@login');
 Route::post('admin-password/email','Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
@@ -76,7 +79,10 @@ Route::get('admin-password/reset','Admin\ForgotPasswordController@showLinkReques
 Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('home', 'HomeController@home');
-// Route::post('showallusers','UserController@flaguser');
+
+Route::post('flaguser','UserController@flaguser');
+Route::post('banuser','UserController@banuser');
+
 
 Route::middleware('auth')->post('/addProfile', 'profileController@addProfile');
 
@@ -94,9 +100,11 @@ Route::middleware('auth')->get('preference', ['as' => 'preference', 'uses' => 'p
 
 Route::middleware('auth')->get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
 
-Route::middleware('auth')->get('showallusers', ['as' => 'showallusers', 'uses' => 'UserController@showusers']);
+Route::get('showallusers', ['as' => 'showallusers', 'uses' => 'UserController@showusers']);
 
-Route::middleware('auth')->get('finduser', ['as' => 'finduser', 'uses' => 'UserController@finduser']);
+Route::post('finduser', ['as' => 'finduser', 'uses' => 'UserController@finduser']);
+
+
 
 Route::get('/chat',[
    'uses' => 'ChatController@getchatview',

@@ -51,7 +51,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-
+ 
                         &nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
                         <li><a href="{{ route('preference') }}">Preferences</a></li>
                         <li><a href="{{ route('matches') }}">Matches</a></li>
@@ -73,6 +73,7 @@
                                     <span class = 'glyphicon glyphicon-globe'></span>Notification !<span class="badge"></span>
                                 </a>
 
+                                <!-- Notifications -->
                                 <ul class="dropdown-menu" role="menu">
                                     <p hidden>{{$data = DB::table('notifications')->select('data')->get()}}</p>
                                     @php

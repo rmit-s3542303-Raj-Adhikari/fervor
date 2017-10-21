@@ -35,8 +35,8 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img alt="Fervor" src="{{asset("img/logo-white.png")}}" class="nav-logo-white">
-                            <img alt="Fervor" src="{{asset("img/logo-white.png")}}" class="nav-logo">
+                            <img alt="Fervor" src="{{asset("/img/fervor2.png")}}" class="nav-logo-white">
+                            <img alt="Fervor" src="{{asset("/img/fervor2.png")}}" class="nav-logo">
                         </a>
                     </div>
 

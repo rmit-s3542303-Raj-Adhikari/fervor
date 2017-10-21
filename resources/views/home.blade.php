@@ -54,9 +54,10 @@
                     <div class="panel-heading">Welcome back {{ Auth::user()['firstname'] }} !</div>
                     <img src="/img/avatar/{{Auth::user()->avatar }}" style="width:120px; height:120px; float:left; border-radius:50%; margin-right:25px;"> 
                     <div class="panel-body">
-                        <h1>Check Back in a bit</h>
-                        <h2>No current updates available</h2>
-                        <p> Welcome To the dashboard. Here you can view your potential matches as well as other users of the website.</p>
+                        <p> Welcome To the Fervor dashboard! <br> Here you can view your potential matches as well as other users of the website.</p>
+                        
+                        
+                        
                     </div>
         
                 </div>

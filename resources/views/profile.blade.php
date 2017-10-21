@@ -677,16 +677,6 @@
 
         </div>
 
-
-        <!--
-
-        ******
-        *****
-        *****
-        Interest
-       -->
-
-
         <!-- Interest 1 -->
         <div class="form-group{{ $errors->has('interest') ? ' has-error' : '' }}">
             <label for="name" class="col-md-3 control-label">Interests</label>

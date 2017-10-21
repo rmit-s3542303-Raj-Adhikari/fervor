@@ -67,7 +67,18 @@ class MatchesController extends Controller
     }
 
 
-
+    /**
+     * Calculate_distance calculates the distance between two users
+     * given the latitude and longitude of each user.
+     * It uses the Haversine formula to calculate this distance.
+     * 
+     * Takes in $lat1, $long1 of the Authenticated user.
+     * $lat2, $long2 of the matchee. 
+     * 
+     * Haversine forumla is then used to calculate the distance.
+     * Mulitiplied to get the distance in forms of kilometers.
+     * Returns the distance in kilometers.
+    */
     public function calculate_distance($lat1, $long1, $lat2, $long2)
     {
         $theta = $long1 - $long2;

@@ -18,16 +18,17 @@ class CreateAdmintable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->date('dob');
             $table->string('password');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->string('verifytoken')->nullable();
-            $table->string('gender');
-            $table->string('preference');
-            $table->boolean('admin')->default(false);
-            $table->boolean('firstLogin')->default(true);
             $table->rememberToken();
             $table->timestamps();
+            //Don't think we need these categories for admin.
+              // $table->date('dob');
+            // $table->string('gender');
+            // $table->string('preference');
+            // $table->boolean('admin')->default(false);
+            // $table->boolean('firstLogin')->default(true);
         });
     }
 

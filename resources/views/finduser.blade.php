@@ -1,5 +1,6 @@
-
-<form action"searchuser" method="post">
+@extends('layouts.app_admin')
+@section('content')
+<form action"finduser" method="post">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="search">Search</label>
@@ -10,3 +11,4 @@
   </div>
   <button type="submit" class="btn btn-default">Search</button>
 </form>
+@endsection
