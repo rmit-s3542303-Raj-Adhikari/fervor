@@ -1,45 +1,43 @@
-@extends('layouts.app')
+<div class="row" style="padding-top: 10px;">
 
-@section('content')
+    @php
+        $rec =   \App\User::find($rid)
 
-    <style type="text/css">
+    @endphp
 
-    </style>
-    <body>
-    <section class = "row posts">
-        <div class = "col-md-6 col-md-offset-3 "><h3>what other people say....</h3></div>
-        <div class = "col-md-6 col-md-offset-3 " style="width: 50%; height: 250px; overflow: scroll;">
-            @foreach($posts as $post)
-                <article class="post panel panel-success" data-postid="{{ $post->id }}">
-                    <div class="info panel-heading" style="margin-left:;">
-                        {{ $post->user->name }} {{$post->created_at}}
-                    </div>
-                    <div class="panel-body" style="margin-left: 20px;">{{ $post->body }}</div>
+    <div class="well well-sm col-md-8 col-md-offset-2 text-center"> <strong style="font-size: 20px">{!! $rec->firstname . ' ' . $rec->lastname !!}</strong></div>
 
-                </article>
-            @endforeach
-        </div>
-    </section>
-    <section class="row new-post">
-        <div class =  "col-md-6 col-md-offset-3 ">
-            <header>
-                <h3>what do you have to say </h3>
-            </header>
-            <form action="{{ route('post.create')}}" method="post">
-                <div class="form-group">
-                    <textarea class="form-control" name="body" id="new-post" rows="5" placeholder="enter your message">
+</div>
 
-                    </textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-                <input type="hidden" value = "{{Session::token()}}" name="_token">
-            </form>
-        </div>
-    </section><br>
+<div class="row posts" style="height: calc(100vh - 373px);overflow: scroll;">
+    <div class="col-md-12" style="overflow: scroll;">
 
-    </body>
+    @foreach($posts as $post)
+        @if($post->user_id == Auth::id())
+            @include('layouts.message-sent')
+        @else
+            @include('layouts.message-rec')
+        @endif
+    @endforeach
+            </div>
+</div>
+<div class="" style="height: 200px;">
+    <div class="col-md-10 col-xs-7" style="height: 100%;">
+        <form action="{{ route('post.create')}}" method="post" style="height: 100%;">
+            <div class="form-group" style="height: 100%;">
+                <input name="rec" value="{{$rid}}" hidden>
+                <textarea class="form-control" name="body" id="new-post" placeholder="enter your message" style="height: 100%; ">
+                </textarea>
+            </div>
 
-    <script>
-        var token = '{{ Session::token() }}'
-        </script>
-    @endsection
+            <input type="hidden" value="{{Session::token()}}" name="_token">
+        </form>
+    </div>
+    <div class="col-md-2 col-xs-5" style="height: 100%">
+        <button type="submit" class="btn btn-primary btn-block" style="height: 100%"> <h3><strong>Send</strong></h3></button>
+    </div>
+</div>
+<br>
+<script>
+    var token = '{{ Session::token() }}'
+</script>

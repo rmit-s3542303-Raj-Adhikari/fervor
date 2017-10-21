@@ -14,7 +14,9 @@
             @endphp
 
 
+            @if(count($pinned) > 0)
             <h3 class="text-center">Pinned</h3>
+            @endif
             @foreach($pinned as $match)
                 @php
                     $prospect = \App\User::find($match[0]->prospect);;
@@ -33,8 +35,14 @@
             @endforeach
         </div>
         <!-- Message Window & Form -->
-        <div class="col-xs-8 col-md-10 msg-chatbox">
-            message form
+        <div class="col-xs-8 col-md-10 msg-chatbox" style="height: 100%">
+
+            @if(isset($posts))
+                @include('chat')
+            @else
+                <br>
+                <div class=" text-center" style="padding-top: 200px; color: #95a5a6"> <h1 class="vcenter"> Select a Match</h1> </div>
+            @endif
         </div>
     </div>
 @endsection

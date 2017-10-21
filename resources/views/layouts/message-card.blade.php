@@ -1,4 +1,4 @@
-<a class="msg-cardlink" href="">
+<a class="msg-cardlink" href="{{route('loadmsg', ['rid' => $prospect->id])}}">
 <div class="msg-card text-center">
 
 

@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->get('inbox', function () {
-    return view('inbox');
-})->name('inbox');
+Route::middleware('auth')->get('inbox', "ChatController@loadInbox")->name('inbox');
+Route::middleware('auth')->get('inbox/{rid}', "ChatController@getchatview")->name('loadmsg');
 
 Route::get('profile', function () {
     return view('profile');
