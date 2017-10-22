@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-
         <!-- Pin button -->
         <div class='col-md-2'>
             <div class="" style="height:240px">
@@ -49,9 +48,9 @@
                         <div class="col-xs-4 ">
                             <div class="row">
                                 <div class="col-lg-12">
-                                     <form action="{{ url("/matchprofile") }}" method="post">
+                                     <form id="p{{$prospect->id}}" action="{{ url("/matchprofile") }}" method="post">
                                          {{ csrf_field() }}
-                                        <button type="submit">{!! $prospect->firstname !!} {!! $prospect->lastname !!} </button>
+                                            <h3><a href="javascript:{}" onclick="document.getElementById('p{{$prospect->id}}').submit(); return false;"" >{!! $prospect->firstname !!} {!! $prospect->lastname !!} </a> </h3>
                                          <input hidden name="MatchProfileWantToSee" value="{!! $prospect->id !!}">
                                      </form>
                                 </div>
