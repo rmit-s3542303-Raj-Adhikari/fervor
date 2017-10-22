@@ -334,11 +334,11 @@ class ProfileScorer
 
         if ($distance >= 50) {
             $score = 3;
-        } elseif ($distance == 30) {
+        } elseif ($distance <= 30) {
             $score = 7;
-        } elseif ($distance == 20) {
+        } elseif ($distance <= 20) {
             $score = 10;
-        } elseif ($distance == 10) {
+        } elseif ($distance <= 10) {
             $score = 15;
         }
 
