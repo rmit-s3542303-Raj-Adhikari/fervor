@@ -56,6 +56,7 @@ Route::middleware('auth')->post('profile', 'profileController@update_avatar');
 
 Route::middleware('auth')->get('/home', 'HomeController@index')->name('home');
 
+Route::middleware('auth')->get('/TC', 'HomeController@TC')->name('TC');
 //Verifying the Emails
 Route::middleware('auth')->get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::middleware('auth')->get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
