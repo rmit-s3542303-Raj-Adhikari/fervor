@@ -148,7 +148,7 @@ class MatchesController extends Controller
             $distance = MatchesController::calculate_distance($lat1, $lon1, $lat2, $lon2);
   
                 
-            echo("Distance is:" + $distance + "km");
+            // echo("Distance is:" + $distance + "km");
     
             // filter them
             if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)

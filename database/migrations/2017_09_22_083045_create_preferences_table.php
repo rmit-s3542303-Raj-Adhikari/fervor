@@ -15,13 +15,14 @@ class CreatePreferencesTable extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->integer('id')->unsigned();
-            // $table->integer('ageMin')->nullable();
-            // $table->integer('ageMax')->nullable();
+            $table->integer('ageMin')->nullable();
+            $table->integer('ageMax')->nullable();
             $table->integer('age')->nullable();
             $table->boolean('smoking')->nullable();
 
 
             //ethnicity
+
             $table->boolean('caucasian')->default(false);
             $table->boolean('hispanic')->default(false);
             $table->boolean('black')->default(false);

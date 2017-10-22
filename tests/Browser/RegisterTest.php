@@ -18,7 +18,12 @@ class RegisterTest extends DuskTestCase
        $this->browse(function (Browser $browser) {
            $browser->visit('https://fervor-cloned-wbackpack-ryaii.c9users.io/')
                     ->clickLink('Login')
-                    ->waitForLink('Login');
+                    ->waitForLink('Login')
+                    ->value('#email','cwalker@senger.info')
+                    ->value('#password', '123456')
+                    ->press('Login')
+                    ->assertPathIs('/home');
         });
     }
+    
 }

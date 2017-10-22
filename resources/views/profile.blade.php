@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Fervor') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
@@ -48,6 +48,7 @@
                     &nbsp;&nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
                     <li><a href="{{ route('preference') }}">Preferences</a></li>
                     <li><a href="{{ route('matches') }}">Matches</a></li>
+                    <li><a href="{{ route('inbox') }}">Inbox</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -120,7 +121,6 @@
                     <input type="file" name="avatar">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
-
                 </form>
             </div>
         </div>

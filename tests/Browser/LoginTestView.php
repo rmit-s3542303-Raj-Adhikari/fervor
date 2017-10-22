@@ -15,7 +15,7 @@ class LoginTestView extends DuskTestCase
      *
      * @return void
      */
-    public function testLoginView()
+    public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
            $browser->visit('https://fervor-cloned-wbackpack-ryaii.c9users.io/')
@@ -25,16 +25,14 @@ class LoginTestView extends DuskTestCase
         });
     }
     
-    public function testRegisterView()
-    {
-         $this->browse(function (Browser $browser) {
-           $browser->visit('https://fervor-cloned-wbackpack-ryaii.c9users.io/')
-                    ->clickLink('Register')
-                    ->waitForLink('Register')
-                    ->assertPathIs('/register');
-        });
+    // public function testRegisterView()
+    // {
+    //      $this->browse(function (Browser $browser) {
+    //       $browser->visit('https://fervor-cloned-wbackpack-ryaii.c9users.io/')
+    //                 ->clickLink('Register')
+    //                 ->waitForLink('Register')
+    //                 ->assertPathIs('/register');
+    //     });
         
-    }
-
-
+    // }
 }

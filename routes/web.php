@@ -60,13 +60,13 @@ Route::middleware('auth')->get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->get('verifyEmailFirst','Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
 Route::middleware('auth')->get('verify/{email}/{verifytoken}','Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
-
-Route::get('finduser', function()
+//Admin details
+Route::middleware('auth:admin')->get('finduser', function()
 {
     return View::make('finduser');
 });
 
-Route::post('finduser', 'UserController@finduser');
+Route::middleware('auth:admin')->post('finduser', 'UserController@finduser');
 Route::get('admin/home','AdminController@index');
 Route::post('admin/home','AdminController@send')->name('admin.send');
 
@@ -79,8 +79,8 @@ Route::post('admin-password/reset','Admin\ResetPasswordController@reset');
 Route::get('admin-password/reset/{token}','Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 Route::post('home', 'HomeController@home');
 
-Route::post('flaguser','UserController@flaguser');
-Route::post('banuser','UserController@banuser');
+Route::middleware('auth:admin')->post('flaguser','UserController@flaguser');
+Route::middleware('auth:admin')->post('banuser','UserController@banuser');
 
 
 Route::middleware('auth')->post('/addProfile', 'profileController@addProfile');
@@ -99,9 +99,9 @@ Route::middleware('auth')->get('preference', ['as' => 'preference', 'uses' => 'p
 
 Route::middleware('auth')->get('autocomplete',array('as'=>'autocomplete','uses'=>'profileController@autocomplete'));
 
-Route::get('showallusers', ['as' => 'showallusers', 'uses' => 'UserController@showusers']);
+Route::middleware('auth:admin')->get('showallusers', ['as' => 'showallusers', 'uses' => 'UserController@showusers']);
 
-Route::post('finduser', ['as' => 'finduser', 'uses' => 'UserController@finduser']);
+Route::middleware('auth:admin')->post('finduser', ['as' => 'finduser', 'uses' => 'UserController@finduser']);
 
 
 
