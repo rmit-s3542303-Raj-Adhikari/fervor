@@ -28,17 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $user = Auth::user();
-
-
-
-        if($user['firstLogin'])
-        {
-            $user['firstLogin'] = false;
-            $user->save();
-        }
-
         return view('home');
     }
 

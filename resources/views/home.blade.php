@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', ' - Home')
 @section('content')
-
+    <div class="container"  style="padding-top: 10px">
     @if(Auth::user()['firstLogin'])
 
-        <div class="panel panel-success">
+        <div class=" panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">Welcome to Fervor!</h3>
             </div>
@@ -12,9 +12,15 @@
                 Right now your profile is blank!
                 <br>
                 <br>
-                <strong><a>Build your profile</a></strong> to start exploring your matches!
+                <strong><a href="{{route('profile')}}">Build your profile</a></strong> to start exploring your matches!
             </div>
         </div>
+
+        @php
+        Auth::user()['firstLogin'] = false;
+        Auth::user()->save();
+        @endphp
+
     @else
 
         {{--<div class="container">--}}
@@ -47,12 +53,12 @@
         {{--</div>--}}
 
     @endif
-    <div class="container">
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Hello {{ Auth::user()['firstname'] }}!</div>
-                    <img src="/img/avatar/{{Auth::user()->avatar }}" style="width:120px; height:120px; float:left; border-radius:50%; margin-right:25px;"> 
+                    <img src="{{ asset("/img/avatar/".Auth::user()->avatar)}}" style="width:120px; height:120px; float:left; border-radius:50%; margin-right:25px;">
                     <div class="panel-body">
                         <p> Welcome To the Fervor dashboard! <br> Here you can start your adventure and find that special someone! </p>
                         
