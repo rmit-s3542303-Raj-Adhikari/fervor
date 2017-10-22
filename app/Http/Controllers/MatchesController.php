@@ -15,7 +15,7 @@ use App\Location;
 class MatchesController extends Controller
 {
 
-    public static $SCORE_THRESHOLD = 0;
+    public static $SCORE_THRESHOLD = 20;
 
     public function submit(Request $req)
     {
@@ -81,12 +81,14 @@ class MatchesController extends Controller
     */
     public static function calculate_distance($lat1, $long1, $lat2, $long2)
     {
+        Log::debug('calculate_distance(): lat1: ' . $lat1);
+        Log::debug('calculate_distance(): long1: ' . $long1);
+        Log::debug('calculate_distance(): lat2: ' . $lat2);
+        Log::debug('calculate_distance(): long2: ' . $long2);
+
         $theta = $long1 - $long2;
-        $d = sin(deg2rad($lat2)) + cos(deg2rad($lat1)) 
-        * cos (deg2rad($lat2)) * cos (deg2rad($theta));
-
+        $d = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
         Log::debug('calculate_distance(): first pass ' . $d);
-
         $d = acos($d);
         Log::debug('calculate_distance(): second pass ' . $d);
         $d = rad2deg($d);
