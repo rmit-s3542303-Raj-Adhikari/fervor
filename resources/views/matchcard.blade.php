@@ -4,7 +4,7 @@
         <!-- Pin button -->
         <div class='col-md-2'>
             <div class="" style="height:240px">
-                <strong> {!! $match[0]->pinned !!}</strong>
+               
                 <form action="{{ route("submitMatch") }}" method="post">
                     {{ csrf_field() }}
                     <input hidden name="match" value="{!!$match[0]->id!!}">
@@ -22,8 +22,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class='col-lg-12'>
-                        <strong> {!! $match[0]->active !!}</strong>
-                        <!-- Dismiss button -->
+                                             <!-- Dismiss button -->
                         <form action="{{ route("submitMatch") }}" method="post">
                             {{ csrf_field() }}
                             <input hidden name="match" value="{!!$match[0]->id!!}">
