@@ -15,8 +15,8 @@ class CreatePreferencesTable extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->integer('id')->unsigned();
-            // $table->integer('ageMin')->nullable();
-            // $table->integer('ageMax')->nullable();
+            $table->integer('ageMin')->nullable();
+            $table->integer('ageMax')->nullable();
             $table->integer('age')->nullable();
             $table->boolean('smoking')->nullable();
 
@@ -40,22 +40,6 @@ class CreatePreferencesTable extends Migration
 
 
             //religion
-
-
-            $table->boolean('hinduism')->default(false);
-            $table->boolean('chirstian')->default(false);
-            $table->boolean('judaism')->default(false);
-            $table->boolean('buddhism')->default(false);
-            $table->boolean('atheist')->default(false);
-
-
-
-
-
-           
-
-
-            
             $table->timestamps();
 
             $table->foreign('id')->references('id')->on('users');
