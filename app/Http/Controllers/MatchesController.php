@@ -79,14 +79,21 @@ class MatchesController extends Controller
      * Mulitiplied to get the distance in forms of kilometers.
      * Returns the distance in kilometers.
     */
-    public function calculate_distance($lat1, $long1, $lat2, $long2)
+    public static function calculate_distance($lat1, $long1, $lat2, $long2)
     {
         $theta = $long1 - $long2;
         $d = sin(deg2rad($lat2)) + cos(deg2rad($lat1)) 
         * cos (deg2rad($lat2)) * cos (deg2rad($theta));
+
+        Log::debug('calculate_distance(): first pass ' . $d);
+
         $d = acos($d);
+        Log::debug('calculate_distance(): second pass ' . $d);
         $d = rad2deg($d);
+        Log::debug('calculate_distance(): third pass ' . $d);
         $kilometers = $d * 60 * 1.1515 * 1.609344;
+        Log::debug(' calculate_distance(): distance is ' . $d);
+
         return $kilometers;
     }
 
@@ -129,27 +136,8 @@ class MatchesController extends Controller
             $oppositeMatch = Match::where('user', '=', $match->prospect)
             ->where('prospect', '=', $user->id)
             ->first();
-            //Grab the latitude and longitude of match
-            $matchedLocation = Profile::where('id', '=', $oppositeMatch->user)->get();
-            $location = $matchedLocation[0]->location;
-            //Go into Location table for latitude
-            $find_loc = Location::where('postcode', '=', $location)->first();
-            //Extract Lat + Longitude
-            $lat1 = $find_loc['lat'];
-            $lon1 = $find_loc['lon'];
+
             
-            //Same process for User location
-            $Userloc = Profile::where('id','=', $user->id)->get();
-            $find_loc2 = Location::where('postcode', '=', $Userloc)->first();
-            //Extract Lat + Longitude from Location table
-            $lat2 = $find_loc2['lat'];
-            $lon2 = $find_loc2['lon'];
-            
-            $distance = MatchesController::calculate_distance($lat1, $lon1, $lat2, $lon2);
-  
-                
-            echo("Distance is:" + $distance + "km");
-    
             // filter them
             if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)
             {
@@ -163,7 +151,7 @@ class MatchesController extends Controller
                 }
             }
         }
-        return (view('match', ['debug' => $debugmessage, 'matches'=> $filtered, 'pinned'=> $pinned, 'distance' => $distance]));
+        return (view('match', ['debug' => $debugmessage, 'matches'=> $filtered, 'pinned'=> $pinned,]));
     }
 
 }
