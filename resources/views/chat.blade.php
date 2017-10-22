@@ -9,8 +9,8 @@
 
 </div>
 
-<div id="msg-wall" class="row" style="height: calc(100vh - 373px);overflow-y: scroll;overflow-x: hidden;">
-    <div class="col-md-12" style="overflow-y: scroll;overflow-x: hidden;">
+<div id="msg-wall" class="row" style="height: calc(100vh - 373px);overflow-y: auto;overflow-x: hidden;">
+    <div class="col-md-12" style="overflow-y: auto;overflow-x: hidden;">
     @foreach($posts as $post)
         @if($post->user_id == Auth::id())
             @include('layouts.message-sent')
