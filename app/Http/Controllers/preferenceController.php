@@ -14,24 +14,19 @@ use Illuminate\Http\Request;
 use Auth;
 
 
-
 class preferenceController extends Controller
 {
 
 
-    public function preference(){
+    public function preference()
+    {
 
         return view('preference');
     }
 
 
-
-
-
-    public function updatePreference(Request $request){
-
-
-
+    public function updatePreference(Request $request)
+    {
 
 
         // Ethnicity
@@ -46,97 +41,48 @@ class preferenceController extends Controller
         $ethMixed = $request->get('mixed');
 
 
-
         //Religion
-
-
-        $ethnHinduism = $request->get('hinduism');
-        $ethnChirstian = $request->get('chirstian');
-        $ethnJudaism  = $request->get('judaism');
-        $ethnBuddhism  = $request->get('buddhism');
-        $atheistAtheist = $request->get('atheist');
 
         $ageMin = $request->get('ageMin');
         $ageMax = $request->get('ageMax');
 
+        $smokingcheck = $request->get('smoking');
 
+        if ($smokingcheck === 'TRUE') {
 
+            $smoking = TRUE;
 
+        } else {
 
+            $smoking = FALSE;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            $smokingcheck  = $request->get('smoking');
-
-            if($smokingcheck === 'TRUE'){
-
-                $smoking = TRUE;
-
-            }else{
-
-                $smoking = FALSE;
-
-            }
-
-
-            $profile = Preferences::where('id', '=', Auth::user()->id );
-
-            $profile->update([
-
-
-
-                'smoking'   => $smoking,
-                'caucasian' => $ethnCaucasian,
-                'hispanic'  => $ethnHispanic,
-                'black'     => $ethBlack,
-                'middleeast'     => $ethMiddleeast,
-                'asian'     => $ethAsian,
-                'indian'     => $ethIndian,
-                'aboriginal'     => $ethAboriginal,
-                'islander'     => $ethIslander,
-                'mixed'       => $ethMixed,
-                'hinduism'       => $ethnHinduism,
-                'chirstian'       => $ethnChirstian,
-                'judaism'       => $ethnJudaism,
-                'buddhism'       => $ethnBuddhism,
-                'atheist'       => $atheistAtheist,
-
-                'ageMin'    => $ageMin,
-                'ageMax'   => $ageMax,
-
-
-
-
-
-            ]);
-
-
-            return redirect()->route('preference');
         }
 
+
+        $profile = Preferences::where('id', '=', Auth::user()->id);
+
+        $profile->update([
+
+
+            'smoking' => $smoking,
+            'caucasian' => $ethnCaucasian,
+            'hispanic' => $ethnHispanic,
+            'black' => $ethBlack,
+            'middleeast' => $ethMiddleeast,
+            'asian' => $ethAsian,
+            'indian' => $ethIndian,
+            'aboriginal' => $ethAboriginal,
+            'islander' => $ethIslander,
+            'mixed' => $ethMixed,
+            'ageMin' => $ageMin,
+            'ageMax' => $ageMax,
+
+
+        ]);
+
+
+        return redirect()->route('preference');
+    }
 
 
 }
