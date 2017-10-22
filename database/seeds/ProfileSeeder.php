@@ -24,7 +24,7 @@ class ProfileSeeder extends Seeder
             'location'   => $faker->randomElement(static::$location_table),
             'status'     => $faker->randomElement($array = array ('single', 'married', 'divorced', 'complicated')),
             'occupation' => $faker->randomElement($array = array ('self-emplyed', 'engineer','doctor', 'writer', 'student', 'tradesman', 'teacher')),
-            'height'     => 0,
+            'height'     => 170,
             'smoking'    => $faker->randomElement($array = array (true, false))  ,  
             'religion'   => $faker->randomElement($array = array ('islam', 'hinduism', 'christian', 'judaism', 'buddhism', 'athiest' )) ,
             'ethnicity'  => $faker->randomElement($array = array ('caucasian', 'hispanic', 'black','middleeast','asian','indian','aboriginal','islander', 'mixed')) ,
