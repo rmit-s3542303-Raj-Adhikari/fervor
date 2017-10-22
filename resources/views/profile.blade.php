@@ -310,28 +310,8 @@
                 <!-- Occupation -->
                 <div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-3 control-label">Occupation</label>
-
                     <div class="col-md-2">
-
-                        <select class="form-control" name="occupation">
-                            <option value=NULL {{  $occupation  === null ? 'selected' : '' }}>Not Specified</option>
-                            <option value="self-emplyed" {{  $occupation  === 'self-emplyed' ? 'selected' : '' }}>
-                                Self-Emplyed
-                            </option>
-                            <option value="engineer" {{ $occupation === 'engineer' ? 'selected' : '' }}>Engineer
-                            </option>
-                            <option value="doctor" {{ $occupation  === 'doctor' ? 'selected' : '' }}>Doctor</option>
-                            <option value="writer" {{ $occupation === 'writer' ? 'selected' : '' }}>Writer</option>
-                            <option value="student" {{ $occupation === 'student' ? 'selected' : '' }}>Student</option>
-                            <option value="tradesman" {{ $occupation === 'tradesman' ? 'selected' : '' }}>Tradesman
-                            </option>
-                            <option value="teacher" {{ $occupation === 'teacher' ? 'selected' : '' }}>Teacher</option>
-                        </select>
-                        @if ($errors->has('occupation'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('occupation') }}</strong>
-                                    </span>
-                        @endif
+                        <input class="form-control" name="occupation" value=" {{ ($occupation != null)  ? $occupation:'' }}">
                     </div>
                 </div>
 
@@ -350,13 +330,7 @@
                             <option value="buddhism" {{ $religion === 'buddhism' ? 'selected' : '' }}>Buddhism</option>
                             <option value="atheist" {{ $religion === 'atheist' ? 'selected' : '' }}>atheist</option>
                         </select>
-
-                        @if ($errors->has('religion'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('religion') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
+                                            </div>
                 </div>
 
 
@@ -389,11 +363,6 @@
                             <option value="other" {{ $ethnicity === 'other' ? 'selected' : '' }}>Other</option>
                         </select>
 
-                        @if ($errors->has('Ethnicity'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('Ethnicity') }}</strong>
-                                    </span>
-                        @endif
                     </div>
                 </div>
 
