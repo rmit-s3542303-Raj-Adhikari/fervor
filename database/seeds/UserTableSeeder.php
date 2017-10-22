@@ -21,7 +21,8 @@ class UserTableSeeder extends Seeder
             User::Create([
             'firstname' => $faker->firstname($gender = 'male' | 'female' ),
             'lastname' => $faker->lastname,
-            'firstLogin' => 1, 
+            'firstLogin' => 1,
+            'avatar' => $faker->randomElement($array = array ('1505141490.jpg', '1505195287.jpg', '1506314773.jpg', '1506314815.jpeg', '1506404671.jpg', '1508646707.jpg')),
             'status' => 1,
             'dob' => $faker->date($format = 'Y-m-d', $max = '1999/05/10'),
             'email' => $faker->email,
