@@ -6,6 +6,8 @@ use App\User;
 use App\Preferences;
 use App\Profile;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\MatchesController;
 
 
 /**
@@ -39,12 +41,12 @@ class ProfileScorer
         // out of 75 points
         $score = 0;
 
-        //$score += ProfileScorer::scoreAge($preferences, $prospect->dob);
+        $score += ProfileScorer::scoreAge($preferences, $prospect->dob);
         $score += ProfileScorer::scoreEthnicity($preferences, $prospectProfile->ethnicity);
         $score += ProfileScorer::scoreHobbies($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreInterests($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreSmoking($preferences->smoking, $prospectProfile->smoking);
-       // $score += ProfileScorer::scoreDistance($userProfile->postcode, $prospectProfile->postcode);
+        $score += ProfileScorer::scoreDistance($userProfile, $prospectProfile);
         $score += ProfileScorer::scoreReligion($userProfile->religion, $prospectProfile->religion);
 
         return $score;
@@ -60,13 +62,13 @@ class ProfileScorer
      * @param $prospect User -  User scoring against
      * @return int  - Calculated score
      */
-    private static function scoreAge(Preferences $user, User $prospect)
+    private static function scoreAge(Preferences $user, $prospect)
     {
 
-        if ($user == null or $prospect == null) {
+        if ($user->ageMin == null or $prospect == null or $user->ageMax == null) {
             Log::debug('Score(): Age: null values.. skipping');
 
-            return 0;
+            return 5;
         }
         //FIXME: dob -> date
 
@@ -76,13 +78,13 @@ class ProfileScorer
         $now = new \DateTime(date("Y-m-d"));
         $age = $dob->diff($now);
 
-        if ($age->y >= $user->agelower and $age->y <= $user->ageupper) {
+        if ($age->y >= $user->ageMin and $age->y <= $user->ageMax) {
             $score = 20;
-        } elseif ($age->y >= ($user->agelower - 1) and $age->y <= ($user->ageupper + 1)) {
+        } elseif ($age->y >= ($user->ageMin - 1) and $age->y <= ($user->ageMax + 1)) {
             $score = 10;
-        } elseif ($age->y >= ($user->agelower - 2) and $age->y <= ($user->ageupper + 3)) {
+        } elseif ($age->y >= ($user->ageMin - 2) and $age->y <= ($user->ageMax + 3)) {
             $score = 7;
-        } elseif ($age->y >= ($user->agelower - 3) and $age->y <= ($user->ageupper + 4)) {
+        } elseif ($age->y >= ($user->ageMin - 3) and $age->y <= ($user->ageMax + 4)) {
             $score = 5;
         }
 
@@ -170,6 +172,8 @@ class ProfileScorer
         if ($user->interest5 != null)
             $interests[] = $user->interest5;
 
+
+        Log::debug('Builder(): Interests: '. implode("|",$interests));
         return $interests;
     }
 
@@ -185,7 +189,7 @@ class ProfileScorer
     private static function scoreInterests(Profile $user, Profile $prospect)
     {
         if ($user == null or $prospect == null) {
-            Log::debug('Interests(): Age: null values.. skipping');
+            Log::debug('Interests(): Interests: null values.. skipping');
 
             return 0;
         }
@@ -308,15 +312,25 @@ class ProfileScorer
      */
     private static function scoreDistance(Profile $user, Profile $prospect)
     {
-        if ($user == null or $prospect == null) {
-            Log::debug('Distance(): Age: null values.. skipping');
+        if ($user->location == null or $prospect->location == null) {
+            Log::debug('Distance(): null values.. skipping');
 
             return 0;
         }
 
         $score = 0;
 
-        $distance = 0; // FIXME: distance calcuation from long / lat
+        $ulong =  DB::table('location_table')->select('lon')->where('suburbs', '=', $user->location)->value('lon');
+        $ulat =  DB::table('location_table')->select('lat')->where('suburbs', '=', $user->location)->value('lat');
+
+        Log::debug('Distance(): user co-ords ' . $ulong . ',' . $ulat. gettype($ulat));
+
+        $plong =  DB::table('location_table')->select('lon')->where('suburbs', '=', $prospect->location)->value('lon');
+        $plat =  DB::table('location_table')->select('lat')->where('suburbs', '=', $prospect->location)->value('lat');
+
+        Log::debug('Distance(): prospect co-ords ' . $plong . ',' . $plat);
+
+        $distance = MatchesController::calculate_distance($ulong, $ulat, $plong, $plat);; // FIXME: distance calcuation from long / lat
 
         if ($distance >= 50) {
             $score = 3;
@@ -328,7 +342,8 @@ class ProfileScorer
             $score = 15;
         }
 
-        Log::debug('Score(): Distance: ' . $score);
+        Log::debug('Distance(): Distance is: ' . $distance);
+        Log::debug('Distance(): Distance: ' . $score);
         return $score;
     }
 
@@ -345,7 +360,7 @@ class ProfileScorer
     {
 
         if ($user == null or $prospect == null) {
-            Log::debug('Religion(): Age: null values.. skipping');
+            Log::debug('Religion(): Religion: null values.. skipping');
 
             return 0;
         }
