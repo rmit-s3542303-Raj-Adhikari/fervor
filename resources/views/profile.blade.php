@@ -10,12 +10,16 @@
         <!-- edit form column -->
         <div class="col-md-10 col-md-offset-1 personal-info">
 
+<<<<<<< HEAD
             @if ($errors->has('agecheck'))
                 <div class="alert alert-dismissible alert-danger">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <strong>You must be at least 18 to use this service</strong>
                 </div>
             @endif
+=======
+    <title>{{ config('app.name', 'Fervor') }}</title>
+>>>>>>> bc4115400dd5b622c1b6392da844162ef45b46e1
 
             <h1 class="text-center">Personal info</h1>
 
@@ -31,8 +35,115 @@
                         <input id="firstname" type="text" class="form-control" name="firstname"
                                value="{{ Auth::user()['firstname'] }}" required autofocus>
 
+<<<<<<< HEAD
                         @if ($errors->has('firstname'))
                             <span class="help-block">
+=======
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;&nbsp;<li><a href="{{ route('profile') }}">Profile</a></li>
+                    <li><a href="{{ route('preference') }}">Preferences</a></li>
+                    <li><a href="{{ route('matches') }}">Matches</a></li>
+                    <li><a href="{{ route('inbox') }}">Inbox</a></li>
+                </ul>
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+
+<!-- edit form column -->
+<div class="col-md-9 personal-info">
+
+    <!--
+        <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="alert">×</a>
+            <i class="fa fa-coffee"></i>
+            This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>
+        -->
+
+    @if ($errors->has('agecheck'))
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>You must be at least 18 to use this service</strong>
+        </div>
+    @endif
+
+    <h3>Personal info</h3>
+
+
+    <!-- Uploading User Profile Picture to the website. User can choose a photo then upload it to the server via Upload Button-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <!-- Getting the specified user image file and displaying it. Default value is default.jpg-->
+                <img src="{{ asset("/img/avatar/".$user->avatar)}}"
+                     style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                <form enctype="multipart/form-data" action="#" method="POST">
+                    <label>Update Profile Image</label>
+                    <input type="file" name="avatar">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="pull-right btn btn-sm btn-primary">Upload Photo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <form class="form-horizontal" method="POST" action="{{ url('/updateUserTable') }}">
+    {{ csrf_field() }}
+
+    <!-- First Name -->
+        <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+            <label for="name" class="col-md-3 control-label">First Name</label>
+
+            <div class="col-md-6">
+                <input id="firstname" type="text" class="form-control" name="firstname"
+                       value="{{ Auth::user()['firstname'] }}" required autofocus>
+
+                @if ($errors->has('firstname'))
+                    <span class="help-block">
+>>>>>>> bc4115400dd5b622c1b6392da844162ef45b46e1
                                         <strong>{{ $errors->first('firstname') }}</strong>
                                     </span>
                         @endif

@@ -45,6 +45,9 @@ class HomeController extends Controller
       public function home(){
     	return view('home', array('user' => Auth::user()) );
     }
+    public function TC(){
+        return view('TC');
+    }
     public function notification()
     {
         //return $notification = DB::table('notifications')->count();

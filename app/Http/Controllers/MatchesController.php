@@ -138,6 +138,14 @@ class MatchesController extends Controller
             ->first();
 
             
+<<<<<<< HEAD
+=======
+            $distance = MatchesController::calculate_distance($lat1, $lon1, $lat2, $lon2);
+  
+                
+            // echo("Distance is:" + $distance + "km");
+    
+>>>>>>> bc4115400dd5b622c1b6392da844162ef45b46e1
             // filter them
             if($oppositeMatch->score >= MatchesController::$SCORE_THRESHOLD)
             {

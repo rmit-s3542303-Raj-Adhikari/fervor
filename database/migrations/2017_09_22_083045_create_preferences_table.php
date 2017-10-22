@@ -22,6 +22,7 @@ class CreatePreferencesTable extends Migration
 
 
             //ethnicity
+
             $table->boolean('caucasian')->default(false);
             $table->boolean('hispanic')->default(false);
             $table->boolean('black')->default(false);

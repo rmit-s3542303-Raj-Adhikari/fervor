@@ -51,12 +51,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Welcome back {{ Auth::user()['firstname'] }} !</div>
+                    <div class="panel-heading">Hello {{ Auth::user()['firstname'] }}!</div>
                     <img src="/img/avatar/{{Auth::user()->avatar }}" style="width:120px; height:120px; float:left; border-radius:50%; margin-right:25px;"> 
                     <div class="panel-body">
-                        <p> Welcome To the Fervor dashboard! <br> Here you can view your potential matches as well as other users of the website.</p>
-                        
-                        
+                        <p> Welcome To the Fervor dashboard! <br> Here you can start your adventure and find that special someone! </p>
                         
                     </div>
         

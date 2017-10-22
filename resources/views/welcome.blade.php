@@ -182,7 +182,7 @@
                                 <h5 class="footer-heading">Support</h5>
                                 <a href="#">Storage Tips</a>
                                 <a href="#">Blog</a>
-                                <a href="#">Terms of Service</a>
+                                <a href="{{ url('/TC') }}"target="_blank">Terms and Conditions</a>
                                 <a href="#">Privacy</a>
                                 <br>
                                 <br>
@@ -375,20 +375,11 @@
                                 <h5 class="footer-heading">Support</h5>
                                 <a href="#">Storage Tips</a>
                                 <a href="#">Blog</a>
-                                <a href="#">Terms of Service</a>
+                                <a href="{{ url('/TC') }}"target="_blank">Terms and Conditions</a>
                                 <a href="#">Privacy</a>
                                 <br>
                                 <br>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <h5 class="footer-heading">Contact Us</h5>
-                            <form action="" method="post" enctype="text/plain">
-                                <input type="text" name="name" placeholder="Name">
-                                <input type="text" name="mail" placeholder="Email">
-                                <textarea name="enquiry" rows="5" placeholder="Write your enquiry"></textarea>
-                                <button class="contact-btn" type="submit">Send</button>
-                            </form>
                         </div>
                     </div>
                 </div>
